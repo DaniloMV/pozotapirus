@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Registro</title>
-</head>
-<body>
-<h1>Registro</h1>
+@extends('layouts.master')
 
+@section('sidebar')
+    @parent
+ <h1>Página de Bienvenida</h1>
+    <!-- <p>This is appended to the master sidebar.</p> -->
+@stop
 
-</body>
-</html>
-
+@section('content')
+    <!-- <p>This is my body content.</p> -->
+    
+@stop
