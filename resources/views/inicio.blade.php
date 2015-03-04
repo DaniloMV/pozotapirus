@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.base')
 
 @section('sidebar')
     @parent
@@ -8,5 +8,5 @@
 
 @section('content')
     <!-- <p>This is my body content.</p> -->
-    
+
 @stop
