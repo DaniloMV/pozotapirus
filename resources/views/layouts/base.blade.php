@@ -17,8 +17,10 @@
             <!-- This is the master sidebar.  -->
         @show
 
-        <div class="container">
+
+        <!-- Especificamos los tags(secciones el body) de nuestra plantilla-->
             @yield('content')
-        </div>
+
+
 </body>
 </html>
