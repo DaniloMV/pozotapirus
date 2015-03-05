@@ -8,17 +8,18 @@
 @stop
 
 
-@section('contenido')
-    <!-- <p>This is my body content.</p> -->
-
 <!-- Lo que debe contener en el body -->
-@section('content')
+@section('contenido')
     <!-- ponemos el contenido de la vista estamos dentro del body -->
 
-
-<input type="text" required placeholder="usuario">
-<input type="password" required placeholder="clave">
-<input type="submit" value="ACEPTAR">
-
+<p>
+<label>Usuario: </label>
+<input id="txtusuario" name="txtusuario" type="email" required placeholder="usuario">
+</p>
+<p>
+<label>Clave: </label>
+<input id="txtclave" name="txtclave" type="password" required placeholder="clave">
+</p>
+<input id="btnaceptar" name="btnaceptar" type="submit" value="ACEPTAR">
 
 @stop
