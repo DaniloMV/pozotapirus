@@ -1,12 +1,18 @@
 @extends('layouts.base')
 
-@section('sidebar')
+@section('cabecera')
     @parent
- <h1>Página de Bienvenida</h1>
+ <h2>INGRESO AL SISTEMA</h2>
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop
 
-@section('content')
+@section('contenido')
     <!-- <p>This is my body content.</p> -->
+
+
+<input type="text" required placeholder="usuario">
+<input type="password" required placeholder="clave">
+<input type="submit" value="ACEPTAR">
+
 
 @stop
