@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'InicioController@index');
+Route::get('ficha', 'FichaController@index');
 
 Route::get('home', 'HomeController@index');
 
