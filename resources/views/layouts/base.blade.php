@@ -5,23 +5,33 @@
     <meta name="description" content="Registro de Pozos" />
     <title>TAPIRUS:  @yield('titulo')  </title>   
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <nav>
-    	<ul>
-            <li><a href="#">Registro de Pozos</a></li>
-            <li><a href="#">Salir</a></li>
-        </ul>
-    </nav>
+    <link rel="stylesheet" type="text/css" href="../public/css/base.css">
 </head>
 <body>
- @section('sidebar')
+<header class="cabecera">
+<figure>
+<img id="imglogo" src="../public/images/logo.jpg">
+<figcaption id="textocab">
+<h1>"TAPIRUS S.A"</h1>
+<small>AQUI EL SLOGAN DE LA EMPRESA</small>
+</figcaption>
+</figure>
+</header>
+<label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
+<section class="contenido">
+
+</section>
+
+ @section('cabecera')
             <!-- This is the master sidebar.  -->
         @show
-
+        
 
         <!-- Especificamos los tags(secciones el body) de nuestra plantilla-->
-            @yield('content')
+            @yield('contenido')
 
 
 
 </body>
 </html>
+
