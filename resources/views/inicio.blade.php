@@ -1,3 +1,4 @@
+<!-- Especifico la ruta de template -->
 @extends('layouts.base')
 
 @section('cabecera')
@@ -6,8 +7,13 @@
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop
 
+
 @section('contenido')
     <!-- <p>This is my body content.</p> -->
+
+<!-- Lo que debe contener en el body -->
+@section('content')
+    <!-- ponemos el contenido de la vista estamos dentro del body -->
 
 
 <input type="text" required placeholder="usuario">
