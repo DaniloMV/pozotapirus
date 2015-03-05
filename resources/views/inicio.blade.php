@@ -3,10 +3,9 @@
 
 @section('cabecera')
     @parent
-<<<<<<< HEAD
-=======
+
  <h2>INGRESO AL SISTEMA</h2>
->>>>>>> origin/master
+ 
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop
 
@@ -18,14 +17,10 @@
 @section('content')
     <!-- ponemos el contenido de la vista estamos dentro del body -->
 
-<<<<<<< HEAD
-    <input>
-=======
 
 <input type="text" required placeholder="usuario">
 <input type="password" required placeholder="clave">
 <input type="submit" value="ACEPTAR">
 
->>>>>>> origin/master
 
 @stop
