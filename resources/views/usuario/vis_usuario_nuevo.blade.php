@@ -41,5 +41,4 @@
 <select id="cmbtipousuario" name="cmbtipousuario" class="valorcampo"></select>
 </section>
 
-
 @stop

@@ -33,4 +33,9 @@ class FichaController extends Controller {
 		return view('ficha');
 	}
 
+	public function nuevo()
+	{
+		return view('ficha.vis_ficha_nuevo');
+	}
+
 }

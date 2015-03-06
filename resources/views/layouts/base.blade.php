@@ -29,14 +29,12 @@
 </section>
 
  @section('cabecera')
-            <!-- This is the master sidebar.  -->
-        @show
+    <!-- This is the master sidebar.  -->
+    @show
         
 
-        <!-- Especificamos los tags(secciones el body) de nuestra plantilla-->
-            @yield('contenido')
-
-
+    <!-- Especificamos los tags(secciones el body) de nuestra plantilla-->
+    @yield('contenido')
 
 </body>
 </html>
