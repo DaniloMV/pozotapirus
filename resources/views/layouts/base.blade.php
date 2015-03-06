@@ -17,6 +17,12 @@
 </figcaption>
 </figure>
 </header>
+<nav class="menuprincipal">
+    <a hef="#">Fichas</a>
+    <a hef="#">Usuarios</a>
+    <a hef="#">Parroquias</a>
+    <a hef="#">Barrios</a>
+</nav>
 <label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
 <section class="contenido">
 

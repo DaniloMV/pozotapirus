@@ -10,7 +10,7 @@
 @stop
 
 
-<<<<<<< HEAD
+
 <!-- Lo que debe contener en el body -->
 @section('contenido')
     <!-- ponemos el contenido de la vista estamos dentro del body -->
@@ -24,15 +24,6 @@
 <input id="txtclave" name="txtclave" type="password" required placeholder="clave">
 </p>
 <input id="btnaceptar" name="btnaceptar" type="submit" value="ACEPTAR">
-=======
-@section('contenido')
-    <!-- <p>This is my body content.</p> -->
 
-
-<input type="text" required placeholder="usuario">
-<input type="password" required placeholder="clave">
-<input type="submit" value="ACEPTAR">
-
->>>>>>> origin/master
 
 @stop

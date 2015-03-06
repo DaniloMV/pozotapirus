@@ -16,6 +16,9 @@ Route::get('ficha', 'FichaController@index');
 
 Route::get('home', 'HomeController@index');
 
+Route::get('usuario', 'UsuarioController@index');
+Route::get('usuarionuevo', 'UsuarioController@nuevo');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

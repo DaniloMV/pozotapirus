@@ -1,5 +1,6 @@
+/*BASE*/
 body{
-	background-color: rgba(150,120,100,0.7);
+	background-color: rgba(153,153,102,0.8);
 	font-size: 14px;
 }
 
@@ -26,9 +27,9 @@ body{
 	border-style: 1px solid black;
 	box-shadow: 2px 2px 2px;
 	display: inline-block;
-	margin: 0.5em 2% 0.5em 2%;
+	margin: 0.5em auto;
 	text-align: center;
-	width: 95%;
+	width: 96%;
 }
 
 .imgmenu{
@@ -38,32 +39,45 @@ body{
 	width: 100px;
 }
 
-.menu{
-	text-align: center;
-	width: 100%;
+.menuprincipal{
+	background-color: rgba(153,153,102,0.8);
+	border-radius: 0.3em;
+	margin: 0.5em auto;
+	width: 90%;
 }
-.menuopcion{
-	display: inline-block;;
+
+.menuprincipal a{
+	display: inline-block;
+	font-size: 1.2em;
+	overflow: hidden;
+	padding: 1%;
 	text-align: center;
 	text-decoration: none;
-	vertical-align: top;
-	width: 40%;
+	width: 22%;
 }
 
-.menuopcion figure{
-	height: 150px;
-	margin: 0 1% 0.5em 1%;
-	overflow: hidden;
-	width: 96%;
+.menuprincipal a:hover{
+	background-color: rgba(99,99,99, 0.8);
+	border-radius: 0.2em; 
+	color: white;	
 }
 
 
+/*USUARIO*/
 
-.txtmenu{
-	border-style: 1px solid black;
-	color: green;
-	font-size: 2em;
-	margin-top: 0.5em;
-	text-align: center;
-	width:100%;
+.campoform{
+	width: 60%;
+}
+
+.etiquetaform{
+	margin-top: 0.3em; 
+	width: 45%;
+}
+
+.etiquetaform, .campoform{
+	display: inline-block;
+}
+
+.valorcampo{
+	width: 45%;
 }
