@@ -16,7 +16,6 @@
 <small>AQUI EL SLOGAN DE LA EMPRESA</small>
 </figcaption>
 </figure>
-</header>
 <nav class="menuprincipal">
     <a href="/">Inicio</a>
     <a hef="#">Parroquias</a>
@@ -33,6 +32,12 @@
     
 @endif
 </nav>
+<<<<<<< HEAD
+
+</header>
+<label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
+=======
+>>>>>>> cf2da5a49eff914633033e9783b62666de961005
 <section class="contenido">
 
 </section>
