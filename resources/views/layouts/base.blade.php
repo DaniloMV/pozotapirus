@@ -16,13 +16,14 @@
 <small>AQUI EL SLOGAN DE LA EMPRESA</small>
 </figcaption>
 </figure>
-</header>
 <nav class="menuprincipal">
     <a hef="#">Fichas</a>
     <a hef="#">Usuarios</a>
     <a hef="#">Parroquias</a>
     <a hef="#">Barrios</a>
 </nav>
+
+</header>
 <label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
 <section class="contenido">
 
