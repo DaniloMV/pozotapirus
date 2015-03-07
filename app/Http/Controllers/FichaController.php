@@ -6,8 +6,8 @@ use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\TiporedRequest;
-use App\Repositories\TiporedRepository;
+use App\Http\Requests\FichaRequest;
+use App\Repositories\FichaRepository;
 use App\Http\Controllers\Redirect;
 
 use App\Ficha;
@@ -27,7 +27,7 @@ class FichaController extends Controller {
 	|
 	*/
 
-	use AuthenticatesAndRegistersUsers;
+	//use AuthenticatesAndRegistersUsers;
 
 	/**
 	 * Create a new authentication controller instance.
@@ -43,10 +43,12 @@ class FichaController extends Controller {
 	 *
 	 * @return void
 	 */
+	/*
 	public function __construct()
 	{
 		$this->middleware('guest');
 	}
+	*/
 
 	/**
 	 * Show the application welcome screen to the user.
@@ -73,7 +75,8 @@ class FichaController extends Controller {
 
 	public function postCrear(Request $request)
     {
-		
+		return $request->all();
+
 		$validation = Ficha::validate($request->all());
 
 		if($validation->fails()){
@@ -82,12 +85,14 @@ class FichaController extends Controller {
 		}
 		else
 		{	
+
+
 			$ficha=new Ficha;
 			$ficha->id=$request->input('txtpozocodigo');
 			$secuencial = Ficha::max('sec_ficha')+1;
 			$ficha->sec_ficha = $secuencial;
-			$ficha->usuario_id=Auth::user()->id;
-			$ficha->fecha=time();
+			$ficha->usuario_id=1;//Auth::user()->id;
+			$ficha->fecha='05/03/2015'; //time();
 			$ficha->parroquia_id=$request->input('cmbparroquia');
 			$ficha->barrio_id=$request->input('cmbbarrio');
 			$ficha->calle=$request->input('txtcalle');

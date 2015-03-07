@@ -127,7 +127,7 @@
 
 			<p>	
 			<input id="chkcadena" name="chkcadena" type="checkbox" value="1"></input>
-			<label>Tapa</label>
+			<label>Cadena</label>
 			</p>
 
 			<p>
