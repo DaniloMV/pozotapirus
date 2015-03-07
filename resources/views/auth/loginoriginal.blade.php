@@ -1,17 +1,6 @@
-<!-- Especifico la ruta de template -->
-@extends('layouts.base')
+@extends('app')
 
-@section('cabecera')
-    @parent
-
- <h2>Lista de Tipos de Red</h2>
-
-    <!-- <p>This is appended to the master sidebar.</p> -->
-@stop
-
-<!-- Lo que debe contener en el body -->
-@section('contenido')
-
+@section('content')
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
@@ -71,5 +60,4 @@
 		</div>
 	</div>
 </div>
-
-@stop
+@endsection

@@ -1,6 +1,17 @@
-@extends('app')
+<!-- Especifico la ruta de template -->
+@extends('layouts.base')
 
-@section('content')
+@section('cabecera')
+    @parent
+
+ <h2>Lista de Tipos de Red</h2>
+
+    <!-- <p>This is appended to the master sidebar.</p> -->
+@stop
+
+<!-- Lo que debe contener en el body -->
+@section('contenido')
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
@@ -24,7 +35,7 @@
 						</div>
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="/password/email">
+					<form class="form-horizontal" role="form" method="POST" action="../password/email">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
@@ -47,4 +58,5 @@
 		</div>
 	</div>
 </div>
-@endsection
+
+@stop
