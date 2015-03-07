@@ -17,14 +17,27 @@
 </figcaption>
 </figure>
 <nav class="menuprincipal">
-    <a hef="#">Fichas</a>
-    <a hef="#">Usuarios</a>
+    <a href="/">Inicio</a>
     <a hef="#">Parroquias</a>
     <a hef="#">Barrios</a>
+    <a hef="../public/tipored">Tipo de Red</a>
+@if (Auth::guest())
+    <a href="../public/auth/login">Ingresar</a>
+    <a href="../public/auth/register">Registrarse</a>
+@else
+    <a hef="../public/ficha">Fichas</a>
+    <a hef="../public/usuario">Usuarios</a>
+    <a href="#"><span>{{ Auth::user()->name }}</span></a>
+    <a href="../public/auth/logout">Logout</a>
+    
+@endif
 </nav>
+<<<<<<< HEAD
 
 </header>
 <label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
+=======
+>>>>>>> cf2da5a49eff914633033e9783b62666de961005
 <section class="contenido">
 
 </section>

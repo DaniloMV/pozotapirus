@@ -6,7 +6,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
+class Usuario extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword;
 
@@ -16,6 +16,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var string
 	 */
 	protected $table = 'usuario';
+
+
 
 	/**
 	 * The attributes that are mass assignable.
@@ -30,5 +32,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+
+	public function modusuariotipo(){
+    	/*belongs_to para señalar la clave foránea, que existe en esta
+		entre la tabla wcusuario y la tabla usuariotipos*/
+        return $this->belongsTo('App\Usuariotipo', 'usuariotipo_id');
+    }
+    public function modusuarioequipo(){
+    	return $this->belongsTo('App\Usuarioequipo', 'usuario_equ_id');
+    }
+
+    protected $perPage = 5;
 
 }

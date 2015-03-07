@@ -18,6 +18,11 @@ Route::get('fichanuevo', 'FichaController@nuevo');
 
 Route::get('home', 'HomeController@index');
 
+
+//oute::get('tipored', 'TiporedController@getIndex');
+Route::get('tipored', array('as'=>'tipored','uses'=>'TiporedController@getIndex'));
+
+
 Route::get('usuario', 'UsuarioController@index');
 Route::get('usuarionuevo', 'UsuarioController@nuevo');
 
