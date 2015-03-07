@@ -40,7 +40,8 @@
     	</tbody>
     	</table> 
         
-		<!-- <p align="center"><a href="../public/tipored/Nuevo">Nuevo tipored</a></p> -->
+        <p align="center">{!! link_to_route('NuevoTipored', 'Nuevo Tipo de Red') !!}</p>
+
 
     	</div>
 @stop

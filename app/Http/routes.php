@@ -21,7 +21,8 @@ Route::get('home', 'HomeController@index');
 
 //oute::get('tipored', 'TiporedController@getIndex');
 Route::get('tipored', array('as'=>'tipored','uses'=>'TiporedController@getIndex'));
-
+Route::get('tipored/Nuevo', array('as'=>'NuevoTipored','uses'=>'TiporedController@getNuevo'));
+Route::post('tipored/Crear', array('uses'=>'TiporedController@postCrear'));
 
 Route::get('usuario', 'UsuarioController@index');
 Route::get('usuarionuevo', 'UsuarioController@nuevo');
