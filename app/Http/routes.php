@@ -13,8 +13,8 @@
 
 Route::get('/', 'InicioController@index');
 
-Route::get('ficha', 'FichaController@index');
-Route::get('fichanuevo', 'FichaController@nuevo');
+//Route::get('ficha', 'FichaController@index');
+//Route::get('fichanuevo', 'FichaController@nuevo');
 
 Route::get('home', 'HomeController@index');
 
@@ -23,6 +23,11 @@ Route::get('home', 'HomeController@index');
 Route::get('tipored', array('as'=>'tipored','uses'=>'TiporedController@getIndex'));
 Route::get('tipored/Nuevo', array('as'=>'NuevoTipored','uses'=>'TiporedController@getNuevo'));
 Route::post('tipored/Crear', array('uses'=>'TiporedController@postCrear'));
+
+//Rutas de Fichas 
+Route::get('ficha', array('as'=>'ficha','uses'=>'FichaController@getIndex'));
+Route::get('ficha/Nuevo', array('as'=>'NuevaFicha','uses'=>'FichaController@getNuevo'));
+Route::post('ficha/Crear', array('uses'=>'FichaController@postCrear'));
 
 Route::get('usuario', 'UsuarioController@index');
 Route::get('usuarionuevo', 'UsuarioController@nuevo');

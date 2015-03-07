@@ -20,22 +20,26 @@
 @section('contenido')
     <!-- ponemos el contenido de la vista estamos dentro del body -->
 
+	@if (count($errors) > 0)
+		
+		@foreach ($errors->all() as $error)
+			<li>{{ $error }}</li>
+		@endforeach
+		
+	@endif
+
+<form role="form" method="POST" action="../ficha/Crear">
+	
 <section id="fichacabecera" class="campoform">
 	
 	<section>
 	<label>Parroquia:</label>
-	<select id="cmbparroquia" name="cmbparroquia" required>
-		<option>Parroquia 1</option>
-		<option>Parroquia 2</option>
-	</select>
+	{!! Form::select('cmbparroquia', App\Parroquia::orderBy('des_parroquia', 'Asc')->lists('des_parroquia', 'id')) !!} 
 	</section>
 
 	<section >
 	<label>Barrio:</label>
-	<select id="cmbbarrio" name="cmbbarrio" required>
-		<option>Barrio 1</option>
-		<option>Barrio 2</option>
-	</select>
+	{!! Form::select('cmbbarrio', App\Barrio::orderBy('des_barrio', 'Asc')->lists('des_barrio', 'id')) !!} 
 	</section>
 
 	<section>
@@ -62,34 +66,22 @@
 
 			<section>
 			<label>Tipo Red:</label>
-			<select id="cmbtipored" name="cmbtipored" required>
-				<option>Tipo Red 1</option>
-				<option>Tipo Red 2</option>
-			</select>
+			{!! Form::select('cmbtipored', App\Tipored::orderBy('des_tipored', 'Asc')->lists('des_tipored', 'id')) !!} 
 			</section>
 
 			<section>
 			<label>Calzada:</label>
-			<select id="cmbtipocalzada" name="cmbtipocalzada" required>
-				<option>Calzada 1</option>
-				<option>Calzada 2</option>
-			</select>
+			{!! Form::select('cmbtipocalzada', App\Tipocalzada::orderBy('des_calzada', 'Asc')->lists('des_calzada', 'id')) !!} 
 			</section>
 
 			<section>
 			<label>Material colector:</label>
-			<select id="cmbmaterialcolector" name="cmbmaterialcolector" required>
-				<option>Colector 1</option>
-				<option>Colector 2</option>
-			</select>
+			{!! Form::select('cmbmaterialcolector', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
 			</section>
 
 			<section>
 			<label>Estado pozo:</label>
-			<select id="cmbmaterialcolector" name="cmbmaterialcolector" required>
-				<option>Estado Pozo 1</option>
-				<option>Estado Pozo 2</option>
-			</select>
+			{!! Form::select('cmbestadopozo', App\Estadopozo::orderBy('des_estadopozo', 'Asc')->lists('des_estadopozo', 'id')) !!} 
 			</section>
 		</section>
 	</div>
@@ -133,6 +125,11 @@
 			<label>Tapa</label>
 			</p>
 
+			<p>	
+			<input id="chkcadena" name="chkcadena" type="checkbox" value="1"></input>
+			<label>Tapa</label>
+			</p>
+
 			<p>
 			<input id="chkbisagra" name="chkbisagra" type="checkbox" value="1"></input>
 			<label>Bisagra</label>
@@ -169,12 +166,12 @@
 
 			<section>
 				<label>Y:</label>
-				<input id="txtcoordenaday" name="txtcoordenadax" type="text"/>
+				<input id="txtcoordenaday" name="txtcoordenaday" type="text"/>
 			</section>
 			
 			<section>
 				<label>Z:</label>
-				<input id="txtcoordenadaz" name="txtcoordenadax" type="text"/>
+				<input id="txtcoordenadaz" name="txtcoordenadaz" type="text"/>
 			</section>
 		</section>
 
@@ -220,6 +217,11 @@
 	</div>
 
 </div>
+
+	<input type="submit" name="agregar_ficha" value="Guardar"/>
+	<p> {!! link_to_route('ficha','Regresar') !!} </p> 
+
+</form>
 
 <script>
   		$(function() {

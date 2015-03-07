@@ -32,10 +32,15 @@
     
 @endif
 </nav>
+<<<<<<< HEAD
 
 </header>
 <label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
 
+=======
+</header>
+<label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
+>>>>>>> origin/master
 <section class="contenido">
 
 </section>
