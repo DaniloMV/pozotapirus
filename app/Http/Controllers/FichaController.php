@@ -75,8 +75,6 @@ class FichaController extends Controller {
 
 	public function postCrear(Request $request)
     {
-		return $request->all();
-
 		$validation = Ficha::validate($request->all());
 
 		if($validation->fails()){

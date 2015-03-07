@@ -29,6 +29,8 @@
 	@endif
 
 <form role="form" method="POST" action="../ficha/Crear">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
 	
 <section id="fichacabecera" class="campoform">
 	
