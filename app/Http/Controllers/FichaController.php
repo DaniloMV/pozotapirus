@@ -16,19 +16,17 @@ use App\Ficha;
 
 class FichaController extends Controller {
 
+	use AuthenticatesAndRegistersUsers;
 
-	/*
-	|--------------------------------------------------------------------------
-	| Welcome Controller
-	|--------------------------------------------------------------------------
-	|
-	| This controller renders the "marketing page" for the application and
-	| is configured to only allow guests. Like most of the other sample
-	| controllers, you are free to modify or remove it as you desire.
-	|
-	*/
-
-	//use AuthenticatesAndRegistersUsers;
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 
 	/**
 	 * Create a new authentication controller instance.
@@ -37,19 +35,6 @@ class FichaController extends Controller {
 	 * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
 	 * @return void
 	 */
-	
-
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	/*
-	public function __construct()
-	{
-		$this->middleware('guest');
-	}
-	*/
 
 	/**
 	 * Show the application welcome screen to the user.
@@ -64,7 +49,8 @@ class FichaController extends Controller {
 
         //return $usuarios;
 
-        return view('ficha.vis_ficha', compact('datos'));
+        return view('ficha.vis_ficha', compact('datos'))
+			   ->with('title','Lista de Registro de Fichas');
 	}
 
 	public function getNuevo()
@@ -88,7 +74,7 @@ class FichaController extends Controller {
 			$ficha->id=$request->input('txtpozocodigo');
 			$secuencial = Ficha::max('sec_ficha')+1;
 			$ficha->sec_ficha = $secuencial;
-			$ficha->usuario_id=1;//Auth::user()->id;
+			$ficha->usuario_id=Auth::user()->id;
 			$ficha->fecha=date('d/m/Y h:i');
 			$ficha->parroquia_id=$request->input('cmbparroquia');
 			$ficha->barrio_id=$request->input('cmbbarrio');
@@ -137,7 +123,7 @@ class FichaController extends Controller {
 		$validation = Ficha::validate($request->all());
 
 		if($validation->fails()){
-		 	return redirect('ficha',$sec_ficha)->withErrors($validation);
+		 	return redirect('EditarFicha',$sec_ficha)->withErrors($validation);
 		 	// Redirect::route('Editarficha',$id_ficha)->withErrors($validation);
 		}
 		else{
@@ -145,7 +131,7 @@ class FichaController extends Controller {
 			$ficha = Ficha::where('sec_ficha','=',$sec_ficha)->first();
 
 			$ficha->id=$request->input('txtpozocodigo');
-			$ficha->usuario_id=1;//Auth::user()->id;
+			$ficha->usuario_id=Auth::user()->id;
 			$ficha->fecha=date('d/m/Y h:i');
 			$ficha->parroquia_id=$request->input('cmbparroquia');
 			$ficha->barrio_id=$request->input('cmbbarrio');

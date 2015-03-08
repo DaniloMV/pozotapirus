@@ -6,6 +6,15 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
+use App\Http\Controllers;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+use Illuminate\Http\Request;
+use Illuminate\Validation\Factory;
+use Illuminate\Validation\Validator;
+
 class Usuario extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword;
@@ -15,9 +24,8 @@ class Usuario extends Model implements AuthenticatableContract, CanResetPassword
 	 *
 	 * @var string
 	 */
+	//public $timestamps = false;
 	protected $table = 'usuario';
-
-
 
 	/**
 	 * The attributes that are mass assignable.
@@ -36,12 +44,26 @@ class Usuario extends Model implements AuthenticatableContract, CanResetPassword
 	public function modusuariotipo(){
     	/*belongs_to para señalar la clave foránea, que existe en esta
 		entre la tabla wcusuario y la tabla usuariotipos*/
-        return $this->belongsTo('App\Usuariotipo', 'usuariotipo_id');
+        return $this->belongsTo('App\Usuariotipo', 'usuario_tipo_id');
     }
     public function modusuarioequipo(){
     	return $this->belongsTo('App\Usuarioequipo', 'usuario_equ_id');
     }
 
     protected $perPage = 5;
+	
+	public static $rules = array(
+	'txtusuario' => array('required', 'min:3')
+	);
+
+	public static $messages = array(
+            'required'        => 'El nombre del usuario es obligatorio.',
+            'min'             => 'El nombre del usuario debe tener al menos de 3 carácteres.');
+
+
+	public static function validate($data){ 
+		return \Validator::make($data, static::$rules, static::$messages);
+	}
+
 
 }

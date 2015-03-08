@@ -39,19 +39,6 @@ class Tipored extends Model implements AuthenticatableContract, CanResetPassword
             'required'        => 'El nombre del tipo de red es obligatorio.',
             'min'             => 'El nombre del tipo de red debe tener al menos de 4 carácteres.');
 
-	/*
-
-	$v = Validator::make($request->all(), [
-        'title' => 'required|unique|max:255',
-        'body' => 'required',
-    ]);
-
-    if ($v->fails())
-    {
-        return redirect()->back()->withErrors($v->errors());
-    }
-
-    */
 
 	public static function validate($data){ 
 		return \Validator::make($data, static::$rules, static::$messages);

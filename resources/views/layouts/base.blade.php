@@ -18,17 +18,16 @@
 </figure>
 <nav class="menuprincipal">
     <a href="/">Inicio</a>
-    <a hef="#">Parroquias</a>
-    <a hef="#">Barrios</a>
-    <a hef="../public/tipored">Tipo de Red</a>
 @if (Auth::guest())
     <a href="../public/auth/login">Ingresar</a>
-    <a href="../public/auth/register">Registrarse</a>
+    <a href="../public/usuario/Nuevo">Registrarse</a>
 @else
-    <a hef="../public/ficha">Fichas</a>
-    <a hef="../public/usuario">Usuarios</a>
-    <a href="#"><span>{{ Auth::user()->name }}</span></a>
-    <a href="../public/auth/logout">Logout</a>
+    <a hef="/pozotapirus/public/parroquia">Parroquias</a>
+    <a hef="/pozotapirus/public/barrio">Barrios</a>
+    <a hef="/pozotapirus/public/ficha">Fichas</a>
+    <a hef="/pozotapirus/public/usuario">Usuarios</a>
+    <a href="/"><span>{{ Auth::user()->name }}</span></a>
+    <a href="pozotapirus/public/auth/logout">Salir</a>
     
 @endif
 </nav>
@@ -37,10 +36,6 @@
 =======
 >>>>>>> origin/master
 </header>
-<label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
-
-</header>
-<label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
 
 <section class="contenido">
 

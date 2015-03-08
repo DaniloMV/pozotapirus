@@ -36,28 +36,6 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
-	/**
-	 * Handle a login request to the application.
-	 *
-	 * @param  App\Http\Requests\LoginRequest  $request
-	 * @return Response
-	 */
-	public function postLoginVerificar(LoginRequest $request)
-	{
-		$logValue = $request->input('log');
-
-		$logAccess = filter_var($logValue, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-
-		$credentials = [$logAccess => $logValue, 'password' => $request->input('password')];
-
-		if ($this->auth->attempt($credentials, $request->has('memory')))
-		{
-			return redirect('/');
-		}
-
-		return redirect('../auth/login')
-		->with('error', 'El usuario no es correcto.')
-		->withInput($request->only('email'));
-	}
+	
 
 }

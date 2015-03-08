@@ -52,7 +52,7 @@
 
 		<section class="campoform">
 		<label class="etiquetaform">Tipo Usuario:</label>
-		{!! Form::select('TipoUsuario', App\Usuariotipo::orderBy('tipo_usu', 'Desc')->lists('tipo_usu', 'id')) !!} 
+		{!! Form::select('UsuarioTipo', App\Usuariotipo::orderBy('tipo_usu', 'Desc')->lists('tipo_usu', 'id')) !!} 
    
 		</section>
 

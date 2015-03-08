@@ -4,7 +4,7 @@ class InicioController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
-	| Welcome Controller
+	| Inicio Controller
 	|--------------------------------------------------------------------------
 	|
 	| This controller renders the "marketing page" for the application and
@@ -30,7 +30,7 @@ class InicioController extends Controller {
 	 */
 	public function index()
 	{
-		return view('inicio');
+		return view('/');
 	}
 
 }
