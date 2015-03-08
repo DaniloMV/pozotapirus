@@ -32,10 +32,8 @@
     
 @endif
 </nav>
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
+
 </header>
 <label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
 

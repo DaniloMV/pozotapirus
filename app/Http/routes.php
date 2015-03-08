@@ -24,6 +24,10 @@ Route::get('tipored', array('as'=>'tipored','uses'=>'TiporedController@getIndex'
 Route::get('tipored/Nuevo', array('as'=>'NuevoTipored','uses'=>'TiporedController@getNuevo'));
 Route::post('tipored/Crear', array('uses'=>'TiporedController@postCrear'));
 
+Route::get('barrio', array('as'=>'barrio','uses'=>'BarrioController@getIndex'));
+Route::get('barrio/Nuevo', array('as'=>'NuevoBarrio','uses'=>'BarrioController@getNuevo'));
+Route::post('barrio/Crear', array('uses'=>'BarrioController@postCrear'));
+
 //Rutas de Fichas 
 Route::get('ficha', array('as'=>'ficha','uses'=>'FichaController@getIndex'));
 Route::get('ficha/Nuevo', array('as'=>'NuevaFicha','uses'=>'FichaController@getNuevo'));
