@@ -16,6 +16,7 @@ use App\Ficha;
 
 class FichaController extends Controller {
 
+
 	/*
 	|--------------------------------------------------------------------------
 	| Welcome Controller
@@ -59,7 +60,7 @@ class FichaController extends Controller {
 	{
 		//return view('ficha');
 
-		$datos = Ficha::orderBy('id', 'Desc')->paginate();
+		$datos = Ficha::where('estreg','=','1')->orderBy('id', 'Desc')->paginate();
 
         //return $usuarios;
 
@@ -83,14 +84,12 @@ class FichaController extends Controller {
 		}
 		else
 		{	
-
-
 			$ficha=new Ficha;
 			$ficha->id=$request->input('txtpozocodigo');
 			$secuencial = Ficha::max('sec_ficha')+1;
 			$ficha->sec_ficha = $secuencial;
 			$ficha->usuario_id=1;//Auth::user()->id;
-			$ficha->fecha='05/03/2015'; //time();
+			$ficha->fecha=date('d/m/Y h:i');
 			$ficha->parroquia_id=$request->input('cmbparroquia');
 			$ficha->barrio_id=$request->input('cmbbarrio');
 			$ficha->calle=$request->input('txtcalle');
@@ -98,15 +97,9 @@ class FichaController extends Controller {
 			$ficha->cmb_tipo_calzada_id=$request->input('cmbtipocalzada');
 			$ficha->cmb_material_colector_id=$request->input('cmbmaterialcolector');
 			$ficha->cmb_estado_pozo_id=$request->input('cmbestadopozo');
-			$ficha->es_limpio=$request->input('chklimpio');
-			$ficha->es_escalera=$request->input('chkescalera');
-			$ficha->es_hormigon=$request->input('chkhormigon');
-			$ficha->es_ladrillo=$request->input('chkladrillo');
-			$ficha->es_bloque=$request->input('chkbloque');
-			$ficha->es_mixto=$request->input('chkmixto');
-			$ficha->es_tapa=$request->input('chktapa');
-			$ficha->es_cadena=$request->input('chkcadena');
-			$ficha->es_bisagra=$request->input('chkbisagra');
+			
+			FichaController::VerificarCamposCHK($request, $ficha);
+
 			$ficha->sumidero=$request->input('txtsumidero');
 			$ficha->gps='WGS84';
 			$ficha->zona=$request->input('txtzona');
@@ -129,5 +122,148 @@ class FichaController extends Controller {
 			return redirect('ficha');
 		}
     }
+
+    public function getEditar($sec_ficha){
+
+		return view('ficha.vis_ficha_editar')
+		->with('title','Editar Ficha')
+		->with('datos', Ficha::where('sec_ficha','=',$sec_ficha)->first());
+	}
+
+    public function postActualizar(Request $request){
+
+		$sec_ficha = $request->input('hidden_sec');
+		
+		$validation = Ficha::validate($request->all());
+
+		if($validation->fails()){
+		 	return redirect('ficha',$sec_ficha)->withErrors($validation);
+		 	// Redirect::route('Editarficha',$id_ficha)->withErrors($validation);
+		}
+		else{
+
+			$ficha = Ficha::where('sec_ficha','=',$sec_ficha)->first();
+
+			$ficha->id=$request->input('txtpozocodigo');
+			$ficha->usuario_id=1;//Auth::user()->id;
+			$ficha->fecha=date('d/m/Y h:i');
+			$ficha->parroquia_id=$request->input('cmbparroquia');
+			$ficha->barrio_id=$request->input('cmbbarrio');
+			$ficha->calle=$request->input('txtcalle');
+			$ficha->cmb_tipo_red_id=$request->input('cmbtipored');
+			$ficha->cmb_tipo_calzada_id=$request->input('cmbtipocalzada');
+			$ficha->cmb_material_colector_id=$request->input('cmbmaterialcolector');
+			$ficha->cmb_estado_pozo_id=$request->input('cmbestadopozo');
+
+			FichaController::VerificarCamposCHK($request, $ficha);
+			
+			$ficha->sumidero=$request->input('txtsumidero');
+			$ficha->gps='WGS84';
+			$ficha->zona=$request->input('txtzona');
+			$ficha->pozo=$request->input('txtpozo');
+			$ficha->x=$request->input('txtcoordenadax');
+			$ficha->y=$request->input('txtcoordenaday');
+			$ficha->z=$request->input('txtcoordenadaz');
+			$ficha->diametro_sup=$request->input('txtdiametrosup');
+			$ficha->diametro_med=$request->input('txtdiametromedio');
+			$ficha->diametro_inf=$request->input('txtdiametroinf');
+			$ficha->cota=$request->input('txtcota');
+			$ficha->altura=$request->input('txtaltura');
+			$ficha->observaciones=$request->input('observaciones');
+			$ficha->foto=$request->input('txtpozocodigo');
+			$ficha->dibujo_ref=$request->input('txtpozocodigo');
+			//$ficha->usu_revisa_id='';
+			//$ficha->fecha_revisa='';
+			$ficha->estreg=1;
+			$ficha->save();
+			return redirect('ficha');
+
+			//->with('status_message', 'Paciente modificado satisfactoriamente');
+
+		}
+	}
+
+	public function VerificarCamposCHK($request, $ficha)
+	{
+		$ValorSEL = $request->input('chklimpio');
+		if(empty($ValorSEL) || count($ValorSEL) == 0)
+		{
+			$ValorSEL = 0;
+		}
+		$ficha->es_limpio = $ValorSEL;
+		
+		$ValorSEL = $request->input('chkescalera');
+		if(empty($ValorSEL) || count($ValorSEL) == 0)
+		{
+			$ValorSEL = 0;
+		}
+		$ficha->es_escalera = $ValorSEL;
+		
+		$ValorSEL = $request->input('chkhormigon');
+		if(empty($ValorSEL) || count($ValorSEL) == 0)
+		{
+			$ValorSEL = 0;
+		}
+		$ficha->es_hormigon = $ValorSEL;
+
+		$ValorSEL = $request->input('chkladrillo');
+		if(empty($ValorSEL) || count($ValorSEL) == 0)
+		{
+			$ValorSEL = 0;
+		}
+		$ficha->es_ladrillo = $ValorSEL;
+
+		$ValorSEL = $request->input('chkbloque');
+		if(empty($ValorSEL) || count($ValorSEL) == 0)
+		{
+			$ValorSEL = 0;
+		}
+		$ficha->es_bloque = $ValorSEL;
+
+		$ValorSEL = $request->input('chkmixto');
+		if(empty($ValorSEL) || count($ValorSEL) == 0)
+		{
+			$ValorSEL = 0;
+		}
+		$ficha->es_mixto = $ValorSEL;
+
+		$ValorSEL = $request->input('chktapa');
+		if(empty($ValorSEL) || count($ValorSEL) == 0)
+		{
+			$ValorSEL = 0;
+		}
+		$ficha->es_tapa = $ValorSEL;
+
+		$ValorSEL = $request->input('chkcadena');
+		if(empty($ValorSEL) || count($ValorSEL) == 0)
+		{
+			$ValorSEL = 0;
+		}
+		$ficha->es_cadena = $ValorSEL;
+
+		$ValorSEL = $request->input('chkbisagra');
+		if(empty($ValorSEL) || count($ValorSEL) == 0)
+		{
+			$ValorSEL = 0;
+		}
+		$ficha->es_bisagra = $ValorSEL;
+	}
+
+	public function deleteActivarInactivar(Request $request){
+
+		$sec_ficha = $request->input('sec');
+		
+		
+		$ficha = Ficha::where('sec_ficha','=',$sec_ficha)->first();
+
+		//return $ficha;
+
+		$ficha->estreg=0;
+	
+		$ficha->save();
+
+		return redirect('ficha');
+		//->with('status_message', 'El estado fue Actualizado Satisfactoriamente');
+	}
 
 }

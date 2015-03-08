@@ -28,6 +28,10 @@ Route::post('tipored/Crear', array('uses'=>'TiporedController@postCrear'));
 Route::get('ficha', array('as'=>'ficha','uses'=>'FichaController@getIndex'));
 Route::get('ficha/Nuevo', array('as'=>'NuevaFicha','uses'=>'FichaController@getNuevo'));
 Route::post('ficha/Crear', array('uses'=>'FichaController@postCrear'));
+Route::get('ficha/{id_ficha}/Editar', array('as'=>'EditarFicha','uses'=>'FichaController@getEditar'));
+Route::post('ficha/Actualizar', array('uses'=>'FichaController@postActualizar'));
+Route::post('ficha/Eliminar', array('uses'=>'FichaController@deleteActivarInactivar'));
+
 
 Route::get('usuario', 'UsuarioController@index');
 Route::get('usuarionuevo', 'UsuarioController@nuevo');
