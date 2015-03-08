@@ -4,7 +4,7 @@
 @section('cabecera')
     @parent
 
- <h2>EditarBarrio</h2>
+ <h2 class="titulopagina">EditarBarrio</h2>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop

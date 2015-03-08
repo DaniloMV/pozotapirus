@@ -17,7 +17,6 @@
 </figcaption>
 </figure>
 <nav class="menuprincipal">
-    <a href="/">Inicio</a>
 @if (Auth::guest())
     <a href="../public/auth/login">Ingresar</a>
     <a href="../public/usuario/Nuevo">Registrarse</a>
@@ -28,19 +27,20 @@
     <a hef="/pozotapirus/public/barrio">Barrios</a>
     <a hef="/pozotapirus/public/ficha">Fichas</a>
     <a hef="/pozotapirus/public/usuario">Usuarios</a>
-    <a href="/"><span>{{ Auth::user()->name }}</span></a>
+    
 @elseif (Auth::user()->usuario_tipo_id==1)
     <a hef="/pozotapirus/public/ficha">Fichas</a>
-    <a href="/"><span>{{ Auth::user()->name }}</span></a>
 @endif 
 @endif
-    <a href="/pozotapirus/public/auth/logout">Salir</a>
+    
 </nav>
 
 
 </header>
-<label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
-
+@if (Auth::check())
+<label class="login"><strong>Bienvenido:</strong> {{ Auth::user()->name }}</label>
+<a class="logout" href="/pozotapirus/public/auth/logout">Cerrar Sesión</a>
+@endif
 
 </header>
 

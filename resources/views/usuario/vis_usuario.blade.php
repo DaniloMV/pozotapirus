@@ -4,7 +4,7 @@
 @section('cabecera')
     @parent
 
- <h2>Lista de usuarios</h2>
+ <h2 class="titulopagina">Lista de usuarios</h2>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop

@@ -4,7 +4,7 @@
 @section('cabecera')
     @parent
 
- <h2>Listado de Parroquias</h2>
+ <h2 class="titulopagina">Listado de Parroquias</h2>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop

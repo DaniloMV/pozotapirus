@@ -9,7 +9,7 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
-<h2 id="titulopag">REGISTRO DE FICHAS</h2>
+<h2 class="titulopagina">REGISTRO DE FICHAS</h2>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop

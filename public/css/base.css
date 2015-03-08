@@ -25,6 +25,32 @@ body{
 	line-height:  0;
 }
 
+.logout{
+	
+	border: 2px solid #FF0033;
+	border-radius: 0.3em;
+	color: #FF0033;
+	float: right;
+	font-size: 1.1em;
+	margin-right: 2em;
+	padding: 0.2em;
+	text-decoration: none;
+}
+
+.logout:hover{
+	background-color: #FF0033;
+	color: #FFFFFF;
+}
+
+.login{
+	color: blue;
+	font-size: 1.1em;
+}
+
+.titulopagina{
+	text-align: center;
+}
+
 .cabecera{
 	background-color: rgba(153,153,102,0.8);
 	border-radius: 0.5em;
@@ -122,12 +148,6 @@ body{
 #observaciones{
 	margin-top: 1em;
 	width: 90%;
-}
-
-#titulopag{
-	color: #D2691E;
-	font-size: 1.4em;
-	text-align: center;
 }
 
 
