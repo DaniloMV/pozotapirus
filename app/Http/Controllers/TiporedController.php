@@ -12,21 +12,19 @@ use App\Http\Controllers\Redirect;
 
 use App\Tipored;
 
-
 class TiporedController extends Controller {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Registration & Login Controller
-	|--------------------------------------------------------------------------
-	|
-	| This controller handles the registration of new users, as well as the
-	| authentication of existing users. By default, this controller uses
-	| a simple trait to add these behaviors. Why don't you explore it?
-	|
-	*/
-
 	use AuthenticatesAndRegistersUsers;
+
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 
 	/**
 	 * Create a new authentication controller instance.
@@ -77,30 +75,6 @@ class TiporedController extends Controller {
 			return redirect('tipored');
 			//return \Redirect::route('tipored');
 			//->with('status_message','El Consultorio fue creado satisfactoriamente.');
-		}
-	}
-
-
-	public function postCrearTh(){
-			
-		$validation = Tipored::validate(Input::all());
-
-		if($validation->fails()){
-			// En caso de error regresa a la acción create con los datos y los errores encontrados
-			//return Redirect::route('NuevoTipored')->withInput()->withErrors($validation);
-			return redirect('NuevoTipored')->withInput()->withErrors($validation);
-		}
-		else
-		{	
-			$tipored=new Tipored;
-			$secuencial = Tipored::max('id')+1;
-			$tipored->id = $secuencial;
-			$tipored->descripcion=Input::get('Nombre');
-			$tipored->estreg="ACT";
-
-			$tipored->save();
-			return redirect('tipo');
-			//return Redirect::route('tipored');//->with('status_message','El Consultorio fue creado satisfactoriamente.');
 		}
 	}
 

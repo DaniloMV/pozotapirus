@@ -18,31 +18,33 @@
 </figure>
 <nav class="menuprincipal">
     <a href="/">Inicio</a>
-    <a hef="#">Parroquias</a>
-    <a hef="#">Barrios</a>
-    <a hef="../public/tipored">Tipo de Red</a>
 @if (Auth::guest())
     <a href="../public/auth/login">Ingresar</a>
-    <a href="../public/auth/register">Registrarse</a>
-@else
-    <a hef="../public/ficha">Fichas</a>
-    <a hef="../public/usuario">Usuarios</a>
-    <a href="#"><span>{{ Auth::user()->name }}</span></a>
-    <a href="../public/auth/logout">Logout</a>
-    
+    <a href="../public/usuario/Nuevo">Registrarse</a>
+@endif 
+@if (Auth::check())
+@if (Auth::user()->usuario_tipo_id==2)
+    <a hef="/pozotapirus/public/parroquia">Parroquias</a>
+    <a hef="/pozotapirus/public/barrio">Barrios</a>
+    <a hef="/pozotapirus/public/ficha">Fichas</a>
+    <a hef="/pozotapirus/public/usuario">Usuarios</a>
+    <a href="/"><span>{{ Auth::user()->name }}</span></a>
+@elseif (Auth::user()->usuario_tipo_id==1)
+    <a hef="/pozotapirus/public/ficha">Fichas</a>
+    <a href="/"><span>{{ Auth::user()->name }}</span></a>
+@endif 
 @endif
+    <a href="/pozotapirus/public/auth/logout">Salir</a>
 </nav>
+<<<<<<< HEAD
 
 
 </header>
 <label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
 
+=======
+>>>>>>> origin/master
 </header>
-<label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
-
-<section class="contenido">
-
-</section>
 
  @section('cabecera')
     <!-- This is the master sidebar.  -->
