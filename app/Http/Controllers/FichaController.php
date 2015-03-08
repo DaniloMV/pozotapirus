@@ -6,8 +6,8 @@ use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\TiporedRequest;
-use App\Repositories\TiporedRepository;
+use App\Http\Requests\FichaRequest;
+use App\Repositories\FichaRepository;
 use App\Http\Controllers\Redirect;
 
 use App\Ficha;
