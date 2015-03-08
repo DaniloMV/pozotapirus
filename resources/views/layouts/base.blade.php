@@ -5,12 +5,12 @@
     <meta name="description" content="Registro de Pozos" />
     <title>TAPIRUS:  @yield('titulo')  </title>   
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../public/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/pozotapirus/public/css/base.css">
 </head>
 <body>
 <header class="cabecera">
 <figure>
-<img id="imglogo" src="../public/images/logo.jpg">
+<img id="imglogo" src="/pozotapirus/public/images/logo.jpg">
 <figcaption id="textocab">
 <h1>"TAPIRUS S.A"</h1>
 <small>AQUI EL SLOGAN DE LA EMPRESA</small>
@@ -32,7 +32,10 @@
     
 @endif
 </nav>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 </header>
 <label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
 

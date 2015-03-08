@@ -71,11 +71,7 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
         return $this->belongsTo('App\Estadopozo', 'cmb_estado_pozo_id');
     }
     
-
-	
-	public static $rules = array(
-	'txtcalle' => array('required', 'min:4'),
-	'txtcalle' => array('required'),
+    /*
 	'txtpozo' => array('required'),
 	'txtsumidero' => array('required'),
 	'txtzona' => array('required'),
@@ -87,6 +83,10 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
 	'txtdiametromedio' => array('required'),
 	'txtdiametroinf' => array('required'),
 	'txtaltura' => array('required')
+	*/
+	
+	public static $rules = array(
+	'txtcalle' => array('required', 'min:4')
 	);
 
 	public static $messages = array(
