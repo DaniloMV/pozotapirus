@@ -17,25 +17,20 @@
 </figcaption>
 </figure>
 <nav class="menuprincipal">
-    <a href="/">Inicio</a>
+    <ul><li><a href="/">Inicio</a><ul><li>
 @if (Auth::guest())
-    <a href="../public/auth/login">Ingresar</a>
-    <a href="../public/usuario/Nuevo">Registrarse</a>
+    <ul><li><a href="../public/auth/login">Ingresar</a><ul><li>
+    <ul><li><a href="../public/usuario/Nuevo">Registrarse</a><ul><li>
 @else
-    <a hef="/pozotapirus/public/parroquia">Parroquias</a>
-    <a hef="/pozotapirus/public/barrio">Barrios</a>
-    <a hef="/pozotapirus/public/ficha">Fichas</a>
-    <a hef="/pozotapirus/public/usuario">Usuarios</a>
-    <a href="/"><span>{{ Auth::user()->name }}</span></a>
-    <a href="pozotapirus/public/auth/logout">Salir</a>
+    <ul><li><a hef="/pozotapirus/public/parroquia">Parroquias</a><ul><li>
+    <ul><li><a hef="/pozotapirus/public/barrio">Barrios</a><ul><li>
+    <ul><li><a hef="/pozotapirus/public/ficha">Fichas</a><ul><li>
+    <ul><li><a hef="/pozotapirus/public/usuario">Usuarios</a><ul><li>
+    <ul><li><a href="/"><span>{{ Auth::user()->name }}</span></a><ul><li>
+    <ul><li><a href="pozotapirus/public/auth/logout">Salir</a><ul><li>
     
 @endif
 </nav>
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
-</header>
 
 <section class="contenido">
 
