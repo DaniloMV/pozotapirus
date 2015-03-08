@@ -17,24 +17,26 @@
 </figcaption>
 </figure>
 <nav class="menuprincipal">
-    <ul><li><a href="/">Inicio</a><ul><li>
+    <a href="/">Inicio</a>
 @if (Auth::guest())
-    <ul><li><a href="../public/auth/login">Ingresar</a><ul><li>
-    <ul><li><a href="../public/usuario/Nuevo">Registrarse</a><ul><li>
-@else
-    <ul><li><a hef="/pozotapirus/public/parroquia">Parroquias</a><ul><li>
-    <ul><li><a hef="/pozotapirus/public/barrio">Barrios</a><ul><li>
-    <ul><li><a hef="/pozotapirus/public/ficha">Fichas</a><ul><li>
-    <ul><li><a hef="/pozotapirus/public/usuario">Usuarios</a><ul><li>
-    <ul><li><a href="/"><span>{{ Auth::user()->name }}</span></a><ul><li>
-    <ul><li><a href="pozotapirus/public/auth/logout">Salir</a><ul><li>
-    
+    <a href="../public/auth/login">Ingresar</a>
+    <a href="../public/usuario/Nuevo">Registrarse</a>
+@endif 
+@if (Auth::check())
+@if (Auth::user()->usuario_tipo_id==2)
+    <a hef="/pozotapirus/public/parroquia">Parroquias</a>
+    <a hef="/pozotapirus/public/barrio">Barrios</a>
+    <a hef="/pozotapirus/public/ficha">Fichas</a>
+    <a hef="/pozotapirus/public/usuario">Usuarios</a>
+    <a href="/"><span>{{ Auth::user()->name }}</span></a>
+@elseif (Auth::user()->usuario_tipo_id==1)
+    <a hef="/pozotapirus/public/ficha">Fichas</a>
+    <a href="/"><span>{{ Auth::user()->name }}</span></a>
+@endif 
 @endif
+    <a href="/pozotapirus/public/auth/logout">Salir</a>
 </nav>
-
-<section class="contenido">
-
-</section>
+</header>
 
  @section('cabecera')
     <!-- This is the master sidebar.  -->
