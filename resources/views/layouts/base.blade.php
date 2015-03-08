@@ -36,14 +36,12 @@
 @endif
     <a href="/pozotapirus/public/auth/logout">Salir</a>
 </nav>
-<<<<<<< HEAD
 
 
 </header>
 <label class="usuario"><strong>Usuario:</strong> Nombre de usuario</label>
 
-=======
->>>>>>> origin/master
+
 </header>
 
  @section('cabecera')

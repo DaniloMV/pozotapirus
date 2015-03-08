@@ -19,9 +19,20 @@ Route::get('tipored', array('as'=>'tipored','uses'=>'TiporedController@getIndex'
 Route::get('tipored/Nuevo', array('as'=>'NuevoTipored','uses'=>'TiporedController@getNuevo'));
 Route::post('tipored/Crear', array('uses'=>'TiporedController@postCrear'));
 
+Route::get('parroquia', array('as'=>'parroquia','uses'=>'ParroquiaController@getIndex'));
+Route::get('parroquia/Nuevo', array('as'=>'NuevaParroquia','uses'=>'ParroquiaController@getNuevo'));
+Route::post('parroquia/Crear', array('uses'=>'ParroquiaController@postCrear'));
+Route::get('parroquia/{id_parroquia}/Editar', array('as'=>'EditarParroquia','uses'=>'ParroquiaController@getEditar'));
+Route::post('parroquia/Actualizar', array('uses'=>'ParroquiaController@postActualizar'));
+Route::post('parroquia/Eliminar', array('uses'=>'ParroquiaController@deleteActivarInactivar'));
+
 Route::get('barrio', array('as'=>'barrio','uses'=>'BarrioController@getIndex'));
 Route::get('barrio/Nuevo', array('as'=>'NuevoBarrio','uses'=>'BarrioController@getNuevo'));
 Route::post('barrio/Crear', array('uses'=>'BarrioController@postCrear'));
+Route::get('barrio/{id_barrio}/Editar', array('as'=>'EditarBarrio','uses'=>'BarrioController@getEditar'));
+Route::post('barrio/Actualizar', array('uses'=>'BarrioController@postActualizar'));
+Route::post('barrio/Eliminar', array('uses'=>'BarrioController@deleteActivarInactivar'));
+
 
 //Rutas de Fichas 
 Route::get('ficha', array('as'=>'ficha','uses'=>'FichaController@getIndex'));

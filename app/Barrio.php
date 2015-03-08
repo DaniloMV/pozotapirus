@@ -29,10 +29,10 @@ class Barrio extends Model implements AuthenticatableContract, CanResetPasswordC
   	public $timestamps = false;
 	protected $table = 'cmb_barrio';
 
-    protected $perPage = 5;
+    protected $perPage = 20;
 	
 	public static $rules = array(
-	'des_barrio' => array('required', 'min:4')
+	'txtbarrio' => array('required', 'min:4')
 	);
 
 	public static $messages = array(
@@ -56,5 +56,11 @@ class Barrio extends Model implements AuthenticatableContract, CanResetPasswordC
 	public static function validate($data){ 
 		return \Validator::make($data, static::$rules, static::$messages);
 	}
+
+	public function modparroquia(){
+    	/*belongs_to para señalar la clave foránea, que existe en esta
+		entre la tabla wcusuario y la tabla usuariotipos*/
+        return $this->belongsTo('App\Parroquia', 'parroquia_id');
+    }
 
 }

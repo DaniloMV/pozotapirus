@@ -29,7 +29,6 @@
 	@endif
 
 <form role="form" method="POST" action="../ficha/Crear">
-<<<<<<< HEAD
 
 
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -37,9 +36,8 @@
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
-=======
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
->>>>>>> origin/master
+
 	
 <section id="fichacabecera" class="campoform">
 	

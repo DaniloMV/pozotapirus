@@ -36,13 +36,17 @@ class BarrioController extends Controller {
 	 * @return void
 	 */
 	
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 
 	public function getIndex()
 	{
 
-		$datos = Barrio::orderBy('id', 'Asc')->paginate();
-
-        //return $usuarios;
+		$datos = Barrio::where('estreg','=','1')
+						->orderBy('parroquia_id', 'Asc')
+						->orderBy('id', 'Asc')->paginate();
 
         return view('barrio.vis_barrio', compact('datos'));
 
@@ -70,7 +74,8 @@ class BarrioController extends Controller {
 			$barrio=new Barrio;
 			$secuencial = Barrio::max('id')+1;
 			$barrio->id = $secuencial;
-			$barrio->des_barrio=$request->input('Nombre');
+			$barrio->parroquia_id=$request->input('cmbparroquia');
+			$barrio->des_barrio=$request->input('txtbarrio');
 			$barrio->estreg=1;
 
 			$barrio->save();
@@ -79,27 +84,45 @@ class BarrioController extends Controller {
 	}
 
 
-	public function postCrearTh(){
-			
-		$validation = Tipored::validate(Input::all());
+	public function getEditar($id){
+		return view('barrio.vis_barrio_editar')
+		->with('title','Editar Barrio')
+		->with('datos', Barrio::where('id','=',$id)->first());
+	}
+
+	public function postActualizar(Request $request){
+
+		$id = $request->input('hidden_id');
+		$parroquia_id = $request->input('hidden_id_parroquia');
+		
+		$validation = Barrio::validate($request->all());
 
 		if($validation->fails()){
-			// En caso de error regresa a la acción create con los datos y los errores encontrados
-			//return Redirect::route('NuevoTipored')->withInput()->withErrors($validation);
-			return redirect('NuevoTipored')->withInput()->withErrors($validation);
+		 	return redirect('EditarUsuario',$id)->withErrors($validation);
+		 	// Redirect::route('Editarusuario',$id_usuario)->withErrors($validation);
 		}
-		else
-		{	
-			$tipored=new Tipored;
-			$secuencial = Tipored::max('id')+1;
-			$tipored->id = $secuencial;
-			$tipored->descripcion=Input::get('Nombre');
-			$tipored->estreg="ACT";
+		else{
 
-			$tipored->save();
-			return redirect('tipo');
-			//return Redirect::route('tipored');//->with('status_message','El Consultorio fue creado satisfactoriamente.');
+			$parroquia = Barrio::where('id','=',$id)
+								->where('parroquia_id','=',$parroquia_id)
+								->first();
+			$parroquia->des_barrio = $request->input('txtbarrio');
+			$parroquia->save();
+			return redirect('barrio');
 		}
+	}
+
+	public function deleteActivarInactivar(Request $request){
+
+		$id = $request->input('hidden_id');
+		$parroquia_id = $request->input('hidden_id_parroquia');
+		$parroquia = Barrio::where('id','=',$id)
+							->where('parroquia_id','=',$parroquia_id)
+							->first();
+		$parroquia->estreg=0;
+		$parroquia->save();
+		return redirect('barrio');
+		//->with('status_message', 'El estado fue Actualizado Satisfactoriamente');
 	}
 
 }
