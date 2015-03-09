@@ -20,6 +20,8 @@ class Parroquia extends Model implements AuthenticatableContract, CanResetPasswo
 
 	protected $table = 'cmb_parroquia';
 
+	
+
 
 	protected $perPage = 20;
 	

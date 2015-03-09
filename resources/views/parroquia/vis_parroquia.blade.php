@@ -20,6 +20,7 @@
     <tr>
         <th>Codigo
         <th>Parroquia
+        <th>Estado
         <th>Acción
     </thead>
     <tbody>
@@ -48,7 +49,8 @@
     
     <p align="center">{!! link_to_route('NuevaParroquia', 'Registrar parroquia') !!}</p>
 
-
     </div>
+
+    <?php echo $datos->render(); ?>
         
 @stop

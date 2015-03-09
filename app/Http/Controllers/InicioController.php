@@ -20,7 +20,16 @@ class InicioController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('guest');
+		//Admin
+		if (\Auth::user()->usuario_tipo_id==2)
+		{
+			$this->middleware('auth');
+		}
+		else 
+		{
+			//Digitador
+			return redirect('/login');
+		}
 	}
 
 	/**
@@ -30,7 +39,7 @@ class InicioController extends Controller {
 	 */
 	public function index()
 	{
-		return view('/');
+		return view('login');
 	}
 
 }

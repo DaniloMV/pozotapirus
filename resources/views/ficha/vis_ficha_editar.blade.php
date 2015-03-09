@@ -94,47 +94,47 @@
 		<section id="checkedlist" name="checkedlist" class="chkficha">
 			
 			<p>
-			<input id="chklimpio" name="chklimpio" type="checkbox" value=<?php echo "{$datos->es_limpio}"; ?>></input>
+			<input id="chklimpio" name="chklimpio" type="checkbox" value="1" <?php if($datos->es_limpio==1){echo "checked";} ?>></input>
 			<label>Limpio</label>
 			</p>
 			
 			<p>
-			<input id="chkescalera" name="chkescalera" type="checkbox" value=<?php echo "{$datos->es_escalera}"; ?>></input>
+			<input id="chkescalera" name="chkescalera" type="checkbox" value="1" <?php if($datos->es_escalera==1){echo "checked";} ?>></input>
 			<label>Escalera</label>
 			</p>
 			
 			<p>
-			<input id="chkhormigon" name="chkhormigon" type="checkbox" value=<?php echo "{$datos->es_hormigo}"; ?>></input>
+			<input id="chkhormigon" name="chkhormigon" type="checkbox" value="1" <?php if($datos->es_hormigon==1){echo "checked";} ?>></input>
 			<label>Hormigón</label>
 			</p>
 
 			<p>
-			<input id="chkladrillo" name="chkladrillo" type="checkbox" value=<?php echo "{$datos->es_ladrillo}"; ?>></input>
+			<input id="chkladrillo" name="chkladrillo" type="checkbox" value="1" <?php if($datos->es_ladrillo==1){echo "checked";} ?>></input>
 			<label>Ladrillo</label>
 			</p>
 
 			<p>
-			<input id="chkbloque" name="chkbloque" type="checkbox" value=<?php echo "{$datos->es_bloque}"; ?>></input>
+			<input id="chkbloque" name="chkbloque" type="checkbox" value="1" <?php if($datos->es_bloque==1){echo "checked";} ?>></input>
 			<label>Bloque</label>
 			</p>	
 
 			<p>	
-			<input id="chkmixto" name="chkmixto" type="checkbox" value=<?php echo "{$datos->es_mixto}"; ?>></input>
+			<input id="chkmixto" name="chkmixto" type="checkbox" value="1" <?php if($datos->es_mixto==1){echo "checked";} ?>></input>
 			<label>Mixto</label>
 			</p>
 
 			<p>	
-			<input id="chktapa" name="chktapa" type="checkbox" value=<?php echo "{$datos->es_tapa}"; ?>></input>
+			<input id="chktapa" name="chktapa" type="checkbox" value="1" <?php if($datos->es_tapa==1){echo "checked";} ?>></input>
 			<label>Tapa</label>
 			</p>
 
 			<p>	
-			<input id="chkcadena" name="chkcadena" type="checkbox" value=<?php echo "{$datos->es_cadena}"; ?>></input>
+			<input id="chkcadena" name="chkcadena" type="checkbox" value="1" <?php if($datos->es_cadena==1){echo "checked";} ?>></input>
 			<label>Cadena</label>
 			</p>
 
 			<p>
-			<input id="chkbisagra" name="chkbisagra" type="checkbox" value=<?php echo "{$datos->es_bisagra}"; ?>></input>
+			<input id="chkbisagra" name="chkbisagra" type="checkbox" value="1" <?php if($datos->es_bisagra==1){echo "checked";} ?>></input>
 			<label>Bisagra</label>
 			</p>
 

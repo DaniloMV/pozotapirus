@@ -53,12 +53,18 @@ class Usuario extends Model implements AuthenticatableContract, CanResetPassword
     protected $perPage = 5;
 	
 	public static $rules = array(
-	'txtusuario' => array('required', 'min:3')
+	'txtusuario' => array('required|min:4'),
+	'txtemail' => array('required|email|unique:usuario'),    
+	'txtpassword' => array('required|min:4'),
+	'password' => array('required|min:4'),
+	'UsuarioEquipo' => array('required'),
+	'UsuarioTipo' => array('required')
 	);
 
 	public static $messages = array(
-            'required'        => 'El nombre del usuario es obligatorio.',
-            'min'             => 'El nombre del usuario debe tener al menos de 3 carácteres.');
+            'required'        => 'Verifica que todos los campos obligatorios esten llenos.',
+            'unique'             => 'El correo del usuario que se ha ingresado ya existe.',
+            'min'             => 'Debe tener al menos 4 carácteres.');
 
 
 	public static function validate($data){ 

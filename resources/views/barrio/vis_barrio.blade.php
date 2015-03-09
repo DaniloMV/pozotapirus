@@ -20,22 +20,32 @@
    		<thead>
     	<tr>
     		<th>Parroquia 
-    		<td>Codigo
     		<th>Barrio
+            <th>Estado
     		<th>Acción
     	</thead>
     	<tbody>
 
 	    	@foreach ($datos as $barrio)	
 	    	<tr>
-            <td>{{ $barrio->parroquia_id }}</td>
-            <td>{{ $barrio->id }}</td>
+            <td>{{ $barrio->modparroquia->des_parroquia }}</td>
             <td>{{ $barrio->des_barrio }}</td>
             <td>
                 {!! Form::open(array('url'=>'barrio/Eliminar')) !!}
-                {!! Form::hidden('sec', $barrio->id) !!}  
-                <input id='Estado' type='submit' name='deleteActivarInactivar' class='Botones' value='Anular'>
+                {!! Form::hidden('id', $barrio->id) !!}
+                {!! Form::hidden('id_parroquia', $barrio->parroquia_id) !!}
+                {!! Form::hidden('estado', $barrio->estreg) !!}   
                 
+                <?php                 
+                $Estado="Activar"; 
+                if( $barrio->estreg == 1)
+                {
+                    $Estado="Inactivar";  
+                }
+                
+                echo "<input id='Estado' type='submit' name='deleteActivarInactivar' class='Botones' value=$Estado >";
+                ?>
+
                 {!! Form::close() !!}
             <td>
                  <button id='Editar' class='Botones'> 
@@ -49,7 +59,10 @@
     	</table> 
         
         <p align="center">{!! link_to_route('NuevoBarrio', 'Registrar barrio') !!}</p>
-
+       
 
     	</div>
+        
+        <?php echo $datos->render(); ?>
+
 @stop

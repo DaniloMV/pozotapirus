@@ -86,12 +86,54 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
 	*/
 	
 	public static $rules = array(
-	'txtcalle' => array('required', 'min:4')
+     //'txtpozocodigo' => array('required')
+     //|id|unique'),    
+	// 'txtcalle' => array('required'),
+ //    'cmbparroquia' => array('required'),
+ //    'cmbbarrio' => array('required'),
+ //    'cmbtipored' => array('required'),
+ //    'cmbtipocalzada' => array('required'),
+ //    'cmbmaterialcolector' => array('required'),
+ //    'cmbestadopozo' => array('required'),
+ //    'txtpozo' => array('required'),
+ //    'txtsumidero' => array('required'),
+ //    'txtzona' => array('required'),
+ //    'txtcoordenadax' => array('required'),
+ //    'txtcoordenaday' => array('required'),
+ //    'txtcoordenadaz' => array('required'),
+ //    'txtcota' => array('required'),
+ //    'txtdiametrosup' => array('required'),
+ //    'txtdiametromedio' => array('required'),
+ //    'txtdiametroinf' => array('required'),
+ //    'txtaltura' => array('required')
 	);
 
+    public static $ruleseditar = array( 
+    //'txtpozocodigo' => array('required')  
+    //'txtcalle' => array('required')
+    // 'cmbparroquia' => array('required'),
+    // 'cmbbarrio' => array('required'),
+    // 'cmbtipored' => array('required'),
+    // 'cmbtipocalzada' => array('required'),
+    // 'cmbmaterialcolector' => array('required'),
+    // 'cmbestadopozo' => array('required'),
+    // 'txtpozo' => array('required'),
+    // 'txtsumidero' => array('required'),
+    // 'txtzona' => array('required'),
+    // 'txtcoordenadax' => array('required'),
+    // 'txtcoordenaday' => array('required'),
+    // 'txtcoordenadaz' => array('required'),
+    // 'txtcota' => array('required'),
+    // 'txtdiametrosup' => array('required'),
+    // 'txtdiametromedio' => array('required'),
+    // 'txtdiametroinf' => array('required'),
+    // 'txtaltura' => array('required')
+    );
+
 	public static $messages = array(
-            'required'        => 'El nombre del tipo de red es obligatorio.',
-            'min'             => 'El nombre del tipo de red debe tener al menos de 4 carácteres.');
+            'required'        => 'Verifica que todos los campos obligatorios esten llenos.',
+            'unique'             => 'El código de ficha que se ha ingresado ya existe.',
+            'min'             => 'minimo de carácteres - incumplido.');
 
 	/*
 
@@ -110,5 +152,9 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
 	public static function validate($data){ 
 		return \Validator::make($data, static::$rules, static::$messages);
 	}
+
+    public static function validateeditar($data){ 
+        return \Validator::make($data, static::$ruleseditar, static::$messages);
+    }
 
 }

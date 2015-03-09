@@ -17,29 +17,30 @@
 </figcaption>
 </figure>
 <nav class="menuprincipal">
-@if (Auth::guest())
-    <a href="../public/auth/login">Ingresar</a>
-    <a href="../public/usuario/Nuevo">Registrarse</a>
-@endif 
+    <ul> 
 @if (Auth::check())
-@if (Auth::user()->usuario_tipo_id==2)
-    <a hef="/pozotapirus/public/parroquia">Parroquias</a>
-    <a hef="/pozotapirus/public/barrio">Barrios</a>
-    <a hef="/pozotapirus/public/ficha">Fichas</a>
-    <a hef="/pozotapirus/public/usuario">Usuarios</a>
-    
-@elseif (Auth::user()->usuario_tipo_id==1)
-    <a hef="/pozotapirus/public/ficha">Fichas</a>
-@endif 
+
+    @if (Auth::user()->usuario_tipo_id==2)
+        <li><a href="/pozotapirus/public/parroquia">Parroquias</a></li>
+        <li><a href="/pozotapirus/public/barrio">Barrios</a></li>
+        <li><a href="/pozotapirus/public/ficha">Fichas</a></li>
+        <li><a href="/pozotapirus/public/usuario">Usuarios</a></li>
+        
+    @else
+        <a href="/pozotapirus/public/ficha">Fichas</a>
+    @endif 
+@else
+    <li><a href="../public/auth/login">Ingresar</a></li>
+    <li><a href="../public/usuario/Nuevo">Registrarse</a></li>
 @endif
-    
+    </ul>
 </nav>
 
 
 </header>
 @if (Auth::check())
 <label class="login"><strong>Bienvenido:</strong> {{ Auth::user()->name }}</label>
-<a class="logout" href="/pozotapirus/public/auth/logout">Cerrar Sesión</a>
+<a class="logout" href="/pozotapirus/public/Salir">Cerrar Sesión</a>
 @endif
 
 </header>

@@ -26,7 +26,6 @@
             <th>Fecha
             <th>Usuario
             <th>Equipo
-    		<th style="display:none">Estado
     		<th>Estado
     		<th>Acción
     	</thead>
@@ -38,10 +37,9 @@
             <td>{{ $ficha->modbarrio->des_barrio }}</td>
             <td>{{ $ficha->id }}</td>
             <td style='display:none'>{{ $ficha->sec_ficha }}</td>
-            <td>{{ $ficha->fecha }}</td>
+            <td>{{ date('d/M/Y H:i:s', $ficha->fecha) }}</td>
             <td>{{ $ficha->modusuario->name }}</td>
             <td>Equipo</td>
-            <td>{{ $ficha->estreg }}</td>
             <td>
                 {!! Form::open(array('url'=>'ficha/Eliminar')) !!}
                 {!! Form::hidden('sec', $ficha->sec_ficha) !!}  
@@ -60,7 +58,8 @@
     	</table> 
         
         <p align="center">{!! link_to_route('NuevaFicha', 'Registrar Ficha') !!}</p>
-
+        
 
     	</div>
+        <?php echo $datos->render(); ?>
 @stop

@@ -11,7 +11,12 @@
 |
 */
 
-Route::get('/', 'InicioController@getIndex');
+
+Route::get('/', [
+	'uses' => 'LoginController@getIndex', 
+	'as' => 'login'
+]);
+
 Route::get('login', 'LoginController@getIndex');
 
 //Rutas de Tipo de Red
@@ -36,6 +41,7 @@ Route::post('barrio/Eliminar', array('uses'=>'BarrioController@deleteActivarInac
 
 //Rutas de Fichas 
 Route::get('ficha', array('as'=>'ficha','uses'=>'FichaController@getIndex'));
+Route::get('ficha/Buscar/{id}', array('as'=>'BuscarFicha','uses'=>'FichaController@getBuscar'));
 Route::get('ficha/Nuevo', array('as'=>'NuevaFicha','uses'=>'FichaController@getNuevo'));
 Route::post('ficha/Crear', array('uses'=>'FichaController@postCrear'));
 Route::get('ficha/{id_ficha}/Editar', array('as'=>'EditarFicha','uses'=>'FichaController@getEditar'));
@@ -49,7 +55,7 @@ Route::post('usuario/Crear', array('uses'=>'UsuarioController@postCrear'));
 Route::get('usuario/{id_usuario}/Editar', array('as'=>'EditarUsuario','uses'=>'UsuarioController@getEditar'));
 Route::post('usuario/Actualizar', array('uses'=>'UsuarioController@postActualizar'));
 Route::post('usuario/Eliminar', array('uses'=>'UsuarioController@deleteActivarInactivar'));
-
+Route::get('Salir', 'UsuarioController@getSalir');
 
 //Route::get('usuarionuevo', 'UsuarioController@nuevo');
 

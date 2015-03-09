@@ -38,16 +38,26 @@ class BarrioController extends Controller {
 	
 	public function __construct()
 	{
-		$this->middleware('auth');
+		//Admin
+		if (\Auth::user()->usuario_tipo_id==2)
+		{
+			$this->middleware('auth');
+		}
+		else 
+		{
+			//Digitador
+			return redirect('/login');
+		}
 	}
 
 	public function getIndex()
 	{
 
-		$datos = Barrio::where('estreg','=','1')
+		$datos = Barrio::with('modparroquia')
+						->where('estreg','=','1')
 						->orderBy('parroquia_id', 'Asc')
-						->orderBy('id', 'Asc')->paginate();
-
+						->orderBy('des_barrio', 'Asc')->paginate();
+		//dd($datos->render());
         return view('barrio.vis_barrio', compact('datos'));
 
 	}
@@ -103,11 +113,11 @@ class BarrioController extends Controller {
 		}
 		else{
 
-			$parroquia = Barrio::where('id','=',$id)
+			$barrio = Barrio::where('id','=',$id)
 								->where('parroquia_id','=',$parroquia_id)
 								->first();
-			$parroquia->des_barrio = $request->input('txtbarrio');
-			$parroquia->save();
+			$barrio->des_barrio = $request->input('txtbarrio');
+			$barrio->save();
 			return redirect('barrio');
 		}
 	}
@@ -116,11 +126,19 @@ class BarrioController extends Controller {
 
 		$id = $request->input('hidden_id');
 		$parroquia_id = $request->input('hidden_id_parroquia');
-		$parroquia = Barrio::where('id','=',$id)
+		$estado = $request->input('estado');
+
+		$barrio = Barrio::where('id','=',$id)
 							->where('parroquia_id','=',$parroquia_id)
 							->first();
-		$parroquia->estreg=0;
-		$parroquia->save();
+		if($estado == 1){
+			$barrio->estreg=0;
+		}
+		else{
+			$barrio->estreg=1;
+		}
+	
+		$barrio->save();
 		return redirect('barrio');
 		//->with('status_message', 'El estado fue Actualizado Satisfactoriamente');
 	}

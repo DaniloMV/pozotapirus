@@ -9,6 +9,7 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
+<script src="/pozotapirus/public/js/funciones.js"></script>
 <h2 class="titulopagina">REGISTRO DE FICHAS</h2>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
@@ -45,21 +46,21 @@
 	<label>Parroquia:</label>
 	{!! Form::select('cmbparroquia', App\Parroquia::orderBy('des_parroquia', 'Asc')->lists('des_parroquia', 'id')) !!} 
 	</section>
-
+   
 	<section >
 	<label>Barrio:</label>
-	{!! Form::select('cmbbarrio', App\Barrio::orderBy('des_barrio', 'Asc')->lists('des_barrio', 'id')) !!} 
+	{!! Form::select('cmbbarrio') !!} 
 	</section>
 
 	<section>
 	<label>Calle:</label>
-	<input id="txtcalle" name="txtcalle" type="text" required placeholder="nombre de la calle"
+	<input id="txtcalle" name="txtcalle" type="text" value="{{ old('calle') }}" required placeholder="nombre de la calle"
 	></input>
 	</section>
 
 	<section>
 	<label class="etiquetaform">Código:</label>
-	<input id="txtpozocodigo" name="txtpozocodigo" type="text" required placeholder="código pozo"
+	<input id="txtpozocodigo" name="txtpozocodigo" type="text" value="{{ old('id') }}" required placeholder="código pozo"
 	></input>
 	</section>
 
@@ -100,12 +101,12 @@
 		<section id="checkedlist" name="checkedlist" class="chkficha">
 			
 			<p>
-			<input id="chklimpio" name="chklimpio" type="checkbox" value="1"></input>
+			<input id="chklimpio" name="chklimpio" type="checkbox" value="{{ old('es_limpio') }}" ></input>
 			<label>Limpio</label>
 			</p>
 			
 			<p>
-			<input id="chkescalera" name="chkescalera" type="checkbox" value="1"></input>
+			<input id="chkescalera" name="chkescalera" type="checkbox" value="{{ old('es_escalera') }}"></input>
 			<label>Escalera</label>
 			</p>
 			
@@ -155,32 +156,32 @@
 
 			<section>
 				<label>Pozo:</label>
-				<input id="txtpozo" name="txtpozo" type="text"/>
+				<input id="txtpozo" name="txtpozo" required type="text"/>
 			</section>
 
 			<section>
 				<label>Sumidero:</label>
-				<input id="txtsumidero" name="txtsumidero" type="text"/>
+				<input id="txtsumidero" name="txtsumidero" required type="text"/>
 			</section>
 			
 			<section>
 				<label>Zona:</label>
-				<input id="txtzona" name="txtzona" type="text"/>
+				<input id="txtzona" name="txtzona" required type="text"/>
 			</section>
 
 			<section>
 				<label>X:</label>
-				<input id="txtcoordenadax" name="txtcoordenadax" type="text"/>
+				<input id="txtcoordenadax" name="txtcoordenadax" required type="text"/>
 			</section>
 
 			<section>
 				<label>Y:</label>
-				<input id="txtcoordenaday" name="txtcoordenaday" type="text"/>
+				<input id="txtcoordenaday" name="txtcoordenaday" required type="text"/>
 			</section>
 			
 			<section>
 				<label>Z:</label>
-				<input id="txtcoordenadaz" name="txtcoordenadaz" type="text"/>
+				<input id="txtcoordenadaz" name="txtcoordenadaz" required type="text"/>
 			</section>
 		</section>
 
@@ -192,27 +193,27 @@
 
 			<section>
 			<label>Cota:</label>
-			<input id="txtcota" name="txtcota" type="text"/>
+			<input id="txtcota" name="txtcota" required type="text"/>
 			</section>
 
 			<section>
 			<label>Diametro Sup:</label>
-			<input id="txtdiametrosup" name="txtdiametrosup" type="text" placeholder="Diámetro superior"/>
+			<input id="txtdiametrosup" name="txtdiametrosup" type="text" required placeholder="Diámetro superior"/>
 			</section>
 
 			<section>
 			<label>Diametro Medio:</label>
-			<input id="txtdiametromedio" name="txtdiametromedio" type="text" placeholder="Diámetro intermedio"/>
+			<input id="txtdiametromedio" name="txtdiametromedio" type="text" required placeholder="Diámetro intermedio"/>
 			</section>
 
 			<section>
 			<label>Diametro Inf:</label>
-			<input id="txtdiametroinf" name="txtdiametroinf" type="text" placeholder="Diámetro inferior"/>
+			<input id="txtdiametroinf" name="txtdiametroinf" type="text" required placeholder="Diámetro inferior"/>
 			</section>
 			
 			<section>
 			<label>Altura:</label>
-			<input id="txtaltura" name="txtaltura" type="text" placeholder="Altura del pozo"/>
+			<input id="txtaltura" name="txtaltura" type="text" required placeholder="Altura del pozo"/>
 			</section>
 		</section>
 	</div>

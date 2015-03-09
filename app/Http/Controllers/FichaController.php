@@ -11,7 +11,7 @@ use App\Repositories\FichaRepository;
 use App\Http\Controllers\Redirect;
 
 use App\Ficha;
-
+use App\Barrio;
 
 
 class FichaController extends Controller {
@@ -25,7 +25,16 @@ class FichaController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth');
+		//Admin
+		if (\Auth::user()->usuario_tipo_id==2)
+		{
+			$this->middleware('auth');
+		}
+		else 
+		{
+			//Digitador
+			return redirect('/login');
+		}
 	}
 
 	/**
@@ -45,7 +54,8 @@ class FichaController extends Controller {
 	{
 		//return view('ficha');
 
-		$datos = Ficha::where('estreg','=','1')->orderBy('id', 'Desc')->paginate();
+		$datos = Ficha::where('estreg','=','1')
+				->orderBy('sec_ficha', 'Desc')->paginate();
 
         //return $usuarios;
 
@@ -62,50 +72,66 @@ class FichaController extends Controller {
 
 	public function postCrear(Request $request)
     {
+
 		$validation = Ficha::validate($request->all());
 
-		if($validation->fails()){
-			// En caso de error regresa a la acción create con los datos y los errores encontrados
-			return redirect()->back()->withInput()->withErrors($validation);
+		$codigoverificar = Ficha::where('id','=',$request->input('txtpozocodigo'))->first();
+
+		$estadocodigo = 1;
+
+		if(empty($codigoverificar) || count($codigoverificar) == 0)
+		{
+			$estadocodigo = 0;
+		}
+		if($estadocodigo == 0) 
+		{
+			if($validation->fails()){
+				// En caso de error regresa a la acción create con los datos y los errores encontrados
+				return redirect('ficha/Nuevo')->withInput()->withErrors($validation);
+			}
+			else
+			{	
+				$ficha=new Ficha;
+				$ficha->id=$request->input('txtpozocodigo');
+				$secuencial = Ficha::max('sec_ficha')+1;
+				$ficha->sec_ficha = $secuencial;
+				$ficha->usuario_id=\Auth::user()->id;
+				$ficha->fecha=strtotime('now');
+				$ficha->parroquia_id=$request->input('cmbparroquia');
+				$ficha->barrio_id=$request->input('cmbbarrio');
+				$ficha->calle=$request->input('txtcalle');
+				$ficha->cmb_tipo_red_id=$request->input('cmbtipored');
+				$ficha->cmb_tipo_calzada_id=$request->input('cmbtipocalzada');
+				$ficha->cmb_material_colector_id=$request->input('cmbmaterialcolector');
+				$ficha->cmb_estado_pozo_id=$request->input('cmbestadopozo');
+				
+				FichaController::VerificarCamposCHK($request, $ficha);
+
+				$ficha->sumidero=$request->input('txtsumidero');
+				$ficha->gps='WGS84';
+				$ficha->zona=$request->input('txtzona');
+				$ficha->pozo=$request->input('txtpozo');
+				$ficha->x=$request->input('txtcoordenadax');
+				$ficha->y=$request->input('txtcoordenaday');
+				$ficha->z=$request->input('txtcoordenadaz');
+				$ficha->diametro_sup=$request->input('txtdiametrosup');
+				$ficha->diametro_med=$request->input('txtdiametromedio');
+				$ficha->diametro_inf=$request->input('txtdiametroinf');
+				$ficha->cota=$request->input('txtcota');
+				$ficha->altura=$request->input('txtaltura');
+				$ficha->observaciones=$request->input('observaciones');
+				$ficha->foto=$request->input('txtpozocodigo');
+				$ficha->dibujo_ref=$request->input('txtpozocodigo');
+				//$ficha->usu_revisa_id='';
+				//$ficha->fecha_revisa='';
+				$ficha->estreg=1;
+				$ficha->save();
+				return redirect('ficha');
+			}
 		}
 		else
-		{	
-			$ficha=new Ficha;
-			$ficha->id=$request->input('txtpozocodigo');
-			$secuencial = Ficha::max('sec_ficha')+1;
-			$ficha->sec_ficha = $secuencial;
-			$ficha->usuario_id=Auth::user()->id;
-			$ficha->fecha=date('d/m/Y h:i');
-			$ficha->parroquia_id=$request->input('cmbparroquia');
-			$ficha->barrio_id=$request->input('cmbbarrio');
-			$ficha->calle=$request->input('txtcalle');
-			$ficha->cmb_tipo_red_id=$request->input('cmbtipored');
-			$ficha->cmb_tipo_calzada_id=$request->input('cmbtipocalzada');
-			$ficha->cmb_material_colector_id=$request->input('cmbmaterialcolector');
-			$ficha->cmb_estado_pozo_id=$request->input('cmbestadopozo');
-			
-			FichaController::VerificarCamposCHK($request, $ficha);
-
-			$ficha->sumidero=$request->input('txtsumidero');
-			$ficha->gps='WGS84';
-			$ficha->zona=$request->input('txtzona');
-			$ficha->pozo=$request->input('txtpozo');
-			$ficha->x=$request->input('txtcoordenadax');
-			$ficha->y=$request->input('txtcoordenaday');
-			$ficha->z=$request->input('txtcoordenadaz');
-			$ficha->diametro_sup=$request->input('txtdiametrosup');
-			$ficha->diametro_med=$request->input('txtdiametromedio');
-			$ficha->diametro_inf=$request->input('txtdiametroinf');
-			$ficha->cota=$request->input('txtcota');
-			$ficha->altura=$request->input('txtaltura');
-			$ficha->observaciones=$request->input('observaciones');
-			$ficha->foto=$request->input('txtpozocodigo');
-			$ficha->dibujo_ref=$request->input('txtpozocodigo');
-			//$ficha->usu_revisa_id='';
-			//$ficha->fecha_revisa='';
-			$ficha->estreg=1;
-			$ficha->save();
-			return redirect('ficha');
+		{
+			return redirect('ficha/Nuevo')->withInput()->withErrors(array('msg' => 'No se puede guardar. El código de ficha que se ha ingresado ya existe.'));
 		}
     }
 
@@ -120,52 +146,66 @@ class FichaController extends Controller {
 
 		$sec_ficha = $request->input('hidden_sec');
 		
-		$validation = Ficha::validate($request->all());
+		$validation = Ficha::validateeditar($request->all());
 
-		if($validation->fails()){
-		 	return redirect('EditarFicha',$sec_ficha)->withErrors($validation);
-		 	// Redirect::route('Editarficha',$id_ficha)->withErrors($validation);
+		$codigoverificar = Ficha::where('id','=',$request->input('txtpozocodigo'))->first();
+
+		$estadocodigo = 1;
+
+		if(empty($codigoverificar) || count($codigoverificar) == 1)
+		{
+			$estadocodigo = 0;
 		}
-		else{
 
-			$ficha = Ficha::where('sec_ficha','=',$sec_ficha)->first();
+		if($estadocodigo == 0) 
+		{
 
-			$ficha->id=$request->input('txtpozocodigo');
-			$ficha->usuario_id=Auth::user()->id;
-			$ficha->fecha=date('d/m/Y h:i');
-			$ficha->parroquia_id=$request->input('cmbparroquia');
-			$ficha->barrio_id=$request->input('cmbbarrio');
-			$ficha->calle=$request->input('txtcalle');
-			$ficha->cmb_tipo_red_id=$request->input('cmbtipored');
-			$ficha->cmb_tipo_calzada_id=$request->input('cmbtipocalzada');
-			$ficha->cmb_material_colector_id=$request->input('cmbmaterialcolector');
-			$ficha->cmb_estado_pozo_id=$request->input('cmbestadopozo');
+			if($validation->fails()){
+			 	return redirect('EditarFicha',$sec_ficha)->withErrors($validation);
+			 	// Redirect::route('Editarficha',$id_ficha)->withErrors($validation);
+			}
+			else{
 
-			FichaController::VerificarCamposCHK($request, $ficha);
-			
-			$ficha->sumidero=$request->input('txtsumidero');
-			$ficha->gps='WGS84';
-			$ficha->zona=$request->input('txtzona');
-			$ficha->pozo=$request->input('txtpozo');
-			$ficha->x=$request->input('txtcoordenadax');
-			$ficha->y=$request->input('txtcoordenaday');
-			$ficha->z=$request->input('txtcoordenadaz');
-			$ficha->diametro_sup=$request->input('txtdiametrosup');
-			$ficha->diametro_med=$request->input('txtdiametromedio');
-			$ficha->diametro_inf=$request->input('txtdiametroinf');
-			$ficha->cota=$request->input('txtcota');
-			$ficha->altura=$request->input('txtaltura');
-			$ficha->observaciones=$request->input('observaciones');
-			$ficha->foto=$request->input('txtpozocodigo');
-			$ficha->dibujo_ref=$request->input('txtpozocodigo');
-			//$ficha->usu_revisa_id='';
-			//$ficha->fecha_revisa='';
-			$ficha->estreg=1;
-			$ficha->save();
-			return redirect('ficha');
+				$ficha = Ficha::where('sec_ficha','=',$sec_ficha)->first();
+				//Auth::user()->name
+				$ficha->id=$request->input('txtpozocodigo');
+				$ficha->usuario_id= \Auth::user()->id;
+				$ficha->fecha = strtotime('now');
+				$ficha->parroquia_id=$request->input('cmbparroquia');
+				$ficha->barrio_id=$request->input('cmbbarrio');
+				$ficha->calle=$request->input('txtcalle');
+				$ficha->cmb_tipo_red_id=$request->input('cmbtipored');
+				$ficha->cmb_tipo_calzada_id=$request->input('cmbtipocalzada');
+				$ficha->cmb_material_colector_id=$request->input('cmbmaterialcolector');
+				$ficha->cmb_estado_pozo_id=$request->input('cmbestadopozo');
 
-			//->with('status_message', 'Paciente modificado satisfactoriamente');
-
+				FichaController::VerificarCamposCHK($request, $ficha);
+				
+				$ficha->sumidero=$request->input('txtsumidero');
+				$ficha->gps='WGS84';
+				$ficha->zona=$request->input('txtzona');
+				$ficha->pozo=$request->input('txtpozo');
+				$ficha->x=$request->input('txtcoordenadax');
+				$ficha->y=$request->input('txtcoordenaday');
+				$ficha->z=$request->input('txtcoordenadaz');
+				$ficha->diametro_sup=$request->input('txtdiametrosup');
+				$ficha->diametro_med=$request->input('txtdiametromedio');
+				$ficha->diametro_inf=$request->input('txtdiametroinf');
+				$ficha->cota=$request->input('txtcota');
+				$ficha->altura=$request->input('txtaltura');
+				$ficha->observaciones=$request->input('observaciones');
+				$ficha->foto=$request->input('txtpozocodigo');
+				$ficha->dibujo_ref=$request->input('txtpozocodigo');
+				//$ficha->usu_revisa_id='';
+				//$ficha->fecha_revisa='';
+				$ficha->estreg=1;
+				$ficha->save();
+				return redirect('ficha');
+			}
+		}
+		else
+		{
+			return redirect('ficha')->withInput()->withErrors(array('msg' => 'No se puede guardar. El código de ficha que se ha ingresado ya existe.'));
 		}
 	}
 
@@ -251,5 +291,17 @@ class FichaController extends Controller {
 		return redirect('ficha');
 		//->with('status_message', 'El estado fue Actualizado Satisfactoriamente');
 	}
+
+	public function getBuscar($id_parroquia){
+
+       if (\Request::ajax()) {
+       $listado = Barrio::where('Parroquia_id','=',$id_parroquia)
+        		->where('estreg','=',1)
+                ->orderBy('des_barrio', 'Asc')->get()->toArray();
+
+       return \Response::json(array('listados' => $listado));
+       }
+       return 0;
+    }
 
 }

@@ -72,4 +72,5 @@
 		<p align="center">{!! link_to_route('NuevoUsuario', 'Nuevo Usuario') !!}</p>
 
     	</div>
+        <?php echo $datos->render(); ?>
 @stop

@@ -26,7 +26,16 @@ class UsuarioController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth');
+		//Admin
+		if (\Auth::user()->usuario_tipo_id==2)
+		{
+			$this->middleware('auth');
+		}
+		else 
+		{
+			//Digitador
+			return redirect('/login');
+		}
 	}
 
 	/**
@@ -59,6 +68,11 @@ class UsuarioController extends Controller {
 	{
 		return view('usuario.vis_usuario_nuevo')
 			   ->with('title','Nuevo Usuario');
+	}
+	public function getSalir()
+	{
+		\Auth::logout();
+		return redirect('/login');
 	}
 
 	public function postCrear(Request $request)

@@ -26,7 +26,16 @@ class ParroquiaController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth');
+		//Admin
+		if (\Auth::user()->usuario_tipo_id==2)
+		{
+			$this->middleware('auth');
+		}
+		else 
+		{
+			//Digitador
+			return redirect('/login');
+		}
 	}
 
 	/**

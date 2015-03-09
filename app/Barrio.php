@@ -29,14 +29,15 @@ class Barrio extends Model implements AuthenticatableContract, CanResetPasswordC
   	public $timestamps = false;
 	protected $table = 'cmb_barrio';
 
-    protected $perPage = 20;
+    protected $perPage = 1;
 	
 	public static $rules = array(
-	'txtbarrio' => array('required', 'min:4')
+	'cmbparroquia' => array('required'),
+	'txtbarrio' => array('required')
 	);
 
 	public static $messages = array(
-            'required'        => 'El nombre del barrio es obligatorio.',
+            'required'        => 'Verifica que todos los campos obligatorios esten llenos.',
             'min'             => 'El nombre del barrio debe tener al menos 4 carácteres.');
 
 	/*
