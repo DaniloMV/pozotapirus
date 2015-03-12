@@ -53,6 +53,13 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
         entre la tabla Ficha y la tabla Tipo_Pozo*/
         return $this->belongsTo('App\Tipopozo', 'cmb_tipo_pozo_id');
     }
+
+    public function modtipotapa(){
+        /*belongs_to para señalar la clave foránea, que existe en esta
+        entre la tabla Ficha y la tabla Tipo_Pozo*/
+        return $this->belongsTo('App\Tipotapa', 'cmb_tipo_tapa_id');
+    }
+
     public function modtipored(){
     	/*belongs_to para señalar la clave foránea, que existe en esta
 		entre la tabla wcusuario y la tabla usuariotipos*/
@@ -98,15 +105,16 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
     'cmbtipored' => array('required'),
     'cmbtipocalzada' => array('required'),
     'cmbmaterialcolector' => array('required'),
+    'cmbtipopozo' => array('required'),
+    'cmbtipotapa' => array('required'),
     'cmbestadopozo' => array('required'),
     'txtcoordenadax' => array('required','numeric'),
     'txtcoordenaday' => array('required','numeric'),
     'txtcoordenadaz' => array('required','numeric'),
-    'txtcota' => array('required','numeric'),
-    'txtdiametrosup' => array('required','numeric'),
-    'txtdiametromedio' => array('required','numeric'),
-    'txtdiametroinf' => array('required','numeric'),
+    'txtdiametroe1' => array('required','numeric'),
+    'txtdiametrosalida' => array('required','numeric'),
     'txtaltura' => array('required','numeric')
+    
 	);
 
 

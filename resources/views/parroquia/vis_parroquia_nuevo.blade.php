@@ -23,7 +23,7 @@
 	@endif
 
 <!-- ponemos el contenido de la vista estamos dentro del body -->
-<form role="form" method="POST" action="../barrio/Crear">
+<form role="form" method="POST" action="../parroquia/Crear">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 	<section class="campoform">
@@ -34,7 +34,7 @@
 	</section>
 	</section>
 	<input class="btnguardar" type="submit" name="agregar_parroquia" value="Guardar"/>
-	<p class="iniciaficha"> {!! link_to_route('barrio','Regresar') !!} </p> 
+	<p class="iniciaficha"> {!! link_to_route('parroquia','Regresar') !!} </p> 
 
 </form>
 

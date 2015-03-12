@@ -9,6 +9,8 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
+<script src="/pozotapirus/public/js/funciones.js"></script>
+<script src="/pozotapirus/public/js/validacion.js"></script>
 <h2 class="titulopagina">MODIFICAR FICHAS</h2>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
@@ -53,7 +55,7 @@
 	<input type="hidden" name="hidden_sec"  value="<?php echo "{$datos->sec_ficha}"; ?>">
 	<section>
 	<label class="etiquetaform">Código:</label>
-	<input id="txtpozocodigo" name="txtpozocodigo" type="text" required value="<?php echo "{$datos->id}"; ?>"  placeholder="código pozo"
+	<input id="txtpozocodigo" name="txtpozocodigo" type="text" required value="<?php echo "{$datos->id}"; ?>"  placeholder="único (10 caracteres)"
 	></input>
 	</section>
 
@@ -80,6 +82,16 @@
 			<section>
 			<label>Material colector:</label>
 			{!! Form::select('cmbmaterialcolector', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), $datos->cmb_material_colector_id) !!} 
+			</section>
+			
+			<section>
+			<label>Tipo pozo:</label>
+			{!! Form::select('cmbtipopozo', App\Tipopozo::orderBy('des_tipo_pozo', 'Asc')->lists('des_tipo_pozo', 'id'), $datos->cmb_tipo_pozo_id) !!} 
+			</section>
+
+			<section>
+			<label>Tipo tapa:</label>
+			{!! Form::select('cmbtipotapa', App\Tipotapa::orderBy('des_tipo_tapa', 'Asc')->lists('des_tipo_tapa', 'id'), $datos->cmb_tipo_tapa_id) !!} 
 			</section>
 
 			<section>
@@ -148,21 +160,6 @@
 		<section id="coordenadas" name="coordenadas" class="campoform">
 
 			<section>
-				<label>Pozo:</label>
-				<input id="txtpozo" name="txtpozo" type="text" required value="<?php echo "{$datos->pozo}"; ?>"></input>
-			</section>
-
-			<section>
-				<label>Sumidero:</label>
-				<input id="txtsumidero" name="txtsumidero" type="text" required value="<?php echo "{$datos->sumidero}"; ?>"></input>
-			</section>
-			
-			<section>
-				<label>Zona:</label>
-				<input id="txtzona" name="txtzona" type="text" required value="<?php echo "{$datos->zona}"; ?>"></input>
-			</section>
-
-			<section>
 				<label>X:</label>
 				<input id="txtcoordenadax" name="txtcoordenadax" type="text" required value="<?php echo "{$datos->x}"; ?>"></input>
 			</section>
@@ -185,28 +182,38 @@
 		<section id="medidas" name="medidas" class="campoform">
 
 			<section>
-			<label>Cota:</label>
-			<input id="txtcota" name="txtcota" type="text" required value="<?php echo "{$datos->cota}"; ?>"></input>
+			<label>Diametro E1:</label>
+			<input id="txtdiametroe1" name="txtdiametroe1" type="text" required value="<?php echo "{$datos->entrada_1}"; ?>" placeholder="metros"/>m
 			</section>
 
 			<section>
-			<label>Diametro Sup:</label>
-			<input id="txtdiametrosup" name="txtdiametrosup" type="text" required value="<?php echo "{$datos->diametro_sup}"; ?>" placeholder="Diámetro superior"/>
+			<label>Diametro E2:</label>
+			<input id="txtdiametroe2" name="txtdiametroe2" type="text" required value="<?php echo "{$datos->entrada_2}"; ?>" placeholder="metros"/>m
 			</section>
 
 			<section>
-			<label>Diametro Medio:</label>
-			<input id="txtdiametromedio" name="txtdiametromedio" type="text" required value="<?php echo "{$datos->diametro_med}"; ?>" placeholder="Diámetro intermedio"/>
+			<label>Diametro E3:</label>
+			<input id="txtdiametroe3" name="txtdiametroe3" type="text" required value="<?php echo "{$datos->entrada_3}"; ?>" placeholder="metros"/>m
 			</section>
 
 			<section>
-			<label>Diametro Inf:</label>
-			<input id="txtdiametroinf" name="txtdiametroinf" type="text" required value="<?php echo "{$datos->diametro_inf}"; ?>" placeholder="Diámetro inferior"/>
+			<label>Diametro E4:</label>
+			<input id="txtdiametroe4" name="txtdiametroe4" type="text" required value="<?php echo "{$datos->entrada_4}"; ?>" placeholder="metros"/>m
+			</section>
+
+			<section>
+			<label>Diametro E5:</label>
+			<input id="txtdiametroe5" name="txtdiametroe5" type="text" required value="<?php echo "{$datos->entrada_5}"; ?>" placeholder="metros"/>m
+			</section>
+
+			<section>
+			<label>Salida:</label>
+			<input id="txtdiametrosalida" name="txtdiametrosalida" type="text" required value="<?php echo "{$datos->salida}"; ?>" placeholder="metros"/>m
 			</section>
 			
 			<section>
 			<label>Altura:</label>
-			<input id="txtaltura" name="txtaltura" type="text" required value="<?php echo "{$datos->altura}"; ?>" placeholder="Altura del pozo"/>
+			<input id="txtaltura" name="txtaltura" type="text" required value="<?php echo "{$datos->altura}"; ?>" placeholder="metros"/>m
 			</section>
 		</section>
 	</div>

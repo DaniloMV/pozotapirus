@@ -10,6 +10,7 @@
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="/pozotapirus/public/js/funciones.js"></script>
+<script src="/pozotapirus/public/js/validacion.js"></script>
 <h2 class="titulopagina">INICIAR FICHA</h2>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
@@ -60,7 +61,7 @@
 
 	<section>
 	<label class="etiquetaform">Código:</label>
-	<input id="txtpozocodigo" name="txtpozocodigo" type="text" value="{{ old('id') }}" required placeholder="código pozo"
+	<input id="txtpozocodigo" name="txtpozocodigo" type="text" value="{{ old('id') }}" required placeholder="único (10 caracteres)"
 	></input>
 	</section>
 
@@ -92,6 +93,11 @@
 			<section>
 			<label>Tipo pozo:</label>
 			{!! Form::select('cmbtipopozo', App\Tipopozo::orderBy('des_tipo_pozo', 'Asc')->lists('des_tipo_pozo', 'id')) !!} 
+			</section>
+
+			<section>
+			<label>Tipo tapa:</label>
+			{!! Form::select('cmbtipotapa', App\Tipotapa::orderBy('des_tipo_tapa', 'Asc')->lists('des_tipo_tapa', 'id')) !!} 
 			</section>
 		
 			<section>
@@ -160,21 +166,6 @@
 		<section id="coordenadas" name="coordenadas" class="campoform">
 
 			<section>
-				<label>Pozo:</label>
-				<input id="txtpozo" name="txtpozo" required type="text"/>
-			</section>
-
-			<section>
-				<label>Sumidero:</label>
-				<input id="txtsumidero" name="txtsumidero" required type="text"/>
-			</section>
-			
-			<section>
-				<label>Zona:</label>
-				<input id="txtzona" name="txtzona" required type="text"/>
-			</section>
-
-			<section>
 				<label>X:</label>
 				<input id="txtcoordenadax" name="txtcoordenadax" required type="text"/>
 			</section>
@@ -197,28 +188,38 @@
 		<section id="medidas" name="medidas" class="campoform">
 
 			<section>
-			<label>Cota:</label>
-			<input id="txtcota" name="txtcota" required type="text"/>
+			<label>Diámetro E1:</label>
+			<input id="txtdiametroe1" name="txtdiametroe1" type="text" required placeholder="metros"/>m
 			</section>
 
 			<section>
-			<label>Diametro Sup:</label>
-			<input id="txtdiametrosup" name="txtdiametrosup" type="text" required placeholder="Diámetro superior"/>
+			<label>Diámetro E2:</label>
+			<input id="txtdiametroe2" name="txtdiametroe2" type="text" required placeholder="metros"/>m
 			</section>
 
 			<section>
-			<label>Diametro Medio:</label>
-			<input id="txtdiametromedio" name="txtdiametromedio" type="text" required placeholder="Diámetro intermedio"/>
+			<label>Diámetro E3:</label>
+			<input id="txtdiametroe3" name="txtdiametroe3" type="text" required placeholder="metros"/>m
 			</section>
 
 			<section>
-			<label>Diametro Inf:</label>
-			<input id="txtdiametroinf" name="txtdiametroinf" type="text" required placeholder="Diámetro inferior"/>
+			<label>Diámetro E4:</label>
+			<input id="txtdiametroe4" name="txtdiametroe4" type="text" required placeholder="metros"/>m
+			</section>
+
+			<section>
+			<label>Diámetro E5:</label>
+			<input id="txtdiametroe5" name="txtdiametroe5" type="text" required placeholder="metros"/>m
+			</section>
+
+			<section>
+			<label>Salida:</label>
+			<input id="txtdiametrosalida" name="txtdiametrosalida" type="text" required placeholder="metros"/>m
 			</section>
 			
 			<section>
 			<label>Altura:</label>
-			<input id="txtaltura" name="txtaltura" type="text" required placeholder="Altura del pozo"/>
+			<input id="txtaltura" name="txtaltura" type="text" required placeholder="metros"/>m
 			</section>
 		</section>
 	</div>

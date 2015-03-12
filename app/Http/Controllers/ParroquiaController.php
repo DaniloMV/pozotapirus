@@ -71,24 +71,16 @@ class ParroquiaController extends Controller {
 
 	public function postCrear(Request $request)
     {
-        
-		$validation = Parroquia::validate($request->all());
+			
+		$parroquia=new Parroquia;
+		$secuencial = Parroquia::max('id')+1;
+		$parroquia->id = $secuencial;
+		$parroquia->des_parroquia = $request->input('txtparroquia');
+		$parroquia->estreg=1;
 
-		if($validation->fails()){
-			// En caso de error regresa a la acción create con los datos y los errores encontrados
-			return redirect()->back()->withInput()->withErrors($validation);
-		}
-		else
-		{	
-			$parroquia=new Parroquia;
-			$secuencial = Parroquia::max('id')+1;
-			$parroquia->id = $secuencial;
-			$parroquia->des_parroquia = $request->input('txtparroquia');
-			$parroquia->estreg=1;
-
-			$parroquia->save();
-			return redirect('parroquia');
-		}
+		$parroquia->save();
+		return redirect('parroquia');
+		
 	}
 
 	public function getEditar($id){
@@ -100,20 +92,11 @@ class ParroquiaController extends Controller {
     public function postActualizar(Request $request){
 
 		$id = $request->input('hidden_id');
+		$parroquia = Parroquia::where('id','=',$id)->first();
+		$parroquia->des_parroquia = $request->input('txtparroquia');
+		$parroquia->save();
+		return redirect('parroquia');
 		
-		$validation = Parroquia::validate($request->all());
-
-		if($validation->fails()){
-		 	return redirect('EditarUsuario',$id)->withErrors($validation);
-		 	// Redirect::route('Editarusuario',$id_usuario)->withErrors($validation);
-		}
-		else{
-
-			$parroquia = Parroquia::where('id','=',$id)->first();
-			$parroquia->des_parroquia = $request->input('txtparroquia');
-			$parroquia->save();
-			return redirect('parroquia');
-		}
 	}
 
 	public function deleteActivarInactivar(Request $request){

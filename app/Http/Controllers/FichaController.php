@@ -111,21 +111,24 @@ class FichaController extends Controller {
 				$ficha->cmb_tipo_red_id=$request->input('cmbtipored');
 				$ficha->cmb_tipo_calzada_id=$request->input('cmbtipocalzada');
 				$ficha->cmb_material_colector_id=$request->input('cmbmaterialcolector');
+				$ficha->cmb_tipo_pozo_id=$request->input('cmbtipopozo');
+				$ficha->cmb_tipo_tapa_id=$request->input('cmbtipotapa');
 				$ficha->cmb_estado_pozo_id=$request->input('cmbestadopozo');
-				
+
 				FichaController::VerificarCamposCHK($request, $ficha);
 
-				$ficha->sumidero=$request->input('txtsumidero');
+				
 				$ficha->gps='WGS84';
-				$ficha->zona=$request->input('txtzona');
-				$ficha->pozo=$request->input('txtpozo');
+				$ficha->zona=17;
 				$ficha->x=$request->input('txtcoordenadax');
 				$ficha->y=$request->input('txtcoordenaday');
 				$ficha->z=$request->input('txtcoordenadaz');
-				$ficha->diametro_sup=$request->input('txtdiametrosup');
-				$ficha->diametro_med=$request->input('txtdiametromedio');
-				$ficha->diametro_inf=$request->input('txtdiametroinf');
-				$ficha->cota=$request->input('txtcota');
+				$ficha->entrada_1=$request->input('txtdiametroe1');
+				$ficha->entrada_2=$request->input('txtdiametroe2');
+				$ficha->entrada_3=$request->input('txtdiametroe3');
+				$ficha->entrada_4=$request->input('txtdiametroe4');
+				$ficha->entrada_5=$request->input('txtdiametroe5');
+				$ficha->salida=$request->input('txtdiametrosalida');
 				$ficha->altura=$request->input('txtaltura');
 				$ficha->observaciones=$request->input('observaciones');
 				$ficha->foto=$request->input('txtpozocodigo');
@@ -187,21 +190,23 @@ class FichaController extends Controller {
 				$ficha->cmb_tipo_red_id=$request->input('cmbtipored');
 				$ficha->cmb_tipo_calzada_id=$request->input('cmbtipocalzada');
 				$ficha->cmb_material_colector_id=$request->input('cmbmaterialcolector');
+				$ficha->cmb_tipo_pozo_id=$request->input('cmbtipopozo');
+				$ficha->cmb_tipo_tapa_id=$request->input('cmbtipotapa');
 				$ficha->cmb_estado_pozo_id=$request->input('cmbestadopozo');
 
 				FichaController::VerificarCamposCHK($request, $ficha);
 				
-				$ficha->sumidero=$request->input('txtsumidero');
 				$ficha->gps='WGS84';
-				$ficha->zona=$request->input('txtzona');
-				$ficha->pozo=$request->input('txtpozo');
+				$ficha->zona=17;
 				$ficha->x=$request->input('txtcoordenadax');
 				$ficha->y=$request->input('txtcoordenaday');
 				$ficha->z=$request->input('txtcoordenadaz');
-				$ficha->diametro_sup=$request->input('txtdiametrosup');
-				$ficha->diametro_med=$request->input('txtdiametromedio');
-				$ficha->diametro_inf=$request->input('txtdiametroinf');
-				$ficha->cota=$request->input('txtcota');
+				$ficha->entrada_1=$request->input('txtdiametroe1');
+				$ficha->entrada_2=$request->input('txtdiametroe2');
+				$ficha->entrada_3=$request->input('txtdiametroe3');
+				$ficha->entrada_4=$request->input('txtdiametroe4');
+				$ficha->entrada_5=$request->input('txtdiametroe5');
+				$ficha->salida=$request->input('txtdiametrosalida');
 				$ficha->altura=$request->input('txtaltura');
 				$ficha->observaciones=$request->input('observaciones');
 				$ficha->foto=$request->input('txtpozocodigo');
