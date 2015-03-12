@@ -10,11 +10,12 @@
 <body>
 <header class="cabecera">
 <figure>
-<img id="imglogo" src="/pozotapirus/public/images/logo.jpg">
+<img id="imglogotapirus" src="/pozotapirus/public/images/tapirus.jpg">
 <figcaption id="textocab">
 <h1>"TAPIRUS"</h1>
 <small>INVESTIGACIÓN Y GESTIÓN DE PROYECTOS</small>
 </figcaption>
+<img id="imglogokunhwa" src="/pozotapirus/public/images/kunhwa.jpg">
 </figure>
 <nav class="menuprincipal">
     <ul> 

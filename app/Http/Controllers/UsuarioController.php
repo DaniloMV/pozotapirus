@@ -77,10 +77,6 @@ class UsuarioController extends Controller {
 
 	public function postCrear(Request $request)
     {
-        //$name = $request->input('Nombre');
-
-        //$inputs = Request::all();
-			
 		$validation = Usuario::validate($request->all());
 
 		if($validation->fails()){

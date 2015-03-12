@@ -6,18 +6,27 @@ body{
 }
 
 
-#imglogo{
+#imglogotapirus{
 	border-radius: 50%;
 	height: 50px;
 	width:	50px;
 
 }
 
+#imglogokunhwa{
+	border-radius: 0.25em;
+	height: 50px;
+	width:	50px;
+}
 
-#imglogo, #textocab{
+
+#imglogotapirus,#imglogokunhwa, #textocab{
 	display: inline-block;
 	vertical-align: middle;
 }
+
+
+
 
 #textocab{
 	font-size: 14px;

@@ -53,12 +53,12 @@ class Usuario extends Model implements AuthenticatableContract, CanResetPassword
     protected $perPage = 5;
 	
 	public static $rules = array(
-	'txtusuario' => array('required|min:4'),
-	'txtemail' => array('required|email|unique:usuario'),    
-	'txtpassword' => array('required|min:4'),
-	'password' => array('required|min:4'),
-	'UsuarioEquipo' => array('required'),
-	'UsuarioTipo' => array('required')
+		'txtusuario' => 'required|min:4',
+		'txtemail' => 'required|email',    
+		'txtpassword' => 'required|min:4',
+		'password_confirmation' => 'required|min:4',
+		'UsuarioEquipo' => 'required',
+		'UsuarioTipo' => 'required'
 	);
 
 	public static $messages = array(
