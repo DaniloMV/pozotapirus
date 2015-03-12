@@ -47,6 +47,12 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
         return $this->belongsTo('App\Barrio', 'barrio_id');
     }
 
+    
+    public function modtipopozo(){
+        /*belongs_to para señalar la clave foránea, que existe en esta
+        entre la tabla Ficha y la tabla Tipo_Pozo*/
+        return $this->belongsTo('App\Tipopozo', 'cmb_tipo_pozo_id');
+    }
     public function modtipored(){
     	/*belongs_to para señalar la clave foránea, que existe en esta
 		entre la tabla wcusuario y la tabla usuariotipos*/
@@ -86,75 +92,32 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
 	*/
 	
 	public static $rules = array(
-     //'txtpozocodigo' => array('required')
-     //|id|unique'),    
-	// 'txtcalle' => array('required'),
- //    'cmbparroquia' => array('required'),
- //    'cmbbarrio' => array('required'),
- //    'cmbtipored' => array('required'),
- //    'cmbtipocalzada' => array('required'),
- //    'cmbmaterialcolector' => array('required'),
- //    'cmbestadopozo' => array('required'),
- //    'txtpozo' => array('required'),
- //    'txtsumidero' => array('required'),
- //    'txtzona' => array('required'),
- //    'txtcoordenadax' => array('required'),
- //    'txtcoordenaday' => array('required'),
- //    'txtcoordenadaz' => array('required'),
- //    'txtcota' => array('required'),
- //    'txtdiametrosup' => array('required'),
- //    'txtdiametromedio' => array('required'),
- //    'txtdiametroinf' => array('required'),
- //    'txtaltura' => array('required')
+
+    'cmbparroquia' => array('required'),
+    'cmbbarrio' => array('required'),
+    'cmbtipored' => array('required'),
+    'cmbtipocalzada' => array('required'),
+    'cmbmaterialcolector' => array('required'),
+    'cmbestadopozo' => array('required'),
+    'txtcoordenadax' => array('required','numeric'),
+    'txtcoordenaday' => array('required','numeric'),
+    'txtcoordenadaz' => array('required','numeric'),
+    'txtcota' => array('required','numeric'),
+    'txtdiametrosup' => array('required','numeric'),
+    'txtdiametromedio' => array('required','numeric'),
+    'txtdiametroinf' => array('required','numeric'),
+    'txtaltura' => array('required','numeric')
 	);
 
-    public static $ruleseditar = array( 
-    //'txtpozocodigo' => array('required')  
-    //'txtcalle' => array('required')
-    // 'cmbparroquia' => array('required'),
-    // 'cmbbarrio' => array('required'),
-    // 'cmbtipored' => array('required'),
-    // 'cmbtipocalzada' => array('required'),
-    // 'cmbmaterialcolector' => array('required'),
-    // 'cmbestadopozo' => array('required'),
-    // 'txtpozo' => array('required'),
-    // 'txtsumidero' => array('required'),
-    // 'txtzona' => array('required'),
-    // 'txtcoordenadax' => array('required'),
-    // 'txtcoordenaday' => array('required'),
-    // 'txtcoordenadaz' => array('required'),
-    // 'txtcota' => array('required'),
-    // 'txtdiametrosup' => array('required'),
-    // 'txtdiametromedio' => array('required'),
-    // 'txtdiametroinf' => array('required'),
-    // 'txtaltura' => array('required')
-    );
 
 	public static $messages = array(
             'required'        => 'Verifica que todos los campos obligatorios esten llenos.',
             'unique'             => 'El código de ficha que se ha ingresado ya existe.',
-            'min'             => 'minimo de carácteres - incumplido.');
+            'min'             => 'mínimo de carácteres - incumplido.');
 
-	/*
-
-	$v = Validator::make($request->all(), [
-        'title' => 'required|unique|max:255',
-        'body' => 'required',
-    ]);
-
-    if ($v->fails())
-    {
-        return redirect()->back()->withErrors($v->errors());
-    }
-
-    */
 
 	public static function validate($data){ 
 		return \Validator::make($data, static::$rules, static::$messages);
 	}
-
-    public static function validateeditar($data){ 
-        return \Validator::make($data, static::$ruleseditar, static::$messages);
-    }
 
 }

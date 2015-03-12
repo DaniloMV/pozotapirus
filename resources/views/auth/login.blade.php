@@ -4,7 +4,7 @@
 @section('cabecera')
     @parent
 
- <h2>Ingresar al Sistema</h2>
+ <h2 class="titulopagina">¡Bienvenido!</h2>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop
@@ -16,7 +16,7 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
-				<div class="panel-heading">Ingresar al Sistema</div>
+				<div class="panel-heading"></div>
 				<div class="panel-body">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
@@ -29,9 +29,8 @@
 						</div>
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="../auth/login">
+					<form class="form-horizontal fuenteingreso" role="form" method="POST" action="../auth/login">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
 						<div class="form-group">
 							<label class="col-md-4 control-label">E-Mail</label>
 							<div class="col-md-6">
@@ -45,7 +44,7 @@
 								<input type="password" class="form-control" name="password">
 							</div>
 						</div>
-
+						
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<div class="checkbox">
@@ -58,11 +57,12 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary" style="margin-right: 15px;">
+								<button type="submit" class="btn btn-primary btningreso" style="margin-right: 15px;">
 									Ingresar
 								</button>
-
-								<a href="../password/email">Recuperar Contraseña?</a>
+							</div>
+							<div class="col-md-6 col-md-offset-4 ">
+								<a href="../password/email">Haz olvidado tu contraseña?</a>
 							</div>
 						</div>
 					</form>

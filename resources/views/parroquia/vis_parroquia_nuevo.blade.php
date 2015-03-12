@@ -4,7 +4,7 @@
 @section('cabecera')
     @parent
 
- <h2 class="titulopagina">Nuevo Usuario</h2>
+ <h2 class="titulopagina">Nueva Parroquia</h2>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop
@@ -26,14 +26,15 @@
 <form role="form" method="POST" action="../barrio/Crear">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+	<section class="campoform">
 	<section>
 	<label>Nombre:</label>
 	<input id="txtparroquia" name="txtparroquia" type="text" value="{{ old('name') }}" required placeholder="Nombre Parroquia"
 	></input>
 	</section>
-
-	<input type="submit" name="agregar_parroquia" value="Guardar"/>
-	<p> {!! link_to_route('barrio','Regresar') !!} </p> 
+	</section>
+	<input class="btnguardar" type="submit" name="agregar_parroquia" value="Guardar"/>
+	<p class="iniciaficha"> {!! link_to_route('barrio','Regresar') !!} </p> 
 
 </form>
 

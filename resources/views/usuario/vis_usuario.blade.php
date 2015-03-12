@@ -14,6 +14,7 @@
 
         
 		<div align="center"> 
+        <section class="listado"> 
     	<table>
     	<caption></caption>
     	<col><col><col><col><col><col><col><col><col><col><col>
@@ -68,7 +69,7 @@
 
     	</tbody>
     	</table> 
-        
+        </section>
 		<p align="center">{!! link_to_route('NuevoUsuario', 'Nuevo Usuario') !!}</p>
 
     	</div>

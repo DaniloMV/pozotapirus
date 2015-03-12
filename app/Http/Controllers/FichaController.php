@@ -53,10 +53,18 @@ class FichaController extends Controller {
 	public function getIndex()
 	{
 		//return view('ficha');
-
-		$datos = Ficha::where('estreg','=','1')
-				->orderBy('sec_ficha', 'Desc')->paginate();
-
+		//\Auth::user()->id;
+		if (\Auth::user()->usuario_tipo_id==2)
+		{
+			$datos = Ficha::where('estreg','=','1')
+					->orderBy('sec_ficha', 'Desc')->paginate();
+		}
+		else
+		{
+			$datos = Ficha::where('estreg','=','1')
+					->where('usuario_id',"=",\Auth::user()->id)
+					->orderBy('sec_ficha', 'Desc')->paginate();	
+		}
         //return $usuarios;
 
         return view('ficha.vis_ficha', compact('datos'))
@@ -87,7 +95,7 @@ class FichaController extends Controller {
 		{
 			if($validation->fails()){
 				// En caso de error regresa a la acción create con los datos y los errores encontrados
-				return redirect('ficha/Nuevo')->withInput()->withErrors($validation);
+				return redirect()->back()->withInput()->withErrors($validation);
 			}
 			else
 			{	
@@ -135,8 +143,8 @@ class FichaController extends Controller {
 		}
     }
 
-    public function getEditar($sec_ficha){
-
+    public function postEditar(Request $request){
+    	$sec_ficha=$request->input('sec');
 		return view('ficha.vis_ficha_editar')
 		->with('title','Editar Ficha')
 		->with('datos', Ficha::where('sec_ficha','=',$sec_ficha)->first());
@@ -146,13 +154,15 @@ class FichaController extends Controller {
 
 		$sec_ficha = $request->input('hidden_sec');
 		
-		$validation = Ficha::validateeditar($request->all());
+		$validation = Ficha::validate($request->all());
 
-		$codigoverificar = Ficha::where('id','=',$request->input('txtpozocodigo'))->first();
+		$codigoverificar = Ficha::where('id','=',$request->input('txtpozocodigo'))
+									->where('sec_ficha','!=',$request->input('hidden_sec'))
+									->first();
 
 		$estadocodigo = 1;
 
-		if(empty($codigoverificar) || count($codigoverificar) == 1)
+		if(empty($codigoverificar) || count($codigoverificar) >= 1)
 		{
 			$estadocodigo = 0;
 		}
@@ -273,6 +283,11 @@ class FichaController extends Controller {
 			$ValorSEL = 0;
 		}
 		$ficha->es_bisagra = $ValorSEL;
+	}
+
+	public function VerificaVacios($request){
+		
+		
 	}
 
 	public function deleteActivarInactivar(Request $request){

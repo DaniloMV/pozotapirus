@@ -25,6 +25,44 @@ body{
 	line-height:  0;
 }
 
+.btnguardar{
+	border: 1px solid blue;
+	background-color: #FFFFFF;
+	border-radius: 	0.25em;
+	color:blue;
+	display: block;
+	font-size: 1.3em;
+	margin: 0.5em auto;
+	padding: 0.3em;	
+	text-align: center;
+	width: 15%;
+}
+
+.btnguardar:hover{
+	background-color: blue;
+	color:#FFFFFF;
+}
+
+.iniciaficha a{
+
+	border: 1px solid blue;
+	background-color: #FFFFFF;
+	border-radius: 	0.25em;
+	color:blue;
+	display: block;
+	font-size: 1.3em;
+	margin: 0.5em auto;
+	padding: 0.3em;
+	text-align: center;
+	text-decoration: none;
+	width: 20%;
+}
+
+.iniciaficha a:hover{
+	background-color: blue;
+	color:#FFFFFF;
+}
+
 .logout{
 	
 	border: 2px solid #FF0033;
@@ -308,13 +346,16 @@ body{
   cursor: not-allowed;
 }
 
-
+.listado{
+	overflow: auto;
+}
 table 
 {
     border-collapse: collapse;
     border-spacing: 0;
     font-family: Futura, Arial, sans-serif;
     font-size: 12px;
+    overflow: scroll;
     vertical-align: center; 
     width: 65%;
 }
@@ -344,6 +385,14 @@ th:last-child
 { 
 	border-radius: 0 9px 0 0; 
 }
+tr input, tr a{
+	color: black;
+	font-size: 1.5em;
+	padding: 0.3em;
+	margin:0.2em;
+	text-decoration: none;
+}
+
 tr:last-child td:first-child 
 { 
 	border-radius: 0 0 0 9px; 
@@ -359,8 +408,8 @@ tr:nth-child(odd)
 tbody tr:hover 
 { 
 	background: rgba(0,0,0,0.8); 
-  color: #747373;
-  cursor: pointer; 
+  	color: #747373;
+  	cursor: pointer; 
 	opacity: 1.0;
 }
 
@@ -391,7 +440,25 @@ tbody tr:hover
   background-color: #ffffff;
 }
 
+.container-fluid{
+	text-align: center;
+}
 
+.clsauthremember{
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+
+.btningreso{
+	font-size: 1em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.fuenteingreso{
+	font-size: 1.5em;
+}
 /*USUARIO*/
 
 

@@ -14,6 +14,7 @@
 
         
 		<div align="center"> 
+        <section class="listado"> 
     	<table>
     	<caption></caption>
     	<col><col><col><col><col>
@@ -60,7 +61,7 @@
         
         <p align="center">{!! link_to_route('NuevoBarrio', 'Registrar barrio') !!}</p>
        
-
+        </section>
     	</div>
         
         <?php echo $datos->render(); ?>

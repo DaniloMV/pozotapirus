@@ -44,7 +44,7 @@ Route::get('ficha', array('as'=>'ficha','uses'=>'FichaController@getIndex'));
 Route::get('ficha/Buscar/{id}', array('as'=>'BuscarFicha','uses'=>'FichaController@getBuscar'));
 Route::get('ficha/Nuevo', array('as'=>'NuevaFicha','uses'=>'FichaController@getNuevo'));
 Route::post('ficha/Crear', array('uses'=>'FichaController@postCrear'));
-Route::get('ficha/{id_ficha}/Editar', array('as'=>'EditarFicha','uses'=>'FichaController@getEditar'));
+Route::post('ficha/Editar', array('uses'=>'FichaController@postEditar'));
 Route::post('ficha/Actualizar', array('uses'=>'FichaController@postActualizar'));
 Route::post('ficha/Eliminar', array('uses'=>'FichaController@deleteActivarInactivar'));
 

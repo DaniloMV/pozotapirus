@@ -12,8 +12,8 @@
 <figure>
 <img id="imglogo" src="/pozotapirus/public/images/logo.jpg">
 <figcaption id="textocab">
-<h1>"TAPIRUS S.A"</h1>
-<small>AQUI EL SLOGAN DE LA EMPRESA</small>
+<h1>"TAPIRUS"</h1>
+<small>INVESTIGACIÓN Y GESTIÓN DE PROYECTOS</small>
 </figcaption>
 </figure>
 <nav class="menuprincipal">
@@ -29,9 +29,7 @@
     @else
         <a href="/pozotapirus/public/ficha">Fichas</a>
     @endif 
-@else
-    <li><a href="../public/auth/login">Ingresar</a></li>
-    <li><a href="../public/usuario/Nuevo">Registrarse</a></li>
+
 @endif
     </ul>
 </nav>
@@ -39,7 +37,7 @@
 
 </header>
 @if (Auth::check())
-<label class="login"><strong>Bienvenido:</strong> {{ Auth::user()->name }}</label>
+<label class="login"><strong>Hola: </strong> {{ Auth::user()->name }}</label>
 <a class="logout" href="/pozotapirus/public/Salir">Cerrar Sesión</a>
 @endif
 

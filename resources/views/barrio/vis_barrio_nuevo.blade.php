@@ -4,7 +4,7 @@
 @section('cabecera')
     @parent
 
- <h2 class="titulopagina">Nuevo Usuario</h2>
+ <h2 class="titulopagina">Nuevo Barrio</h2>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop
@@ -26,6 +26,7 @@
 <form role="form" method="POST" action="../barrio/Crear">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+	<section class="campoform">
 	<section>
 	<label>Parroquia:</label>
 	{!! Form::select('cmbparroquia', App\Parroquia::orderBy('des_parroquia', 'Asc')->lists('des_parroquia', 'id')) !!} 
@@ -36,9 +37,9 @@
 	<input id="txtbarrio" name="txtbarrio" type="text" value="{{ old('name') }}" required placeholder="Nombre Barrio"
 	></input>
 	</section>
-
-	<input type="submit" name="agregar_parroquia" value="Guardar"/>
-	<p> {!! link_to_route('parroquia','Regresar') !!} </p> 
+</section>
+	<input class="btnguardar" type="submit" name="agregar_parroquia" value="Guardar"/>
+	<p class="iniciaficha"> {!! link_to_route('parroquia','Regresar') !!} </p> 
 
 </form>
 

@@ -9,7 +9,7 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
-<h2 class="titulopagina">REGISTRO DE FICHAS</h2>
+<h2 class="titulopagina">MODIFICAR FICHAS</h2>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop
@@ -29,7 +29,7 @@
 	@endif
 
 
-<form role="form" method="POST" action="../Actualizar">
+<form role="form" method="POST" action="../ficha/Actualizar">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 	
@@ -47,13 +47,13 @@
 
 	<section>
 	<label>Calle:</label>
-	<input id="txtcalle" name="txtcalle" type="text" required value=<?php echo "{$datos->calle}"; ?>  placeholder="nombre de la calle"
+	<input id="txtcalle" name="txtcalle" type="text" required value="<?php echo "{$datos->calle}"; ?>"  placeholder="nombre de la calle"
 	></input>
 	</section>
-	<input type="hidden" name="hidden_sec"  value=<?php echo "{$datos->sec_ficha}"; ?>>
+	<input type="hidden" name="hidden_sec"  value="<?php echo "{$datos->sec_ficha}"; ?>">
 	<section>
 	<label class="etiquetaform">Código:</label>
-	<input id="txtpozocodigo" name="txtpozocodigo" type="text" required value=<?php echo "{$datos->id}"; ?>  placeholder="código pozo"
+	<input id="txtpozocodigo" name="txtpozocodigo" type="text" required value="<?php echo "{$datos->id}"; ?>"  placeholder="código pozo"
 	></input>
 	</section>
 
@@ -149,32 +149,32 @@
 
 			<section>
 				<label>Pozo:</label>
-				<input id="txtpozo" name="txtpozo" type="text" required value=<?php echo "{$datos->pozo}"; ?>></input>
+				<input id="txtpozo" name="txtpozo" type="text" required value="<?php echo "{$datos->pozo}"; ?>"></input>
 			</section>
 
 			<section>
 				<label>Sumidero:</label>
-				<input id="txtsumidero" name="txtsumidero" type="text" required value=<?php echo "{$datos->sumidero}"; ?>></input>
+				<input id="txtsumidero" name="txtsumidero" type="text" required value="<?php echo "{$datos->sumidero}"; ?>"></input>
 			</section>
 			
 			<section>
 				<label>Zona:</label>
-				<input id="txtzona" name="txtzona" type="text" required value=<?php echo "{$datos->zona}"; ?>></input>
+				<input id="txtzona" name="txtzona" type="text" required value="<?php echo "{$datos->zona}"; ?>"></input>
 			</section>
 
 			<section>
 				<label>X:</label>
-				<input id="txtcoordenadax" name="txtcoordenadax" type="text" required value=<?php echo "{$datos->x}"; ?>></input>
+				<input id="txtcoordenadax" name="txtcoordenadax" type="text" required value="<?php echo "{$datos->x}"; ?>"></input>
 			</section>
 
 			<section>
 				<label>Y:</label>
-				<input id="txtcoordenaday" name="txtcoordenaday" type="text" required value=<?php echo "{$datos->y}"; ?>></input>
+				<input id="txtcoordenaday" name="txtcoordenaday" type="text" required value="<?php echo "{$datos->y}"; ?>"></input>
 			</section>
 			
 			<section>
 				<label>Z:</label>
-				<input id="txtcoordenadaz" name="txtcoordenadaz" type="text" required value=<?php echo "{$datos->z}"; ?>></input>
+				<input id="txtcoordenadaz" name="txtcoordenadaz" type="text" required value="<?php echo "{$datos->z}"; ?>"></input>
 			</section>
 		</section>
 
@@ -186,27 +186,27 @@
 
 			<section>
 			<label>Cota:</label>
-			<input id="txtcota" name="txtcota" type="text" required value=<?php echo "{$datos->cota}"; ?>></input>
+			<input id="txtcota" name="txtcota" type="text" required value="<?php echo "{$datos->cota}"; ?>"></input>
 			</section>
 
 			<section>
 			<label>Diametro Sup:</label>
-			<input id="txtdiametrosup" name="txtdiametrosup" type="text" required value=<?php echo "{$datos->diametro_sup}"; ?> placeholder="Diámetro superior"/>
+			<input id="txtdiametrosup" name="txtdiametrosup" type="text" required value="<?php echo "{$datos->diametro_sup}"; ?>" placeholder="Diámetro superior"/>
 			</section>
 
 			<section>
 			<label>Diametro Medio:</label>
-			<input id="txtdiametromedio" name="txtdiametromedio" type="text" required value=<?php echo "{$datos->diametro_med}"; ?> placeholder="Diámetro intermedio"/>
+			<input id="txtdiametromedio" name="txtdiametromedio" type="text" required value="<?php echo "{$datos->diametro_med}"; ?>" placeholder="Diámetro intermedio"/>
 			</section>
 
 			<section>
 			<label>Diametro Inf:</label>
-			<input id="txtdiametroinf" name="txtdiametroinf" type="text" required value=<?php echo "{$datos->diametro_inf}"; ?> placeholder="Diámetro inferior"/>
+			<input id="txtdiametroinf" name="txtdiametroinf" type="text" required value="<?php echo "{$datos->diametro_inf}"; ?>" placeholder="Diámetro inferior"/>
 			</section>
 			
 			<section>
 			<label>Altura:</label>
-			<input id="txtaltura" name="txtaltura" type="text" required value=<?php echo "{$datos->altura}"; ?> placeholder="Altura del pozo"/>
+			<input id="txtaltura" name="txtaltura" type="text" required value="<?php echo "{$datos->altura}"; ?>" placeholder="Altura del pozo"/>
 			</section>
 		</section>
 	</div>
@@ -215,14 +215,14 @@
 
 	<div>
 		<section id="observaciones" class="campoform">
-			<textarea rows="3" cols="40" value=<?php echo "{$datos->observaciones}"; ?>></textarea>
+			<textarea rows="3" cols="40" value="<?php echo "{$datos->observaciones}"; ?>"></textarea>
 		</section>
 	</div>
 
 </div>
 
-	<input type="submit" name="agregar_ficha" value="Guardar"/>
-	<p> {!! link_to_route('ficha','Regresar') !!} </p> 
+	<input type="submit" name="agregar_ficha" class="btnguardar" value="Guardar"/>
+	<p class="iniciaficha"> {!! link_to_route('ficha','Regresar') !!} </p> 
 
 </form>
 

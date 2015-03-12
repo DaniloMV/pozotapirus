@@ -29,7 +29,7 @@ class Barrio extends Model implements AuthenticatableContract, CanResetPasswordC
   	public $timestamps = false;
 	protected $table = 'cmb_barrio';
 
-    protected $perPage = 1;
+    protected $perPage = 10;
 	
 	public static $rules = array(
 	'cmbparroquia' => array('required'),

@@ -52,7 +52,6 @@ class BarrioController extends Controller {
 
 	public function getIndex()
 	{
-
 		$datos = Barrio::with('modparroquia')
 						->where('estreg','=','1')
 						->orderBy('parroquia_id', 'Asc')

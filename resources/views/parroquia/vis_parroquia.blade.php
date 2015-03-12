@@ -13,6 +13,7 @@
 @section('contenido')
 
     <div align="center"> 
+    <section class="listado"> 
     <table>
     <caption></caption>
     <col><col><col>
@@ -48,7 +49,7 @@
     </table> 
     
     <p align="center">{!! link_to_route('NuevaParroquia', 'Registrar parroquia') !!}</p>
-
+    </section>
     </div>
 
     <?php echo $datos->render(); ?>

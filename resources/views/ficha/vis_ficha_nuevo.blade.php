@@ -10,7 +10,7 @@
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="/pozotapirus/public/js/funciones.js"></script>
-<h2 class="titulopagina">REGISTRO DE FICHAS</h2>
+<h2 class="titulopagina">INICIAR FICHA</h2>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop
@@ -89,6 +89,11 @@
 			{!! Form::select('cmbmaterialcolector', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
 			</section>
 
+			<section>
+			<label>Tipo pozo:</label>
+			{!! Form::select('cmbtipopozo', App\Tipopozo::orderBy('des_tipo_pozo', 'Asc')->lists('des_tipo_pozo', 'id')) !!} 
+			</section>
+		
 			<section>
 			<label>Estado pozo:</label>
 			{!! Form::select('cmbestadopozo', App\Estadopozo::orderBy('des_estadopozo', 'Asc')->lists('des_estadopozo', 'id')) !!} 
@@ -228,8 +233,8 @@
 
 </div>
 
-	<input type="submit" name="agregar_ficha" value="Guardar"/>
-	<p> {!! link_to_route('ficha','Regresar') !!} </p> 
+	<input type="submit" id="btnguardaficha" class="btnguardar" name="agregar_ficha" value="Guardar"/>
+	<p class="iniciaficha"> {!! link_to_route('ficha','Regresar') !!} </p> 
 
 </form>
 
