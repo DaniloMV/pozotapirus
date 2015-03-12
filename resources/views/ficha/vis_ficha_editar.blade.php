@@ -221,8 +221,8 @@
 	<h3>OBSERVACIONES</h3>
 
 	<div>
-		<section id="observaciones" name="observaciones" class="campoform">
-			<textarea rows="3" cols="40" value="<?php echo "{$datos->observaciones}"; ?>"></textarea>
+		<section class="campoform">
+			<textarea id="observaciones" name="observaciones" rows="3" cols="40" value="<?php echo "{$datos->observaciones}"; ?>"></textarea>
 		</section>
 	</div>
 
