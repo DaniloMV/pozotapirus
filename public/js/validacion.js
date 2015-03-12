@@ -93,7 +93,7 @@ function validaficha(){
         es_Correcto=false;
     }
     
-    if($.trim($("#txtdiametroesalida").val()).length==0)
+    if($.trim($("#txtdiametrosalida").val()).length==0)
     {
         str_Mensaje=str_Mensaje+"\n- El 'Diámetro de Salida' es obligatorio";
         es_Correcto=false;
