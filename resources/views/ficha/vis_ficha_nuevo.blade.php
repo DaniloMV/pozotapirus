@@ -6,6 +6,7 @@
 
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="/pozotapirus/public/css/base.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
@@ -240,9 +241,21 @@
 </form>
 
 <script>
-  		$(function() {
-    	$( "#accordion" ).accordion();
-  			});
+  	
+
+
+$(function() {
+
+	$( "#accordion" ).accordion({heightStyle: "content"});
+	$( "#accordion" ).accordion( "option", "icons", { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" } );
+	$( "#accordion" ).accordion({collapsible: true});
+
+	$( "#accordion" ).accordion();
+
+});
+
+
+  		
 </script>
 
 @stop

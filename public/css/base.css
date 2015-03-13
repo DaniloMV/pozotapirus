@@ -1,23 +1,39 @@
 /*BASE*/
 body{
-	/*background-color: rgba(153,153,102,0.8);
-	background-color: #F0FFF0;*/
+	/*background-color: rgba(153,153,102,0.8);*/
+	background-color: rgba(225,225,225, 0.8);
 	font-size: 16px;
 }
 
 
 #imglogotapirus{
 	border-radius: 50%;
-	height: 50px;
-	width:	50px;
-
+	height: 20px;
+	width:	20px;
 }
 
 #imglogokunhwa{
 	border-radius: 0.25em;
-	height: 50px;
-	width:	50px;
+	height: 20px;
+	width:	20px;
 }
+
+#slider{
+	margin: 0 auto;
+	width: 100%;
+}
+
+#slider figure li{
+	width: 100%;
+}
+
+#slider figure figcaption {
+	font-size: 0.5em;
+	padding: 0.2em;
+	width: 100%;	
+}
+
+
 
 
 #imglogotapirus,#imglogokunhwa, #textocab{
@@ -26,10 +42,12 @@ body{
 }
 
 
-
+.banner { position: relative; overflow: auto; }
+    .banner li { list-style: none; }
+        .banner ul li { float: left; }
 
 #textocab{
-	font-size: 14px;
+	font-size: 9px;
 	margin: 0 1% 0 2%;
 	line-height:  0;
 }
@@ -474,7 +492,7 @@ tbody tr:hover
 /*RESPONSIVE DESING*/
 
 /*FICHA*/
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 550px) {
 
 .campoform{
 	text-align: right;
@@ -486,6 +504,43 @@ tbody tr:hover
 {
 	display: inline-block;
 	width: 45%;
+}
+
+
+#imglogotapirus{
+	border-radius: 50%;
+	height: 50px;
+	width:	50px;
+}
+
+#imglogokunhwa{
+	border-radius: 0.25em;
+	height: 50px;
+	width:	50px;
+}
+
+#textocab{
+	font-size: 1em;
+	margin: 0 1% 0 2%;
+	line-height:  0;
+}
+
+#slider{
+	width: 75%;
+}
+
+#slider figure li{
+	width: 60%;
+}
+
+#slider figure figcaption {
+	font-size: 1em;
+	padding: 0.2em;
+	width: 35%;	
+}
+#slider figure li,#slider figure figcaption{
+	display: inline-block;
+	vertical-align: middle;
 }
 
 }

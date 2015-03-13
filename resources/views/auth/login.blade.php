@@ -12,6 +12,39 @@
 <!-- Lo que debe contener en el body -->
 @section('contenido')
 
+<link rel="stylesheet" href="/pozotapirus/public/css/jquery.bxslider.css">
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+ <script src="/pozotapirus/public/js/jquery.bxslider.min.js"></script>
+
+<div id="slider">
+<ul class="bxslider">
+<figure>
+  <li><img src="/pozotapirus/public/images/foto_1.jpg"/></li>
+  <figcaption>
+  	<small><strong>Quiénes somos?</strong></small>
+	<p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
+  </figcaption>
+</figure>
+
+<figure>
+  <li><img src="/pozotapirus/public/images/foto_2.jpg"/></li>
+  <figcaption>
+  	<small><strong>Misión</strong></small>
+	<p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
+  </figcaption>
+</figure>
+
+<figure>
+  <li><img src="/pozotapirus/public/images/foto_3.jpg"/></li>
+  <figcaption>
+  	<small><strong>Visión</strong></small>
+	<p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
+  </figcaption>
+</figure>
+
+</ul>
+</div>
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
@@ -72,4 +105,12 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+$('.bxslider').bxSlider({
+  auto: true,
+  autoControls: true,
+  speed:1000
+});
+
+</script>
 @stop
