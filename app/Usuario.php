@@ -73,7 +73,6 @@ class Usuario extends Model implements AuthenticatableContract, CanResetPassword
     public static $rulesEditar = [
     
     'txtusuario' => 'required|min:4',
-	'txtemail' => 'required|email',
 	'UsuarioEquipo' => 'required',
 	'UsuarioTipo' => 'required'
  

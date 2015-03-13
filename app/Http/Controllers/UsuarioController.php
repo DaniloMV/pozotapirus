@@ -117,7 +117,7 @@ class UsuarioController extends Controller {
 		$validation = Usuario::validateEditar($request->all());
 
 		if($validation->fails()){
-		 	return redirect('EditarUsuario',$id)->withErrors($validation);
+		 	return redirect()->route('EditarUsuario',$id)->withErrors($validation);
 		 	// Redirect::route('Editarusuario',$id_usuario)->withErrors($validation);
 		}
 		else{

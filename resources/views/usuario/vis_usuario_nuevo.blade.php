@@ -18,7 +18,7 @@
 	@if($errors->has())
 
 		<ul id="VisualizarMensaje">
-			{{ implode('', $errors->all('<li>:message</li>')) }}
+			{!! implode('', $errors->all('<li>:message</li>')) !!}
 		</ul>
 	@endif
 	
