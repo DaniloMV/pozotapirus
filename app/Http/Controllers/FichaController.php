@@ -157,7 +157,7 @@ class FichaController extends Controller {
 
 		$sec_ficha = $request->input('hidden_sec');
 		
-		$validation = Ficha::validate($request->all());
+		$validation = Ficha::validateEditar($request->all());
 
 		$codigoverificar = Ficha::where('id','=',$request->input('txtpozocodigo'))
 									->where('sec_ficha','!=',$request->input('hidden_sec'))

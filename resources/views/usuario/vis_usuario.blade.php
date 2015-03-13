@@ -41,7 +41,6 @@
             <td style='display:none'>{{ $usuario->usuario_equ_id }}</td>
             <td>{{ $usuario->modusuarioequipo->equipo }}</td>
             <td style='display:none'>{{ $usuario->estreg }}</td>
-            <td>{{ $usuario->estreg }}</td>
             <td>
                 {!! Form::open(array('url'=>'usuario/Eliminar')) !!}
                 {!! Form::hidden('id', $usuario->id) !!}

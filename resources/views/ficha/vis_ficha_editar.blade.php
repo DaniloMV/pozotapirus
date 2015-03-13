@@ -22,12 +22,11 @@
 @section('contenido')
     <!-- ponemos el contenido de la vista estamos dentro del body -->
 
-	@if (count($errors) > 0)
-		
-		@foreach ($errors->all() as $error)
-			<li>{{ $error }}</li>
-		@endforeach
-		
+	@if($errors->has())
+
+		<ul id="VisualizarMensaje">
+			{{ implode('', $errors->all('<li>:message</li>')) }}
+		</ul>
 	@endif
 
 
@@ -49,14 +48,14 @@
 
 	<section>
 	<label>Calle:</label>
-	<input id="txtcalle" name="txtcalle" type="text" required value="<?php echo "{$datos->calle}"; ?>"  placeholder="nombre de la calle"
-	></input>
+	<input id="txtcalle" name="txtcalle" type="text" required value="<?php echo "{$datos->calle}"; ?>"  placeholder="nombre de la calle"></input>
+	{!! $errors->first('txtcalle', '<p class="error_mensaje">:message</p>') !!}
 	</section>
 	<input type="hidden" name="hidden_sec"  value="<?php echo "{$datos->sec_ficha}"; ?>">
 	<section>
 	<label class="etiquetaform">Código:</label>
-	<input id="txtpozocodigo" name="txtpozocodigo" type="text" required value="<?php echo "{$datos->id}"; ?>"  placeholder="único (10 caracteres)"
-	></input>
+	<input id="txtpozocodigo" name="txtpozocodigo" type="text" required value="<?php echo "{$datos->id}"; ?>" pattern="\S{1,10}" placeholder="único (10 caracteres)"></input>
+	{!! $errors->first('txtpozocodigo', '<p class="error_mensaje">:message</p>') !!}
 	</section>
 
 </section>
@@ -106,48 +105,48 @@
 		<section id="checkedlist" name="checkedlist" class="chkficha">
 			
 			<p>
-			<input id="chklimpio" name="chklimpio" type="checkbox" value="1" <?php if($datos->es_limpio==1){echo "checked";} ?>></input>
 			<label>Limpio</label>
+			<input id="chklimpio" name="chklimpio" type="checkbox" value="1" <?php if($datos->es_limpio==1){echo "checked";} ?>></input>
 			</p>
 			
 			<p>
-			<input id="chkescalera" name="chkescalera" type="checkbox" value="1" <?php if($datos->es_escalera==1){echo "checked";} ?>></input>
 			<label>Escalera</label>
+			<input id="chkescalera" name="chkescalera" type="checkbox" value="1" <?php if($datos->es_escalera==1){echo "checked";} ?>></input>
 			</p>
 			
 			<p>
-			<input id="chkhormigon" name="chkhormigon" type="checkbox" value="1" <?php if($datos->es_hormigon==1){echo "checked";} ?>></input>
 			<label>Hormigón</label>
+			<input id="chkhormigon" name="chkhormigon" type="checkbox" value="1" <?php if($datos->es_hormigon==1){echo "checked";} ?>></input>
 			</p>
 
 			<p>
-			<input id="chkladrillo" name="chkladrillo" type="checkbox" value="1" <?php if($datos->es_ladrillo==1){echo "checked";} ?>></input>
 			<label>Ladrillo</label>
+			<input id="chkladrillo" name="chkladrillo" type="checkbox" value="1" <?php if($datos->es_ladrillo==1){echo "checked";} ?>></input>
 			</p>
 
 			<p>
-			<input id="chkbloque" name="chkbloque" type="checkbox" value="1" <?php if($datos->es_bloque==1){echo "checked";} ?>></input>
 			<label>Bloque</label>
+			<input id="chkbloque" name="chkbloque" type="checkbox" value="1" <?php if($datos->es_bloque==1){echo "checked";} ?>></input>
 			</p>	
 
 			<p>	
-			<input id="chkmixto" name="chkmixto" type="checkbox" value="1" <?php if($datos->es_mixto==1){echo "checked";} ?>></input>
 			<label>Mixto</label>
+			<input id="chkmixto" name="chkmixto" type="checkbox" value="1" <?php if($datos->es_mixto==1){echo "checked";} ?>></input>
 			</p>
 
 			<p>	
-			<input id="chktapa" name="chktapa" type="checkbox" value="1" <?php if($datos->es_tapa==1){echo "checked";} ?>></input>
 			<label>Tapa</label>
+			<input id="chktapa" name="chktapa" type="checkbox" value="1" <?php if($datos->es_tapa==1){echo "checked";} ?>></input>
 			</p>
 
 			<p>	
-			<input id="chkcadena" name="chkcadena" type="checkbox" value="1" <?php if($datos->es_cadena==1){echo "checked";} ?>></input>
 			<label>Cadena</label>
+			<input id="chkcadena" name="chkcadena" type="checkbox" value="1" <?php if($datos->es_cadena==1){echo "checked";} ?>></input>
 			</p>
 
 			<p>
-			<input id="chkbisagra" name="chkbisagra" type="checkbox" value="1" <?php if($datos->es_bisagra==1){echo "checked";} ?>></input>
 			<label>Bisagra</label>
+			<input id="chkbisagra" name="chkbisagra" type="checkbox" value="1" <?php if($datos->es_bisagra==1){echo "checked";} ?>></input>
 			</p>
 
 		</section>
@@ -162,16 +161,19 @@
 			<section>
 				<label>X:</label>
 				<input id="txtcoordenadax" name="txtcoordenadax" type="text" required value="<?php echo "{$datos->x}"; ?>"></input>
+				{!! $errors->first('txtcoordenadax', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 
 			<section>
 				<label>Y:</label>
 				<input id="txtcoordenaday" name="txtcoordenaday" type="text" required value="<?php echo "{$datos->y}"; ?>"></input>
+				{!! $errors->first('txtcoordenaday', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 			
 			<section>
 				<label>Z:</label>
 				<input id="txtcoordenadaz" name="txtcoordenadaz" type="text" required value="<?php echo "{$datos->z}"; ?>"></input>
+				{!! $errors->first('txtcoordenadaz', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 		</section>
 
@@ -184,36 +186,43 @@
 			<section>
 			<label>Diametro E1:</label>
 			<input id="txtdiametroe1" name="txtdiametroe1" type="text" required value="<?php echo "{$datos->entrada_1}"; ?>" placeholder="metros"/>m
+			{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 
 			<section>
 			<label>Diametro E2:</label>
 			<input id="txtdiametroe2" name="txtdiametroe2" type="text" required value="<?php echo "{$datos->entrada_2}"; ?>" placeholder="metros"/>m
+			{!! $errors->first('txtdiametroe2', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 
 			<section>
 			<label>Diametro E3:</label>
 			<input id="txtdiametroe3" name="txtdiametroe3" type="text" required value="<?php echo "{$datos->entrada_3}"; ?>" placeholder="metros"/>m
+			{!! $errors->first('txtdiametroe3', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 
 			<section>
 			<label>Diametro E4:</label>
 			<input id="txtdiametroe4" name="txtdiametroe4" type="text" required value="<?php echo "{$datos->entrada_4}"; ?>" placeholder="metros"/>m
+			{!! $errors->first('txtdiametroe4', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 
 			<section>
 			<label>Diametro E5:</label>
 			<input id="txtdiametroe5" name="txtdiametroe5" type="text" required value="<?php echo "{$datos->entrada_5}"; ?>" placeholder="metros"/>m
+			{!! $errors->first('txtdiametroe5', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 
 			<section>
 			<label>Salida:</label>
 			<input id="txtdiametrosalida" name="txtdiametrosalida" type="text" required value="<?php echo "{$datos->salida}"; ?>" placeholder="metros"/>m
+			{!! $errors->first('txtdiametrosalida', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 			
 			<section>
 			<label>Altura:</label>
 			<input id="txtaltura" name="txtaltura" type="text" required value="<?php echo "{$datos->altura}"; ?>" placeholder="metros"/>m
+			{!! $errors->first('txtaltura', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 		</section>
 	</div>

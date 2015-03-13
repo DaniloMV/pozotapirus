@@ -90,7 +90,7 @@ class UsuarioController extends Controller {
 			$usuario->id = $secuencial;
 			$usuario->name = $request->input('txtusuario');
 			$usuario->email = $request->input('txtemail');
-			$usuario->password = bcrypt($request->input('txtpassword'));
+			$usuario->password = bcrypt($request->input('password'));
 			$usuario->usuario_equ_id = $request->input('UsuarioEquipo');
 			$usuario->usuario_tipo_id = $request->input('UsuarioTipo');
 			//$usuario->timestamps();
@@ -114,7 +114,7 @@ class UsuarioController extends Controller {
 
 		$id = $request->input('hidden_id');
 		
-		$validation = Usuario::validate($request->all());
+		$validation = Usuario::validateEditar($request->all());
 
 		if($validation->fails()){
 		 	return redirect('EditarUsuario',$id)->withErrors($validation);

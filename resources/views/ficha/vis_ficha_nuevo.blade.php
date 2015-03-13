@@ -11,7 +11,7 @@
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="/pozotapirus/public/js/funciones.js"></script>
-<script src="/pozotapirus/public/js/validacion.js"></script>
+<script src="/pozotapirus/public/js/validacionnuevo.js"></script>
 <h2 class="titulopagina">INICIAR FICHA</h2>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
@@ -23,24 +23,15 @@
 @section('contenido')
     <!-- ponemos el contenido de la vista estamos dentro del body -->
 
-	@if (count($errors) > 0)
-		
-		@foreach ($errors->all() as $error)
-			<li>{{ $error }}</li>
-		@endforeach
-		
+	@if($errors->has())
+
+		<ul id="VisualizarMensaje">
+			{!! implode('', $errors->all('<li>:message</li>')) !!}
+		</ul>
 	@endif
 
 <form role="form" method="POST" action="../ficha/Crear">
-
-
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
 	
 <section id="fichacabecera" class="campoform">
 	
@@ -56,14 +47,14 @@
 
 	<section>
 	<label>Calle:</label>
-	<input id="txtcalle" name="txtcalle" type="text" value="{{ old('calle') }}" required placeholder="nombre de la calle"
-	></input>
+	{!! Form::text('txtcalle', old('calle'), ['id' => 'txtcalle', 'placeholder' => 'Nombre de la calle']) !!}
+	{!! $errors->first('txtcalle', '<p class="error_mensaje">:message</p>') !!}
 	</section>
 
 	<section>
 	<label class="etiquetaform">Código:</label>
-	<input id="txtpozocodigo" name="txtpozocodigo" type="text" value="{{ old('id') }}" required placeholder="único (10 caracteres)"
-	></input>
+	{!! Form::text('txtpozocodigo', old('id'), ['id' => 'txtpozocodigo', 'placeholder' => 'único (10 caracteres)', 'pattern' => '\S{1,10}']) !!}
+	{!! $errors->first('txtpozocodigo', '<p class="error_mensaje">:message</p>') !!}
 	</section>
 
 </section>
@@ -113,48 +104,48 @@
 		<section id="checkedlist" name="checkedlist" class="chkficha">
 			
 			<p>
-			<input id="chklimpio" name="chklimpio" type="checkbox" value="{{ old('es_limpio') }}" ></input>
 			<label>Limpio</label>
+			{!! Form::checkbox('chklimpio', old('es_limpio')) !!}
 			</p>
 			
 			<p>
-			<input id="chkescalera" name="chkescalera" type="checkbox" value="{{ old('es_escalera') }}"></input>
 			<label>Escalera</label>
+			{!! Form::checkbox('chkescalera', old('es_escalera')) !!}
 			</p>
 			
 			<p>
-			<input id="chkhormigon" name="chkhormigon" type="checkbox" value="1"></input>
 			<label>Hormigón</label>
+			{!! Form::checkbox('chkhormigon', old('es_hormigon')) !!}
 			</p>
 
 			<p>
-			<input id="chkladrillo" name="chkladrillo" type="checkbox" value="1"></input>
 			<label>Ladrillo</label>
+			{!! Form::checkbox('chkladrillo', old('es_ladrillo')) !!}
 			</p>
 
 			<p>
-			<input id="chkbloque" name="chkbloque" type="checkbox" value="1"></input>
 			<label>Bloque</label>
+			{!! Form::checkbox('chkbloque', old('es_bloque')) !!}
 			</p>	
 
-			<p>	
-			<input id="chkmixto" name="chkmixto" type="checkbox" value="1"></input>
+			<p>
 			<label>Mixto</label>
-			</p>
-
-			<p>	
-			<input id="chktapa" name="chktapa" type="checkbox" value="1"></input>
-			<label>Tapa</label>
-			</p>
-
-			<p>	
-			<input id="chkcadena" name="chkcadena" type="checkbox" value="1"></input>
-			<label>Cadena</label>
+			{!! Form::checkbox('chkmixto', old('es_mixto')) !!}
 			</p>
 
 			<p>
-			<input id="chkbisagra" name="chkbisagra" type="checkbox" value="1"></input>
+			<label>Tapa</label>
+			{!! Form::checkbox('chktapa', old('es_tapa')) !!}
+			</p>
+
+			<p>
+			<label>Cadena</label>
+			{!! Form::checkbox('chkcadena', old('es_cadena')) !!}
+			</p>
+
+			<p>
 			<label>Bisagra</label>
+			{!! Form::checkbox('chkbisagra', old('es_bisagra')) !!}
 			</p>
 
 		</section>
@@ -168,17 +159,20 @@
 
 			<section>
 				<label>X:</label>
-				<input id="txtcoordenadax" name="txtcoordenadax" required type="text"/>
+				{!! Form::text('txtcoordenadax', old('x'), ['placeholder' => '']) !!}
+				{!! $errors->first('txtcoordenadax', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 
 			<section>
 				<label>Y:</label>
-				<input id="txtcoordenaday" name="txtcoordenaday" required type="text"/>
+				{!! Form::text('txtcoordenaday', old('y'), ['placeholder' => '']) !!}
+				{!! $errors->first('txtcoordenaday', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 			
 			<section>
 				<label>Z:</label>
-				<input id="txtcoordenadaz" name="txtcoordenadaz" required type="text"/>
+				{!! Form::text('txtcoordenadaz', old('z'), ['placeholder' => '']) !!}
+				{!! $errors->first('txtcoordenadaz', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 		</section>
 
@@ -190,37 +184,44 @@
 
 			<section>
 			<label>Diámetro E1:</label>
-			<input id="txtdiametroe1" name="txtdiametroe1" type="text" required placeholder="metros"/>m
+			{!! Form::text('txtdiametroe1', old('entrada_1'), ['id' => 'txtdiametroe1', 'placeholder' => 'metros']) !!} m
+			{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 
 			<section>
 			<label>Diámetro E2:</label>
-			<input id="txtdiametroe2" name="txtdiametroe2" type="text" required placeholder="metros"/>m
+			{!! Form::text('txtdiametroe2', old('entrada_2'), ['id' => 'txtdiametroe2', 'placeholder' => 'metros']) !!} m
+			{!! $errors->first('txtdiametroe2', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 
 			<section>
 			<label>Diámetro E3:</label>
-			<input id="txtdiametroe3" name="txtdiametroe3" type="text" required placeholder="metros"/>m
+			{!! Form::text('txtdiametroe3', old('entrada_3'), ['id' => 'txtdiametroe3', 'placeholder' => 'metros']) !!} m
+			{!! $errors->first('txtdiametroe3', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 
 			<section>
 			<label>Diámetro E4:</label>
-			<input id="txtdiametroe4" name="txtdiametroe4" type="text" required placeholder="metros"/>m
+			{!! Form::text('txtdiametroe4', old('entrada_4'), ['id' => 'txtdiametroe4', 'placeholder' => 'metros']) !!} m
+			{!! $errors->first('txtdiametroe4', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 
 			<section>
 			<label>Diámetro E5:</label>
-			<input id="txtdiametroe5" name="txtdiametroe5" type="text" required placeholder="metros"/>m
+			{!! Form::text('txtdiametroe5', old('entrada_5'), ['id' => 'txtdiametroe5', 'placeholder' => 'metros']) !!} m
+			{!! $errors->first('txtdiametroe5', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 
 			<section>
 			<label>Salida:</label>
-			<input id="txtdiametrosalida" name="txtdiametrosalida" type="text" required placeholder="metros"/>m
+			{!! Form::text('txtdiametrosalida', old('salida'), ['placeholder' => 'metros']) !!} m
+			{!! $errors->first('txtdiametrosalida', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 			
 			<section>
 			<label>Altura:</label>
-			<input id="txtaltura" name="txtaltura" type="text" required placeholder="metros"/>m
+			{!! Form::text('txtaltura', old('altura'), ['placeholder' => 'metros']) !!} m
+			{!! $errors->first('txtaltura', '<p class="error_mensaje">:message</p>') !!}
 			</section>
 		</section>
 	</div>
@@ -229,7 +230,7 @@
 
 	<div>
 		<section class="campoform">
-			<textarea id="observaciones" name="observaciones" rows="3" cols="40"></textarea>
+			{!! Form::textarea('observaciones', old('observaciones'), ['rows' => '3', 'cols' => '40']) !!}
 		</section>
 	</div>
 

@@ -14,28 +14,37 @@
 <!-- Lo que debe contener en el body -->
 @section('contenido')
     <!-- ponemos el contenido de la vista estamos dentro del body -->
+
+	@if($errors->has())
+
+		<ul id="VisualizarMensaje">
+			{{ implode('', $errors->all('<li>:message</li>')) }}
+		</ul>
+	@endif
+	
 <form role="form" method="POST" action="../usuario/Crear">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<section class="campoform">
 	<section>
 	<label>Nombre:</label>
-	<input id="txtusuario" name="txtusuario" type="text" value="{{ old('name') }}" required placeholder="Nombre Usuario"
-	></input>
+	{!! Form::text('txtusuario', old('name'), ['placeholder' => 'Nombre Usuario']) !!}
+	{!! $errors->first('txtusuario', '<p class="error_mensaje">:message</p>') !!}
 	</section>
 
 	<section>
 	<label>Email:</label>
-	<input id="txtemail" name="txtemail" type="email" value="{{ old('email') }}" required placeholder="usuario@tapirus.com"></input>
+	{!! Form::email('txtemail', old('email'), ['placeholder' => 'usuario@tapirus.com']) !!}
+	{!! $errors->first('txtemail', '<p class="error_mensaje">:message</p>') !!}
 	</section>
 
 	<section>
 	<label>Password:</label>
-	<input id="txtpassword" name="txtpassword" type="password" required placeholder="password"></input>
+	<input id="password" name="password" type="password" required placeholder="password"></input>
 	</section>
 
 	<section>
 	<label>Confirmar Password</label>
-	<input type="password" id="password_confirmation" name="password_confirmation" required placeholder="Confirmar Password">
+	<input type="password" id="password_confirmation" name="password_confirmation" required placeholder="Confirmar password">
 	</section>
 
 	<section>

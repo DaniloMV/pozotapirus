@@ -52,23 +52,55 @@ class Usuario extends Model implements AuthenticatableContract, CanResetPassword
 
     protected $perPage = 5;
 	
-	public static $rules = array(
-		'txtusuario' => 'required|min:4',
-		'txtemail' => 'required|email',    
-		'txtpassword' => 'required|min:4',
-		'password_confirmation' => 'required|min:4',
-		'UsuarioEquipo' => 'required',
-		'UsuarioTipo' => 'required'
-	);
-
+	/*
 	public static $messages = array(
             'required'        => 'Verifica que todos los campos obligatorios esten llenos.',
             'unique'             => 'El correo del usuario que se ha ingresado ya existe.',
             'min'             => 'Debe tener al menos 4 carácteres.');
+	*/
+
+	public static $rules = [
+    
+    'txtusuario' => 'required|min:4',
+	'txtemail' => 'required|email|unique:usuario,email',    
+	'password' => 'required|min:4|confirmed',
+	'password_confirmation' => 'required',
+	'UsuarioEquipo' => 'required',
+	'UsuarioTipo' => 'required'
+ 
+    ];
+
+    public static $rulesEditar = [
+    
+    'txtusuario' => 'required|min:4',
+	'txtemail' => 'required|email',
+	'UsuarioEquipo' => 'required',
+	'UsuarioTipo' => 'required'
+ 
+    ];
+
+    public static $messages = [
+
+    'txtusuario.required' => 'El usuario es obligatorio.',
+    'txtusuario.min:4' => 'El usuario debe tener al menos 4 carácteres.',
+    'txtemail.required' => 'El correo es obligatorio.',
+    'txtemail.email' => 'Debe ingresar un correo.',
+    'txtemail.unique' => 'El correo ya existe.',
+    'password.required' => 'La contraseña es obligatorio.',
+    'password.min:4' => 'La contraseña debe tener al menos 4 carácteres.',
+    'password_confirmation.required' => 'La contraseña de confirmación es obligatorio.',
+    'UsuarioEquipo.required' => 'Debe seleccionar el equipo.',
+    'UsuarioTipo.required' => 'Debe seleccionar el tipo de usuario.'
+
+    ];
 
 
 	public static function validate($data){ 
 		return \Validator::make($data, static::$rules, static::$messages);
+	}
+
+	public static function validateEditar($data){ 
+		return \Validator::make($data, static::$rulesEditar, static::$messages);
 	}
 
 

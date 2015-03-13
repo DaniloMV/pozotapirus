@@ -180,9 +180,23 @@ body{
 	transition: all 1s ease;	
 }
 
+#VisualizarMensaje, #VisualizarMensaje li {
+  text-align: center;
+  list-style-type: none;
+}
 
+.error_mensaje {
+	color: red;
+	padding: 0;
+	margin: 0;
+}
 
-
+#accordion, #accordion div, #accordion div section{
+	margin-top: 0.2em;
+	padding-top: 0;
+	margin-bottom: 0.2em;
+	padding-bottom: 0;
+}
 /*Ficha*/
 
 #checkedlist{
@@ -542,7 +556,14 @@ tbody tr:hover
 	display: inline-block;
 	vertical-align: middle;
 }
-
+#checkedlist{
+	text-align: right;
+}
+#checkedlist p{
+	width: 45%;
+	display: inline-block;
+	overflow: hidden;
+}
 }
 
 

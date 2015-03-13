@@ -26,8 +26,9 @@
 
 		<section class="campoform">
 		<label class="etiquetaform">Nombre:</label>
-		<input id="txtusuario" name="txtusuario" class="valorcampo" type="text" value="{{ old('name') }}" required placeholder="nombre usuario"
+		<input id="txtusuario" name="txtusuario" class="valorcampo" type="text" value="{{ old('name') }}" placeholder="nombre usuario"
 		></input>
+		{!! $errors->first('txtusuario', '<p class="error_mensaje">:message</p>') !!}
 		</section>
 
 		<section class="campoform">
