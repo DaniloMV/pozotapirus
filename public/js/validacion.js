@@ -78,10 +78,23 @@ function validaficha(){
         es_Correcto=false;
     }
 
+    if($.trim($("#txtdiametroe2").val()).length>0 
+        && parseFloat($("#txtdiametroe2").val())<0)
+    {
+        str_Mensaje=str_Mensaje+"\n- El 'Diámetro de la Entrada 2' debe ser mayor o igual a cero";
+        es_Correcto=false;
+    }
+
     if($.trim($("#txtdiametroe3").val()).length>0 
         && isNaN($("#txtdiametroe3").val())==true)
     {
         str_Mensaje=str_Mensaje+"\n- El 'Diámetro de la Entrada 3' debe ser numérico";
+        es_Correcto=false;
+    }
+    if($.trim($("#txtdiametroe3").val()).length>0 
+        && parseFloat($("#txtdiametroe3").val())<0)
+    {
+        str_Mensaje=str_Mensaje+"\n- El 'Diámetro de la Entrada 3' debe ser mayor o igual a cero";
         es_Correcto=false;
     }
     
@@ -92,10 +105,24 @@ function validaficha(){
         es_Correcto=false;
     }
 
+    if($.trim($("#txtdiametroe4").val()).length>0 
+        && parseFloat($("#txtdiametroe4").val())<0)
+    {
+        str_Mensaje=str_Mensaje+"\n- El 'Diámetro de la Entrada 4' debe ser mayor o igual a cero";
+        es_Correcto=false;
+    }
+
     if($.trim($("#txtdiametroe5").val()).length>0 
         && isNaN($("#txtdiametroe5").val())==true)
     {
         str_Mensaje=str_Mensaje+"\n- El 'Diámetro de la Entrada 5' debe ser numérico";
+        es_Correcto=false;
+    }
+
+    if($.trim($("#txtdiametroe5").val()).length>0 
+        && parseFloat($("#txtdiametroe5").val())<0)
+    {
+        str_Mensaje=str_Mensaje+"\n- El 'Diámetro de la Entrada 5' debe ser mayor o igual a cero";
         es_Correcto=false;
     }
     

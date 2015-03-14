@@ -573,7 +573,7 @@ tbody tr:hover
 }
 
 #slider figure figcaption {
-	font-size: 1em;
+	font-size: 0.8em;
 	padding: 0.2em;
 	width: 35%;	
 }
@@ -605,6 +605,10 @@ tbody tr:hover
 
 #textocab h1{
 	font-size: 3em;
+}
+
+#slider figure figcaption {
+	font-size: 1em;
 }
 
 }

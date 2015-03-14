@@ -21,8 +21,8 @@
 <figure>
   <li><img src="/pozotapirus/public/images/foto_1.jpg"/></li>
   <figcaption>
-  	<small><strong>Quiénes somos?</strong></small>
-	<p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
+  	<small><strong>TAPIRUS</strong></small>
+	<p>“Tapirus Cía. Ltda.” Se constituyó en octubre del año 2008. Sus socios fundadores, los hermanos  Vilma Susana y Víctor Hugo Torres López inician esta compañía limitada con el propósito de poner en práctica los conocimientos adquiridos en la universidad: el ambiente y la geografía, dos carreras vinculadas al estudio de las interrelaciones entre el hombre y la naturaleza.</p>
   </figcaption>
 </figure>
 
@@ -30,7 +30,7 @@
   <li><img src="/pozotapirus/public/images/foto_2.jpg"/></li>
   <figcaption>
   	<small><strong>Misión</strong></small>
-	<p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
+	<p>“TAPIRUS Cía. Ltda.” es una consultora que cree en el desarrollo local, que por medio de la investigación, construcción y la gestión en temas de geografía y  ambiente aporta al progreso de la región del País cumpliendo de manera profesional con las exigencias de las empresas públicas y privadas.</p>
   </figcaption>
 </figure>
 
@@ -38,7 +38,7 @@
   <li><img src="/pozotapirus/public/images/foto_3.jpg"/></li>
   <figcaption>
   	<small><strong>Visión</strong></small>
-	<p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
+	<p> “TAPIRUS Cía. Ltda.” ser la principal consultora y Constructora de la Región  en lo referente a investigación de temas sociales, ambientales y Rehabitación de Bienes Patrimoniales, para la promoción del desarrollo local. Y busca posicionarse a nivel Nacional, para emprender la conquista del Sud América.</p>
   </figcaption>
 </figure>
 
