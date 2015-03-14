@@ -15,6 +15,24 @@ function validaficha(){
         es_Correcto=false;
     }
 
+    
+
+    if($.trim($("#txtdiametroe1").val()).length==0)
+    {
+        str_Mensaje=str_Mensaje+"\n- El 'Diámetro de la Entrada 1' es obligatorio";
+        es_Correcto=false;
+    }
+    else if(isNaN($("#txtdiametroe1").val())==true)
+    {
+        str_Mensaje=str_Mensaje+"\n- El 'Diámetro de la Entrada 1' debe ser numérico";
+        es_Correcto=false;   
+    }
+    else if(parseFloat($("#txtdiametroe1").val())<=0)
+    {
+        str_Mensaje=str_Mensaje+"\n- El 'Diámetro de la Entrada 1' debe ser mayor a cero";
+        es_Correcto=false;   
+    }
+
     if($.trim($("#txtdiametroe2").val()).length>0 
         && isNaN($("#txtdiametroe2").val())==true)
     {
@@ -42,7 +60,21 @@ function validaficha(){
         str_Mensaje=str_Mensaje+"\n- El 'Diámetro de la Entrada 5' debe ser numérico";
         es_Correcto=false;
     }
-    
+    if($.trim($("#txtdiametrosalida").val()).length==0)
+    {
+        str_Mensaje=str_Mensaje+"\n- El 'Diámetro de Salida' es obligatorio";
+        es_Correcto=false;
+    }
+    else if(isNaN($("#txtdiametrosalida").val())==true)
+    {
+        str_Mensaje=str_Mensaje+"\n- El 'Diámetro de Salida' debe ser numérico";
+        es_Correcto=false;   
+    }
+    else if(parseFloat($("#txtdiametrosalida").val())<=0)
+    {
+        str_Mensaje=str_Mensaje+"\n- El 'Diámetro de Salida' debe ser mayor a cero";
+        es_Correcto=false;   
+    }
 
     if(es_Correcto==false)
     {

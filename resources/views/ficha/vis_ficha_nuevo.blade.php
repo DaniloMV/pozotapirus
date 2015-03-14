@@ -62,177 +62,177 @@
 
 <div id="accordion">
   
-<h3>GENERAL</h3>
+<h3 id="tabgeneral">GENERAL</h3>
 
-	<div>
-		<section id="fichacombos" class="campoform">
+<div>
+	<section id="fichacombos" class="campoform">
 
-			<section>
-			<label>Tipo Red:</label>
-			{!! Form::select('cmbtipored', App\Tipored::orderBy('des_tipored', 'Asc')->lists('des_tipored', 'id')) !!} 
-			</section>
+		<section>
+		<label>Tipo Red:</label>
+		{!! Form::select('cmbtipored', App\Tipored::orderBy('des_tipored', 'Asc')->lists('des_tipored', 'id')) !!} 
+		</section>
 
-			<section>
-			<label>Calzada:</label>
-			{!! Form::select('cmbtipocalzada', App\Tipocalzada::orderBy('des_calzada', 'Asc')->lists('des_calzada', 'id')) !!} 
-			</section>
+		<section>
+		<label>Calzada:</label>
+		{!! Form::select('cmbtipocalzada', App\Tipocalzada::orderBy('des_calzada', 'Asc')->lists('des_calzada', 'id')) !!} 
+		</section>
 
-			<section>
-			<label>Material colector:</label>
-			{!! Form::select('cmbmaterialcolector', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
-			</section>
+		<section>
+		<label>Material colector:</label>
+		{!! Form::select('cmbmaterialcolector', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		</section>
 
-			<section>
-			<label>Tipo pozo:</label>
-			{!! Form::select('cmbtipopozo', App\Tipopozo::orderBy('des_tipo_pozo', 'Asc')->lists('des_tipo_pozo', 'id')) !!} 
-			</section>
+		<section>
+		<label>Tipo pozo:</label>
+		{!! Form::select('cmbtipopozo', App\Tipopozo::orderBy('des_tipo_pozo', 'Asc')->lists('des_tipo_pozo', 'id')) !!} 
+		</section>
 
-			<section>
-			<label>Tipo tapa:</label>
-			{!! Form::select('cmbtipotapa', App\Tipotapa::orderBy('des_tipo_tapa', 'Asc')->lists('des_tipo_tapa', 'id')) !!} 
-			</section>
+		<section>
+		<label>Tipo tapa:</label>
+		{!! Form::select('cmbtipotapa', App\Tipotapa::orderBy('des_tipo_tapa', 'Asc')->lists('des_tipo_tapa', 'id')) !!} 
+		</section>
+	
+		<section>
+		<label>Estado pozo:</label>
+		{!! Form::select('cmbestadopozo', App\Estadopozo::orderBy('des_estadopozo', 'Asc')->lists('des_estadopozo', 'id')) !!} 
+		</section>
+	</section>
+</div>
+  
+<h3 id="tabdetalle">DETALLES</h3>
+<div>
+	<section id="checkedlist" name="checkedlist" class="chkficha">
 		
-			<section>
-			<label>Estado pozo:</label>
-			{!! Form::select('cmbestadopozo', App\Estadopozo::orderBy('des_estadopozo', 'Asc')->lists('des_estadopozo', 'id')) !!} 
-			</section>
-		</section>
-	</div>
-	  
-	<h3>DETALLES</h3>
-	<div>
-		<section id="checkedlist" name="checkedlist" class="chkficha">
-			
-			<p>
-			<label>Limpio</label>
-			{!! Form::checkbox('chklimpio', old('es_limpio')) !!}
-			</p>
-			
-			<p>
-			<label>Escalera</label>
-			{!! Form::checkbox('chkescalera', old('es_escalera')) !!}
-			</p>
-			
-			<p>
-			<label>Hormigón</label>
-			{!! Form::checkbox('chkhormigon', old('es_hormigon')) !!}
-			</p>
-
-			<p>
-			<label>Ladrillo</label>
-			{!! Form::checkbox('chkladrillo', old('es_ladrillo')) !!}
-			</p>
-
-			<p>
-			<label>Bloque</label>
-			{!! Form::checkbox('chkbloque', old('es_bloque')) !!}
-			</p>	
-
-			<p>
-			<label>Mixto</label>
-			{!! Form::checkbox('chkmixto', old('es_mixto')) !!}
-			</p>
-
-			<p>
-			<label>Tapa</label>
-			{!! Form::checkbox('chktapa', old('es_tapa')) !!}
-			</p>
-
-			<p>
-			<label>Cadena</label>
-			{!! Form::checkbox('chkcadena', old('es_cadena')) !!}
-			</p>
-
-			<p>
-			<label>Bisagra</label>
-			{!! Form::checkbox('chkbisagra', old('es_bisagra')) !!}
-			</p>
-
-		</section>
-	 </div>
-	  
-	<h3>COORDENADAS</h3>
-
-	<div>
+		<p>
+		<label>Limpio</label>
+		{!! Form::checkbox('chklimpio', old('es_limpio')) !!}
+		</p>
 		
-		<section id="coordenadas" name="coordenadas" class="campoform">
+		<p>
+		<label>Escalera</label>
+		{!! Form::checkbox('chkescalera', old('es_escalera')) !!}
+		</p>
+		
+		<p>
+		<label>Hormigón</label>
+		{!! Form::checkbox('chkhormigon', old('es_hormigon')) !!}
+		</p>
 
-			<section>
-				<label>X:</label>
-				{!! Form::text('txtcoordenadax', old('x'), ['placeholder' => '']) !!}
-				{!! $errors->first('txtcoordenadax', '<p class="error_mensaje">:message</p>') !!}
-			</section>
+		<p>
+		<label>Ladrillo</label>
+		{!! Form::checkbox('chkladrillo', old('es_ladrillo')) !!}
+		</p>
 
-			<section>
-				<label>Y:</label>
-				{!! Form::text('txtcoordenaday', old('y'), ['placeholder' => '']) !!}
-				{!! $errors->first('txtcoordenaday', '<p class="error_mensaje">:message</p>') !!}
-			</section>
-			
-			<section>
-				<label>Z:</label>
-				{!! Form::text('txtcoordenadaz', old('z'), ['placeholder' => '']) !!}
-				{!! $errors->first('txtcoordenadaz', '<p class="error_mensaje">:message</p>') !!}
-			</section>
+		<p>
+		<label>Bloque</label>
+		{!! Form::checkbox('chkbloque', old('es_bloque')) !!}
+		</p>	
+
+		<p>
+		<label>Mixto</label>
+		{!! Form::checkbox('chkmixto', old('es_mixto')) !!}
+		</p>
+
+		<p>
+		<label>Tapa</label>
+		{!! Form::checkbox('chktapa', old('es_tapa')) !!}
+		</p>
+
+		<p>
+		<label>Cadena</label>
+		{!! Form::checkbox('chkcadena', old('es_cadena')) !!}
+		</p>
+
+		<p>
+		<label>Bisagra</label>
+		{!! Form::checkbox('chkbisagra', old('es_bisagra')) !!}
+		</p>
+
+	</section>
+ </div>
+  
+<h3 id="tabcoordenada">COORDENADAS</h3>
+
+<div>
+	
+	<section id="coordenadas" name="coordenadas" class="campoform">
+
+		<section>
+			<label>X:</label>
+			{!! Form::text('txtcoordenadax', old('x'), ['placeholder' => '']) !!}
+			{!! $errors->first('txtcoordenadax', '<p class="error_mensaje">:message</p>') !!}
 		</section>
 
-	</div>
-
-	<h3>MEDIDAS</h3>
-	<div>
-		<section id="medidas" name="medidas" class="campoform">
-
-			<section>
-			<label>Diámetro E1:</label>
-			{!! Form::text('txtdiametroe1', old('entrada_1'), ['id' => 'txtdiametroe1', 'placeholder' => 'metros']) !!} m
-			{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
-			</section>
-
-			<section>
-			<label>Diámetro E2:</label>
-			{!! Form::text('txtdiametroe2', old('entrada_2'), ['id' => 'txtdiametroe2', 'placeholder' => 'metros']) !!} m
-			{!! $errors->first('txtdiametroe2', '<p class="error_mensaje">:message</p>') !!}
-			</section>
-
-			<section>
-			<label>Diámetro E3:</label>
-			{!! Form::text('txtdiametroe3', old('entrada_3'), ['id' => 'txtdiametroe3', 'placeholder' => 'metros']) !!} m
-			{!! $errors->first('txtdiametroe3', '<p class="error_mensaje">:message</p>') !!}
-			</section>
-
-			<section>
-			<label>Diámetro E4:</label>
-			{!! Form::text('txtdiametroe4', old('entrada_4'), ['id' => 'txtdiametroe4', 'placeholder' => 'metros']) !!} m
-			{!! $errors->first('txtdiametroe4', '<p class="error_mensaje">:message</p>') !!}
-			</section>
-
-			<section>
-			<label>Diámetro E5:</label>
-			{!! Form::text('txtdiametroe5', old('entrada_5'), ['id' => 'txtdiametroe5', 'placeholder' => 'metros']) !!} m
-			{!! $errors->first('txtdiametroe5', '<p class="error_mensaje">:message</p>') !!}
-			</section>
-
-			<section>
-			<label>Salida:</label>
-			{!! Form::text('txtdiametrosalida', old('salida'), ['placeholder' => 'metros']) !!} m
-			{!! $errors->first('txtdiametrosalida', '<p class="error_mensaje">:message</p>') !!}
-			</section>
-			
-			<section>
-			<label>Altura:</label>
-			{!! Form::text('txtaltura', old('altura'), ['placeholder' => 'metros']) !!} m
-			{!! $errors->first('txtaltura', '<p class="error_mensaje">:message</p>') !!}
-			</section>
+		<section>
+			<label>Y:</label>
+			{!! Form::text('txtcoordenaday', old('y'), ['placeholder' => '']) !!}
+			{!! $errors->first('txtcoordenaday', '<p class="error_mensaje">:message</p>') !!}
 		</section>
-	</div>
-
-	<h3>OBSERVACIONES</h3>
-
-	<div>
-		<section class="campoform">
-			{!! Form::textarea('observaciones', old('observaciones'), ['rows' => '3', 'cols' => '40']) !!}
+		
+		<section>
+			<label>Z:</label>
+			{!! Form::text('txtcoordenadaz', old('z'), ['placeholder' => '']) !!}
+			{!! $errors->first('txtcoordenadaz', '<p class="error_mensaje">:message</p>') !!}
 		</section>
-	</div>
+	</section>
+
+</div>
+
+<h3 id="tabmedida">MEDIDAS</h3>
+<div>
+	<section id="medidas" name="medidas" class="campoform">
+
+		<section>
+		<label>Diámetro E1:</label>
+		{!! Form::text('txtdiametroe1', old('entrada_1'), ['id' => 'txtdiametroe1', 'placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+
+		<section>
+		<label>Diámetro E2:</label>
+		{!! Form::text('txtdiametroe2', old('entrada_2'), ['id' => 'txtdiametroe2', 'placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtdiametroe2', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+
+		<section>
+		<label>Diámetro E3:</label>
+		{!! Form::text('txtdiametroe3', old('entrada_3'), ['id' => 'txtdiametroe3', 'placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtdiametroe3', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+
+		<section>
+		<label>Diámetro E4:</label>
+		{!! Form::text('txtdiametroe4', old('entrada_4'), ['id' => 'txtdiametroe4', 'placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtdiametroe4', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+
+		<section>
+		<label>Diámetro E5:</label>
+		{!! Form::text('txtdiametroe5', old('entrada_5'), ['id' => 'txtdiametroe5', 'placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtdiametroe5', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+
+		<section>
+		<label>Salida:</label>
+		{!! Form::text('txtdiametrosalida', old('salida'), ['id' => 'txtdiametrosalida','placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtdiametrosalida', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+		
+		<section>
+		<label>Altura:</label>
+		{!! Form::text('txtaltura', old('altura'), ['placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtaltura', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+	</section>
+</div>
+
+<h3 id="tabobservacion">OBSERVACIONES</h3>
+
+<div>
+	<section class="campoform">
+		{!! Form::textarea('observaciones', old('observaciones'), ['rows' => '3', 'cols' => '40']) !!}
+	</section>
+</div>
 
 </div>
 

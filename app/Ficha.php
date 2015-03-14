@@ -86,7 +86,7 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
     
    public static $rules = [
     
-    'txtpozocodigo' => 'required|unique:ficha,id',
+    'txtpozocodigo' => 'required|min:10|unique:ficha,id',
     'txtcalle' => 'required',
     'cmbparroquia' => 'required',
     'cmbbarrio' => 'required',
@@ -111,7 +111,7 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
 
     public static $rulesEditar = [
     
-    'txtpozocodigo' => 'required',
+    'txtpozocodigo' => 'required|min:10',
     'txtcalle' => 'required',
     'cmbparroquia' => 'required',
     'cmbbarrio' => 'required',
@@ -136,11 +136,12 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
 
     public static $messages = [
     'txtpozocodigo.required' => 'El código de pozo obligatorio',
-    'txtpozocodigo.min:10.max:10' => 'El código de pozo debe tener 10 caracteres',
+    'txtpozocodigo.min:10' => 'El código de pozo debe tener 10 caracteres',
     'txtpozocodigo.max:10' => 'El código de pozo debe tener 10 caracteres',
     'txtpozocodigo.unique' => 'El código de pozo ya existe',
     'txtcalle.required' => 'Es importante ingresar el nombre de la calle',
     'txtdiametroe1.required' => 'Diámetro de la Entrada 1 es obligatorio',
+    'txtdiametroe1.numeric' => 'Diámetro de la Entrada 1 debe ser numérico',
     'txtdiametroe2.numeric' => 'Diámetro de la Entrada 2 debe ser numérico',
     'txtdiametroe3.numeric' => 'Diámetro de la Entrada 3 debe ser numérico',
     'txtdiametroe4.numeric' => 'Diámetro de la Entrada 4 debe ser numérico',

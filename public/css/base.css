@@ -34,8 +34,6 @@ body{
 }
 
 
-
-
 #imglogotapirus,#imglogokunhwa, #textocab{
 	display: inline-block;
 	vertical-align: middle;
@@ -47,16 +45,17 @@ body{
         .banner ul li { float: left; }
 
 #textocab{
+	color: rgba(255,60,0, 0.8);
 	font-size: 9px;
 	margin: 0 1% 0 2%;
 	line-height:  0;
 }
 
 .btnguardar{
-	border: 1px solid blue;
+	border: 2px solid #336699;
 	background-color: #FFFFFF;
 	border-radius: 	0.25em;
-	color:blue;
+	color:#336699;
 	display: block;
 	font-size: 1.3em;
 	margin: 0.5em auto;
@@ -66,16 +65,17 @@ body{
 }
 
 .btnguardar:hover{
-	background-color: blue;
+	background-color: #336699;
+	border: 2px solid #FFFFFF;
 	color:#FFFFFF;
 }
 
 .iniciaficha a{
 
-	border: 1px solid blue;
+	border: 2px solid #336699;
 	background-color: #FFFFFF;
 	border-radius: 	0.25em;
-	color:blue;
+	color:#336699;
 	display: block;
 	font-size: 1.3em;
 	margin: 0.5em auto;
@@ -86,15 +86,16 @@ body{
 }
 
 .iniciaficha a:hover{
-	background-color: blue;
-	color:#FFFFFF;
+	background-color: #336699;
+	border: 2px solid #FFFFFF;
+	color: #FFFFFF;
 }
 
 .logout{
 	
-	border: 2px solid #FF0033;
+	border: 2px solid #D7C465;
 	border-radius: 0.3em;
-	color: #FF0033;
+	color: #D7C465;
 	float: right;
 	font-size: 1.1em;
 	margin-right: 2em;
@@ -103,12 +104,13 @@ body{
 }
 
 .logout:hover{
-	background-color: #FF0033;
+	background-color: #D7C465;
+	border: 2px solid #FFFFFF;
 	color: #FFFFFF;
 }
 
 .login{
-	color: blue;
+	color: rgba(0,100,0, 0.8);
 	font-size: 1.1em;
 }
 
@@ -119,12 +121,13 @@ body{
 .cabecera{
 	background-color: rgba(153,153,102,0.8);
 	border-radius: 0.5em;
-	color: #D2691E;
+	color: rgba(0,100,0, 0.8);
 	display: inline-block;
 	margin: 0.5em auto;
 	text-align: center;
 	width: 100%;
 }
+
 
 .campoform{
 	margin: 0.8em;
@@ -239,8 +242,28 @@ body{
 
 
 #accordion h3{
-	color: #D2691E;
-	text-align: center;}
+	font-weight: bold;
+	text-align: center;
+}
+
+#tabgeneral{
+	color: rgba(0,100,0, 0.8);
+}
+
+#tabdetalle{
+	color: rgba(0,115,0, 0.8);
+}
+#tabcoordenada{
+	color: rgba(0,130,0, 0.8);
+}
+
+#tabmedida{
+	color: rgba(0,145,0, 0.8);
+}
+
+#tabobservacion{
+	color: rgba(0,160,0, 0.8);
+}
 
 .chkficha p input{
 	display: inline-block;
@@ -523,12 +546,14 @@ tbody tr:hover
 
 #imglogotapirus{
 	border-radius: 50%;
+	float: left;
 	height: 50px;
 	width:	50px;
 }
 
 #imglogokunhwa{
 	border-radius: 0.25em;
+	float: right;
 	height: 50px;
 	width:	50px;
 }
@@ -566,6 +591,23 @@ tbody tr:hover
 }
 }
 
+@media screen and (min-width: 700px) {
+
+#imglogotapirus{
+	height: 75px;
+	width:	75px;
+}
+
+#imglogokunhwa{
+	height: 75px;
+	width:	75px;
+}
+
+#textocab h1{
+	font-size: 3em;
+}
+
+}
 
 
 
