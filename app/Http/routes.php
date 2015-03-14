@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get('/', [
 	'uses' => 'LoginController@getIndex', 
 	'as' => 'login'
@@ -47,6 +46,8 @@ Route::post('ficha/Crear', array('uses'=>'FichaController@postCrear'));
 Route::post('ficha/Editar', array('uses'=>'FichaController@postEditar'));
 Route::post('ficha/Actualizar', array('uses'=>'FichaController@postActualizar'));
 Route::post('ficha/Eliminar', array('uses'=>'FichaController@deleteActivarInactivar'));
+Route::get('reporteficha', array('as'=>'reporteficha','uses'=>'FichaController@getReporteficha'));
+
 
 //Rutas de Usuarios
 Route::get('usuario', array('as'=>'usuario','uses'=>'UsuarioController@getIndex'));

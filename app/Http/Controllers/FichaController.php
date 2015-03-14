@@ -12,7 +12,9 @@ use App\Http\Controllers\Redirect;
 
 use App\Ficha;
 use App\Barrio;
-
+use App\Tipocalzada;
+use App\Tipored;
+use dompdf\dompdf;
 
 class FichaController extends Controller {
 
@@ -70,6 +72,7 @@ class FichaController extends Controller {
         return view('ficha.vis_ficha', compact('datos'))
 			   ->with('title','Lista de Registro de Fichas');
 	}
+
 
 	public function getNuevo()
 	{
@@ -322,6 +325,25 @@ class FichaController extends Controller {
        return \Response::json(array('listados' => $listado));
        }
        return 0;
+    }
+
+	public function getReporteficha()
+	{
+        
+        $tiporedes = Tipored::orderBy('id', 'Asc')->get();
+
+        $tipocalzadas = Tipocalzada::orderBy('id', 'Asc')->get();
+
+        $html = view('ficha.vis_fichareporte', compact('tiporedes', 'tipocalzadas'))
+			   ->with('title','Reporte de fichas');
+        
+        //return PDF::load(utf8_decode($html), 'A4', 'portrait')->show();
+        
+
+        $pdf = \App::make('dompdf');
+		//$pdf->loadHTML('<h1>Test</h1>');
+		$pdf->loadHTML($html);
+		return $pdf->stream();
     }
 
 }
