@@ -6,7 +6,7 @@ function funciones(){
 
 function validaficha(){
 
-    var str_Mensaje="Por verifique lo siguiente:"
+    var str_Mensaje="Por favor verifique lo siguiente:"
     var es_Correcto=true;
 
     if($.trim($("#txtpozocodigo").val()).length!=10)
