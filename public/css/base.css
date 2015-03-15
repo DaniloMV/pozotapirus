@@ -116,6 +116,7 @@ body{
 
 .titulopagina{
 	text-align: center;
+	width: 100%;
 }
 
 .cabecera{
@@ -183,13 +184,30 @@ body{
 	transition: all 1s ease;	
 }
 
+.tituloobligatorio{
+	color: rgba(200,0,0,0.8);
+	display: block;
+	font-size: 0.8em;
+	text-align: center;
+	width: 100%;
+}
+
+
+
+.obligatorio{
+	color: rgba(200,0,0,0.8);;
+	font-size: 0.8em;
+	text-align: center;
+	vertical-align: middle;
+}
+
 #VisualizarMensaje, #VisualizarMensaje li {
   text-align: center;
   list-style-type: none;
 }
 
 .error_mensaje {
-	color: red;
+	color: rgba(200,0,0,0.8);
 	padding: 0;
 	margin: 0;
 }

@@ -231,7 +231,7 @@
 
 <div>
 	<section class="campoform">
-		<textarea id="observaciones" name="observaciones" rows="3" cols="40" value="<?php echo "{$datos->observaciones}"; ?>"></textarea>
+		<textarea id="observaciones" name="observaciones" rows="3" cols="40"><?php echo "{$datos->observaciones}"; ?></textarea>
 	</section>
 </div>
 
