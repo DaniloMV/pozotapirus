@@ -33,8 +33,8 @@
             <td>{{ $barrio->des_barrio }}</td>
             <td>
                 {!! Form::open(array('url'=>'barrio/Eliminar')) !!}
-                {!! Form::hidden('id', $barrio->id) !!}
-                {!! Form::hidden('id_parroquia', $barrio->parroquia_id) !!}
+                {!! Form::hidden('hidden_id', $barrio->id) !!}
+                {!! Form::hidden('hidden_parroquia_id', $barrio->parroquia_id) !!}
                 {!! Form::hidden('estado', $barrio->estreg) !!}   
                 
                 <?php                 
@@ -49,9 +49,12 @@
 
                 {!! Form::close() !!}
             <td>
-                 <button id='Editar' class='Botones'> 
-                  {!! link_to_route('EditarBarrio','Editar',array($barrio->id)) !!}
-                </button>
+                {!! Form::open(array('url'=>'barrio/Editar')) !!}
+                {!! Form::hidden('hidden_id', $barrio->id) !!}
+                {!! Form::hidden('hidden_parroquia_id', $barrio->parroquia_id) !!}  
+                <input id='Editar' type='submit' name='Editar' class='Botones' value='Editar'>
+                
+                {!! Form::close() !!}
             </tr>       
         	</tr>
 			@endforeach

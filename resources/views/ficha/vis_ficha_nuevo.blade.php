@@ -6,13 +6,13 @@
 
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" href="/pozotapirus/public/css/base.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script src="/pozotapirus/public/js/funciones.js"></script>
-<script src="/pozotapirus/public/js/validacionnuevo.js"></script>
+<script src="/js/funciones.min.js"></script>
+<script src="/js/validacionnuevo.min.js"></script>
 <h2 class="titulopagina">INICIAR FICHA</h2>
+<small class="tituloobligatorio">(*) CAMPOS OBLIGATORIOS</small>
+
 
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop
@@ -46,13 +46,13 @@
 	</section>
 
 	<section>
-	<label>Calle:</label>
+	<label>Calle:<spam class="obligatorio"> (*)</spam></label>
 	{!! Form::text('txtcalle', old('calle'), ['id' => 'txtcalle', 'placeholder' => 'Nombre de la calle']) !!}
 	{!! $errors->first('txtcalle', '<p class="error_mensaje">:message</p>') !!}
 	</section>
 
 	<section>
-	<label class="etiquetaform">Código:</label>
+	<label class="etiquetaform">Código: <spam class="obligatorio"> (*)</spam></label>
 	{!! Form::text('txtpozocodigo', old('id'), ['id' => 'txtpozocodigo', 'placeholder' => 'único (10 caracteres)', 'pattern' => '\S{1,10}']) !!}
 	{!! $errors->first('txtpozocodigo', '<p class="error_mensaje">:message</p>') !!}
 	</section>
@@ -158,19 +158,19 @@
 	<section id="coordenadas" name="coordenadas" class="campoform">
 
 		<section>
-			<label>X:</label>
+			<label>X: <spam class="obligatorio"> (*)</spam></label>
 			{!! Form::text('txtcoordenadax', old('x'), ['placeholder' => '']) !!}
 			{!! $errors->first('txtcoordenadax', '<p class="error_mensaje">:message</p>') !!}
 		</section>
 
 		<section>
-			<label>Y:</label>
+			<label>Y:<spam class="obligatorio"> (*)</spam></label>
 			{!! Form::text('txtcoordenaday', old('y'), ['placeholder' => '']) !!}
 			{!! $errors->first('txtcoordenaday', '<p class="error_mensaje">:message</p>') !!}
 		</section>
 		
 		<section>
-			<label>Z:</label>
+			<label>Z:<spam class="obligatorio"> (*)</spam></label>
 			{!! Form::text('txtcoordenadaz', old('z'), ['placeholder' => '']) !!}
 			{!! $errors->first('txtcoordenadaz', '<p class="error_mensaje">:message</p>') !!}
 		</section>
@@ -183,7 +183,7 @@
 	<section id="medidas" name="medidas" class="campoform">
 
 		<section>
-		<label>Diámetro E1:</label>
+		<label>Diámetro E1:<spam class="obligatorio"> (*)</spam></label>
 		{!! Form::text('txtdiametroe1', old('entrada_1'), ['id' => 'txtdiametroe1', 'placeholder' => 'metros']) !!} m
 		{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
 		</section>
@@ -213,13 +213,13 @@
 		</section>
 
 		<section>
-		<label>Salida:</label>
+		<label>Salida:<spam class="obligatorio"> (*)</spam></label>
 		{!! Form::text('txtdiametrosalida', old('salida'), ['id' => 'txtdiametrosalida','placeholder' => 'metros']) !!} m
 		{!! $errors->first('txtdiametrosalida', '<p class="error_mensaje">:message</p>') !!}
 		</section>
 		
 		<section>
-		<label>Altura:</label>
+		<label>Altura:<spam class="obligatorio">(*)</spam></label>
 		{!! Form::text('txtaltura', old('altura'), ['placeholder' => 'metros']) !!} m
 		{!! $errors->first('txtaltura', '<p class="error_mensaje">:message</p>') !!}
 		</section>

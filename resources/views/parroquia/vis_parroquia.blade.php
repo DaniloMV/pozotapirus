@@ -33,7 +33,7 @@
         
         <td>
             {!! Form::open(array('url'=>'parroquia/Eliminar')) !!}
-            {!! Form::hidden('sec', $parroquia->id) !!}  
+            {!! Form::hidden('id', $parroquia->id) !!}  
             <input id='Estado' type='submit' name='deleteActivarInactivar' class='Botones' value='Anular'>
             
             {!! Form::close() !!}

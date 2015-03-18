@@ -26,7 +26,7 @@ class UsuarioController extends Controller {
 	 */
 	public function __construct()
 	{
-		//Admin
+                //Admin
 		if (\Auth::user()->usuario_tipo_id==2)
 		{
 			$this->middleware('auth');
@@ -37,6 +37,14 @@ class UsuarioController extends Controller {
 			return redirect('/login');
 		}
 	}
+    public function Verificar()
+    {               
+		if (\Auth::user()->usuario_tipo_id==1)
+        {
+	   		//Digitador
+	   		return redirect('/login');
+		}
+    }
 
 	/**
 	 * Create a new authentication controller instance.
@@ -53,21 +61,27 @@ class UsuarioController extends Controller {
 	 */
 	public function getIndex()
 	{
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+        	$datos = Usuario::with('modusuariotipo', 'modusuarioequipo')
+                			->orderBy('id', 'Asc')->paginate();
 
-        $datos = Usuario::with('modusuariotipo', 'modusuarioequipo')
-                ->orderBy('id', 'Asc')->paginate();
-
-        //return $datos;
-
-        return view('usuario.vis_usuario', compact('datos'))
-			   ->with('title','Lista de Usuarios');
-
-	}
+	        return view('usuario.vis_usuario', compact('datos'))
+				   ->with('title','Lista de Usuarios');
+        }
+        //Digitador
+		return redirect('/login');
+    }
 
 	public function getNuevo()
 	{
-		return view('usuario.vis_usuario_nuevo')
-			   ->with('title','Nuevo Usuario');
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			return view('usuario.vis_usuario_nuevo')
+				   ->with('title','Nuevo Usuario');
+        }
+        //Digitador
+		return redirect('/login');
 	}
 	public function getSalir()
 	{
@@ -77,78 +91,98 @@ class UsuarioController extends Controller {
 
 	public function postCrear(Request $request)
     {
-		$validation = Usuario::validate($request->all());
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			$validation = Usuario::validate($request->all());
 
-		if($validation->fails()){
-			// En caso de error regresa a la acción create con los datos y los errores encontrados
-			return redirect()->back()->withInput()->withErrors($validation);
-		}
-		else
-		{	
-			$usuario=new Usuario;
-			$secuencial = Usuario::max('id')+1;
-			$usuario->id = $secuencial;
-			$usuario->name = $request->input('txtusuario');
-			$usuario->email = $request->input('txtemail');
-			$usuario->password = bcrypt($request->input('password'));
-			$usuario->usuario_equ_id = $request->input('UsuarioEquipo');
-			$usuario->usuario_tipo_id = $request->input('UsuarioTipo');
-			//$usuario->timestamps();
-			//$usuario->rememberToken();
+			if($validation->fails()){
+				// En caso de error regresa a la acción create con los datos y los errores encontrados
+				return redirect()->back()->withInput()->withErrors($validation);
+			}
+			else
+			{	
+				$usuario=new Usuario;
+				$secuencial = Usuario::max('id')+1;
+				$usuario->id = $secuencial;
+				$usuario->name = $request->input('txtusuario');
+				$usuario->email = $request->input('txtemail');
+				$usuario->password = bcrypt($request->input('password'));
+				$usuario->usuario_equ_id = $request->input('UsuarioEquipo');
+				$usuario->usuario_tipo_id = $request->input('UsuarioTipo');
+				//$usuario->timestamps();
+				//$usuario->rememberToken();
 
-			$usuario->estreg=1;
+				$usuario->estreg=1;
 
-			$usuario->save();
-			return redirect('usuario');
-		}
+				$usuario->save();
+				return redirect('usuario');
+			}
+        }
+        //Digitador
+		return redirect('/login');
 	}
 
-	public function getEditar($id){
-
-		return view('usuario.vis_usuario_editar')
-		->with('title','Editar Usuario')
-		->with('datos', Usuario::where('id','=',$id)->first());
+	public function getEditar($id)
+	{
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			return view('usuario.vis_usuario_editar')
+			->with('title','Editar Usuario')
+			->with('datos', Usuario::where('id','=',$id)->first());
+        }
+        //Digitador
+		return redirect('/login');
 	}
 
-    public function postActualizar(Request $request){
+    public function postActualizar(Request $request)
+    {
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			$id = $request->input('hidden_id');
+			
+			$validation = Usuario::validateEditar($request->all());
 
-		$id = $request->input('hidden_id');
-		
-		$validation = Usuario::validateEditar($request->all());
+			if($validation->fails()){
+			 	return redirect()->route('EditarUsuario',$id)->withErrors($validation);
+			 	// Redirect::route('Editarusuario',$id_usuario)->withErrors($validation);
+			}
+			else{
 
-		if($validation->fails()){
-		 	return redirect()->route('EditarUsuario',$id)->withErrors($validation);
-		 	// Redirect::route('Editarusuario',$id_usuario)->withErrors($validation);
-		}
-		else{
+				$usuario = Usuario::where('id','=',$id)->first();
+				$usuario->name = $request->input('txtusuario');
+				$usuario->usuario_equ_id = $request->input('UsuarioEquipo');
+				$usuario->usuario_tipo_id = $request->input('UsuarioTipo');
+				$usuario->save();
+				return redirect('usuario');
+			}
+        }
+        //Digitador
+		return redirect('/login');
+	}
+
+	public function deleteActivarInactivar(Request $request)
+	{
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			$id = $request->input('id');
+			$estado = $request->input('estado');
 
 			$usuario = Usuario::where('id','=',$id)->first();
-			$usuario->name = $request->input('txtusuario');
-			$usuario->usuario_equ_id = $request->input('UsuarioEquipo');
-			$usuario->usuario_tipo_id = $request->input('UsuarioTipo');
+
+			if($estado == 1){
+				$usuario->estreg=0;
+			}
+			else{
+				$usuario->estreg=1;
+			}
+		
 			$usuario->save();
+
 			return redirect('usuario');
-		}
-	}
-
-	public function deleteActivarInactivar(Request $request){
-
-		$id = $request->input('id');
-		$estado = $request->input('estado');
-
-		$usuario = Usuario::where('id','=',$id)->first();
-
-		if($estado == 1){
-			$usuario->estreg=0;
-		}
-		else{
-			$usuario->estreg=1;
-		}
-	
-		$usuario->save();
-
-		return redirect('usuario');
-		//->with('status_message', 'El estado fue Actualizado Satisfactoriamente');
+			//->with('status_message', 'El estado fue Actualizado Satisfactoriamente');
+        }
+        //Digitador
+		return redirect('/login');
 	}
 
 }

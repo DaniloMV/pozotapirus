@@ -8,10 +8,10 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script src="/pozotapirus/public/js/funciones.js"></script>
-<script src="/pozotapirus/public/js/validacion.js"></script>
+<script src="/js/funciones.min.js"></script>
+<script src="/js/validacion.min.js"></script>
 <h2 class="titulopagina">MODIFICAR FICHAS</h2>
+<small class="tituloobligatorio">(*) CAMPOS OBLIGATORIOS</small>
 
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop
@@ -47,13 +47,13 @@
 	</section>
 
 	<section>
-	<label>Calle:</label>
+	<label>Calle:<spam class="obligatorio"> (*)</spam></label>
 	<input id="txtcalle" name="txtcalle" type="text" required value="<?php echo "{$datos->calle}"; ?>"  placeholder="nombre de la calle"></input>
 	{!! $errors->first('txtcalle', '<p class="error_mensaje">:message</p>') !!}
 	</section>
 	<input type="hidden" name="hidden_sec"  value="<?php echo "{$datos->sec_ficha}"; ?>">
 	<section>
-	<label class="etiquetaform">Código:</label>
+	<label class="etiquetaform">Código:<spam class="obligatorio"> (*)</spam></label>
 	<input id="txtpozocodigo" name="txtpozocodigo" type="text" required value="<?php echo "{$datos->id}"; ?>" pattern="\S{1,10}" placeholder="único (10 caracteres)"></input>
 	{!! $errors->first('txtpozocodigo', '<p class="error_mensaje">:message</p>') !!}
 	</section>
@@ -159,19 +159,19 @@
 	<section id="coordenadas" name="coordenadas" class="campoform">
 
 		<section>
-			<label>X:</label>
+			<label>X:<spam class="obligatorio"> (*)</spam></label>
 			<input id="txtcoordenadax" name="txtcoordenadax" type="text" required value="<?php echo "{$datos->x}"; ?>"></input>
 			{!! $errors->first('txtcoordenadax', '<p class="error_mensaje">:message</p>') !!}
 		</section>
 
 		<section>
-			<label>Y:</label>
+			<label>Y:<spam class="obligatorio"> (*)</spam></label>
 			<input id="txtcoordenaday" name="txtcoordenaday" type="text" required value="<?php echo "{$datos->y}"; ?>"></input>
 			{!! $errors->first('txtcoordenaday', '<p class="error_mensaje">:message</p>') !!}
 		</section>
 		
 		<section>
-			<label>Z:</label>
+			<label>Z:<spam class="obligatorio"> (*)</spam></label>
 			<input id="txtcoordenadaz" name="txtcoordenadaz" type="text" required value="<?php echo "{$datos->z}"; ?>"></input>
 			{!! $errors->first('txtcoordenadaz', '<p class="error_mensaje">:message</p>') !!}
 		</section>
@@ -184,7 +184,7 @@
 	<section id="medidas" name="medidas" class="campoform">
 
 		<section>
-		<label>Diametro E1:</label>
+		<label>Diametro E1:<spam class="obligatorio"> (*)</spam></label>
 		<input id="txtdiametroe1" name="txtdiametroe1" type="text" required value="<?php echo "{$datos->entrada_1}"; ?>" placeholder="metros"/>m
 		{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
 		</section>
@@ -214,13 +214,13 @@
 		</section>
 
 		<section>
-		<label>Salida:</label>
+		<label>Salida:<spam class="obligatorio"> (*)</spam></label>
 		<input id="txtdiametrosalida" name="txtdiametrosalida" type="text" required value="<?php echo "{$datos->salida}"; ?>" placeholder="metros"/>m
 		{!! $errors->first('txtdiametrosalida', '<p class="error_mensaje">:message</p>') !!}
 		</section>
 		
 		<section>
-		<label>Altura:</label>
+		<label>Altura:<spam class="obligatorio"> (*)</spam></label>
 		<input id="txtaltura" name="txtaltura" type="text" required value="<?php echo "{$datos->altura}"; ?>" placeholder="metros"/>m
 		{!! $errors->first('txtaltura', '<p class="error_mensaje">:message</p>') !!}
 		</section>
@@ -231,7 +231,7 @@
 
 <div>
 	<section class="campoform">
-		<textarea id="observaciones" name="observaciones" rows="3" cols="40" value="<?php echo "{$datos->observaciones}"; ?>"></textarea>
+		<textarea id="observaciones" name="observaciones" rows="3" cols="40"><?php echo "{$datos->observaciones}"; ?></textarea>
 	</section>
 </div>
 

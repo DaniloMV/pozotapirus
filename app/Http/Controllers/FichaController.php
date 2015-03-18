@@ -82,8 +82,7 @@ class FichaController extends Controller {
 
 
 	public function postCrear(Request $request)
-    {
-
+    {        
 		$validation = Ficha::validate($request->all());
 
 		$codigoverificar = Ficha::where('id','=',$request->input('txtpozocodigo'))->first();
@@ -229,12 +228,25 @@ class FichaController extends Controller {
 
 	public function VerificarCamposCHK($request, $ficha)
 	{
+		$ficha->es_limpio = trim($request->input('chklimpio'))==''|| $request->input('chklimpio')=="0"?0:1;
+		$ficha->es_escalera = trim($request->input('chkescalera'))=='' || $request->input('chkescalera')=="0"?0:1;
+		$ficha->es_hormigon = trim($request->input('chkhormigon'))==''|| $request->input('chkhormigon')=="0"?0:1;
+		$ficha->es_ladrillo = trim($request->input('chkladrillo'))=='' || $request->input('chkladrillo')=="0"?0:1;
+		$ficha->es_bloque = trim($request->input('chkbloque'))=='' || $request->input('chkbloque')=="0"?0:1;
+		$ficha->es_mixto = trim($request->input('chkmixto'))=='' || $request->input('chkmixto')=="0"?0:1;
+		$ficha->es_tapa = trim($request->input('chktapa'))=='' || $request->input('chktapa')=="0"?0:1;
+		$ficha->es_cadena = trim($request->input('chkcadena'))=='' || $request->input('chkcadena')=="0"?0:1;
+		$ficha->es_bisagra = trim($request->input('chkbisagra'))=='' || $request->input('chkbisagra')=="0"?0:1;
+	}
+	/*
+	public function VerificarCamposCHK($request, $ficha)
+	{
 		$ValorSEL = $request->input('chklimpio');
 		if(empty($ValorSEL) || count($ValorSEL) == 0)
 		{
 			$ValorSEL = 0;
 		}
-		$ficha->es_limpio = $ValorSEL;
+		$ficha->es_limpio = empty($ValorSEL) || count($ValorSEL) == 0?0:1;
 		
 		$ValorSEL = $request->input('chkescalera');
 		if(empty($ValorSEL) || count($ValorSEL) == 0)
@@ -292,6 +304,7 @@ class FichaController extends Controller {
 		}
 		$ficha->es_bisagra = $ValorSEL;
 	}
+	*/
 
 	public function VerificaVacios($request){
 		

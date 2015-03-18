@@ -29,7 +29,7 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
   	public $timestamps = false;
 	protected $table = 'ficha';
 
-    protected $perPage = 5;
+    protected $perPage = 10;
 
     public function modusuario(){
     	return $this->belongsTo('App\Usuario', 'usuario_id');
@@ -158,12 +158,12 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
     'cmbtipopozo.required' => 'El tipo de pozo obligatorio',
     'cmbtipotapa.required' => 'El tipo de tapa obligatorio',
     'cmbestadopozo.required' => 'El estado de pozo obligatorio',
-    'txtcoordenadax.required' => 'La coordena x es obligatorio',
-    'txtcoordenadax.numeric' => 'La coordena x debe ser numérico',
-    'txtcoordenaday.required' => 'La coordena y es obligatorio',
-    'txtcoordenaday.numeric' => 'La coordena y debe ser numérico',
-    'txtcoordenadaz.required' => 'La coordena z es obligatorio',
-    'txtcoordenadaz.numeric' => 'La coordena z debe ser numérico'
+    'txtcoordenadax.required' => 'La coordena "X" es obligatorio',
+    'txtcoordenadax.numeric' => 'La coordena "X" debe ser numérico',
+    'txtcoordenaday.required' => 'La coordena "Y" es obligatorio',
+    'txtcoordenaday.numeric' => 'La coordena "Y" debe ser numérico',
+    'txtcoordenadaz.required' => 'La coordena "Z" es obligatorio',
+    'txtcoordenadaz.numeric' => 'La coordena "Z" debe ser numérico'
 
     ];
 

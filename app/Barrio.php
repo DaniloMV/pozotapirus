@@ -36,6 +36,10 @@ class Barrio extends Model implements AuthenticatableContract, CanResetPasswordC
 	'txtbarrio' => array('required')
 	);
 
+    public static $rulesEditar = array(
+	'txtbarrio' => array('required')
+	);
+
 	public static $messages = array(
             'required'        => 'Verifica que todos los campos obligatorios esten llenos.',
             'min'             => 'El nombre del barrio debe tener al menos 4 carácteres.');
@@ -56,6 +60,10 @@ class Barrio extends Model implements AuthenticatableContract, CanResetPasswordC
 
 	public static function validate($data){ 
 		return \Validator::make($data, static::$rules, static::$messages);
+	}
+
+        public static function validateEditar($data){ 
+		return \Validator::make($data, static::$rulesEditar, static::$messages);
 	}
 
 	public function modparroquia(){
