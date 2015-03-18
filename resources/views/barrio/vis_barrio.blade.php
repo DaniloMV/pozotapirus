@@ -35,7 +35,7 @@
                 {!! Form::open(array('url'=>'barrio/Eliminar')) !!}
                 {!! Form::hidden('id', $barrio->id) !!}
                 {!! Form::hidden('id_parroquia', $barrio->parroquia_id) !!}
-                {!! Form::hidden('estado', $barrio->estreg) !!}   
+                {!! Form::hidden('hidden_estado', $barrio->estreg) !!}
                 
                 <?php                 
                 $Estado="Activar"; 
@@ -49,9 +49,12 @@
 
                 {!! Form::close() !!}
             <td>
-                 <button id='Editar' class='Botones'> 
-                  {!! link_to_route('EditarBarrio','Editar',array($barrio->id)) !!}
-                </button>
+
+                {!! Form::open(array('url'=>'barrio/Editar')) !!}
+                {!! Form::hidden('hidden_id', $barrio->id) !!}
+                {!! Form::hidden('hidden_id_parroquia', $barrio->parroquia_id) !!}  
+                <input id='Editar' type='submit' name='Editar' class='Botones' value='Editar'>
+                {!! Form::close() !!}
             </tr>       
         	</tr>
 			@endforeach

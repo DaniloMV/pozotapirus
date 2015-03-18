@@ -6,12 +6,10 @@
 
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" href="/pozotapirus/public/css/base.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script src="/pozotapirus/public/js/funciones.js"></script>
-<script src="/pozotapirus/public/js/validacionnuevo.js"></script>
+<script src="/pozotapirus/public/js/funciones.min.js"></script>
+<script src="/pozotapirus/public/js/validacionnuevo.min.js"></script>
 <h2 class="titulopagina">INICIAR FICHA</h2>
 <small class="tituloobligatorio">(*) CAMPOS OBLIGATORIOS</small>
 

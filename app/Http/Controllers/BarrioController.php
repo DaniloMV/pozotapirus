@@ -93,21 +93,26 @@ class BarrioController extends Controller {
 	}
 
 
-	public function getEditar($id){
+	public function postEditar(Request $request){
+		$id = $request->input('hidden_id');
+		$parroquia_id = $request->input('hidden_id_parroquia');
+
 		return view('barrio.vis_barrio_editar')
 		->with('title','Editar Barrio')
-		->with('datos', Barrio::where('id','=',$id)->first());
+		->with('datos', Barrio::where('id','=',$id)
+								->where('parroquia_id','=',$parroquia_id)
+								->first());
 	}
 
 	public function postActualizar(Request $request){
-
 		$id = $request->input('hidden_id');
 		$parroquia_id = $request->input('hidden_id_parroquia');
 		
-		$validation = Barrio::validate($request->all());
+		$validation = Barrio::validateEditar($request->all());
 
 		if($validation->fails()){
-		 	return redirect('EditarUsuario',$id)->withErrors($validation);
+			
+		 	return redirect('barrio/Editar')->withErrors($validation);
 		 	// Redirect::route('Editarusuario',$id_usuario)->withErrors($validation);
 		}
 		else{
@@ -123,10 +128,9 @@ class BarrioController extends Controller {
 
 	public function deleteActivarInactivar(Request $request){
 
-		$id = $request->input('hidden_id');
-		$parroquia_id = $request->input('hidden_id_parroquia');
-		$estado = $request->input('estado');
-
+		$id = $request->input('id');
+		$parroquia_id = $request->input('id_parroquia');
+		$estado = $request->input('hidden_estado');
 		$barrio = Barrio::where('id','=',$id)
 							->where('parroquia_id','=',$parroquia_id)
 							->first();

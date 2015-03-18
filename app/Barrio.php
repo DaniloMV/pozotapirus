@@ -31,10 +31,14 @@ class Barrio extends Model implements AuthenticatableContract, CanResetPasswordC
 
     protected $perPage = 10;
 	
-	public static $rules = array(
-	'cmbparroquia' => array('required'),
-	'txtbarrio' => array('required')
-	);
+	public static $rules = [
+	'cmbparroquia' => 'required',
+	'txtbarrio' => 'required'
+	];
+
+	public static $rulesEditar = [
+	'txtbarrio' => 'required'
+	];
 
 	public static $messages = array(
             'required'        => 'Verifica que todos los campos obligatorios esten llenos.',
@@ -56,6 +60,10 @@ class Barrio extends Model implements AuthenticatableContract, CanResetPasswordC
 
 	public static function validate($data){ 
 		return \Validator::make($data, static::$rules, static::$messages);
+	}
+
+	public static function validateEditar($data){ 
+		return \Validator::make($data, static::$rulesEditar, static::$messages);
 	}
 
 	public function modparroquia(){

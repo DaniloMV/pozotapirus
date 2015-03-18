@@ -228,16 +228,23 @@ class FichaController extends Controller {
 
 	public function VerificarCamposCHK($request, $ficha)
 	{
-		
-		$ficha->es_limpio =empty(trim($request->get('chklimpio')))==true || $request->get('chklimpio')=="0"?0:1;
-		$ficha->es_escalera = empty(trim($request->get('chkescalera')))==true || $request->get('chkescalera')=="0"?0:1;
-		$ficha->es_hormigon = empty(trim($request->get('chkhormigon')))==true || $request->get('chkhormigon')=="0"?0:1;
-		$ficha->es_ladrillo = empty(trim($request->get('chkladrillo')))==true || $request->get('chkladrillo')=="0"?0:1;
-		$ficha->es_bloque = empty(trim($request->get('chkbloque')))==true || $request->get('chkbloque')=="0"?0:1;
-		$ficha->es_mixto = empty(trim($request->get('chkmixto')))==true || $request->get('chkmixto')=="0"?0:1;
-		$ficha->es_tapa = empty(trim($request->get('chktapa')))==true || $request->get('chktapa')=="0"?0:1;
-		$ficha->es_cadena = empty(trim($request->get('chkcadena')))==true || $request->get('chkcadena')=="0"?0:1;
-		$ficha->es_bisagra = empty(trim($request->get('chkbisagra')))==true || $request->get('chkbisagra')=="0"?0:1;
+		if(empty(trim($request->get('chklimpio')))==true || $request->get('chklimpio')=="0")
+		{
+			$ficha->es_limpio=0;	
+		}
+		else
+		{
+			$ficha->es_limpio=1;
+		}
+		 
+		$ficha->es_escalera = trim($request->get('chkescalera'))=='' || $request->get('chkescalera')=="0"?0:1;
+		$ficha->es_hormigon = trim($request->get('chkhormigon'))=='' || $request->get('chkhormigon')=="0"?0:1;
+		$ficha->es_ladrillo = trim($request->get('chkladrillo'))=='' || $request->get('chkladrillo')=="0"?0:1;
+		$ficha->es_bloque = trim($request->get('chkbloque'))=='' || $request->get('chkbloque')=="0"?0:1;
+		$ficha->es_mixto = trim($request->get('chkmixto'))=='' || $request->get('chkmixto')=="0"?0:1;
+		$ficha->es_tapa = trim($request->get('chktapa'))=='' || $request->get('chktapa')=="0"?0:1;
+		$ficha->es_cadena = trim($request->get('chkcadena'))=='' || $request->get('chkcadena')=="0"?0:1;
+		$ficha->es_bisagra = trim($request->get('chkbisagra'))=='' || $request->get('chkbisagra')=="0"?0:1;
 	}
 	/*
 	public function VerificarCamposCHK($request, $ficha)

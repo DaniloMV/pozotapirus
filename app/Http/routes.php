@@ -33,7 +33,7 @@ Route::post('parroquia/Eliminar', array('uses'=>'ParroquiaController@deleteActiv
 Route::get('barrio', array('as'=>'barrio','uses'=>'BarrioController@getIndex'));
 Route::get('barrio/Nuevo', array('as'=>'NuevoBarrio','uses'=>'BarrioController@getNuevo'));
 Route::post('barrio/Crear', array('uses'=>'BarrioController@postCrear'));
-Route::get('barrio/{id_barrio}/Editar', array('as'=>'EditarBarrio','uses'=>'BarrioController@getEditar'));
+Route::post('barrio/Editar', array('uses'=>'BarrioController@postEditar'));
 Route::post('barrio/Actualizar', array('uses'=>'BarrioController@postActualizar'));
 Route::post('barrio/Eliminar', array('uses'=>'BarrioController@deleteActivarInactivar'));
 

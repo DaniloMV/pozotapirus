@@ -14,7 +14,7 @@
 <!-- Lo que debe contener en el body -->
 @section('contenido')
     <!-- ponemos el contenido de la vista estamos dentro del body -->
-<form role="form" method="POST" action="../Actualizar">
+<form role="form" method="POST" action="../barrio/Actualizar">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 	{!! Form::hidden('hidden_id', $datos->id) !!}  
 	{!! Form::hidden('hidden_id_parroquia', $datos->parroquia_id) !!}  
