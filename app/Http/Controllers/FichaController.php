@@ -238,73 +238,7 @@ class FichaController extends Controller {
 		$ficha->es_cadena = trim($request->input('chkcadena'))=='' || $request->input('chkcadena')=="0"?0:1;
 		$ficha->es_bisagra = trim($request->input('chkbisagra'))=='' || $request->input('chkbisagra')=="0"?0:1;
 	}
-	/*
-	public function VerificarCamposCHK($request, $ficha)
-	{
-		$ValorSEL = $request->input('chklimpio');
-		if(empty($ValorSEL) || count($ValorSEL) == 0)
-		{
-			$ValorSEL = 0;
-		}
-		$ficha->es_limpio = empty($ValorSEL) || count($ValorSEL) == 0?0:1;
-		
-		$ValorSEL = $request->input('chkescalera');
-		if(empty($ValorSEL) || count($ValorSEL) == 0)
-		{
-			$ValorSEL = 0;
-		}
-		$ficha->es_escalera = $ValorSEL;
-		
-		$ValorSEL = $request->input('chkhormigon');
-		if(empty($ValorSEL) || count($ValorSEL) == 0)
-		{
-			$ValorSEL = 0;
-		}
-		$ficha->es_hormigon = $ValorSEL;
-
-		$ValorSEL = $request->input('chkladrillo');
-		if(empty($ValorSEL) || count($ValorSEL) == 0)
-		{
-			$ValorSEL = 0;
-		}
-		$ficha->es_ladrillo = $ValorSEL;
-
-		$ValorSEL = $request->input('chkbloque');
-		if(empty($ValorSEL) || count($ValorSEL) == 0)
-		{
-			$ValorSEL = 0;
-		}
-		$ficha->es_bloque = $ValorSEL;
-
-		$ValorSEL = $request->input('chkmixto');
-		if(empty($ValorSEL) || count($ValorSEL) == 0)
-		{
-			$ValorSEL = 0;
-		}
-		$ficha->es_mixto = $ValorSEL;
-
-		$ValorSEL = $request->input('chktapa');
-		if(empty($ValorSEL) || count($ValorSEL) == 0)
-		{
-			$ValorSEL = 0;
-		}
-		$ficha->es_tapa = $ValorSEL;
-
-		$ValorSEL = $request->input('chkcadena');
-		if(empty($ValorSEL) || count($ValorSEL) == 0)
-		{
-			$ValorSEL = 0;
-		}
-		$ficha->es_cadena = $ValorSEL;
-
-		$ValorSEL = $request->input('chkbisagra');
-		if(empty($ValorSEL) || count($ValorSEL) == 0)
-		{
-			$ValorSEL = 0;
-		}
-		$ficha->es_bisagra = $ValorSEL;
-	}
-	*/
+	
 
 	public function VerificaVacios($request){
 		

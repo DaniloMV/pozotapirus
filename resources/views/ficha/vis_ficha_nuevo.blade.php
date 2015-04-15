@@ -180,18 +180,51 @@
 
 <h3 id="tabmedida">MEDIDAS</h3>
 <div>
-	<section id="medidas" name="medidas" class="campoform">
+	<section id="medidas" name="medidas">
 
-		<section>
-		<label>Diámetro E1:<spam class="obligatorio"> (*)</spam></label>
-		{!! Form::text('txtdiametroe1', old('entrada_1'), ['id' => 'txtdiametroe1', 'placeholder' => 'metros']) !!} m
+		<label class="columna">Diámetro (m)</label>
+		<label class="columna">Altura (m)</label>
+		<label class="columna">Mat. Colector</label>
+		<label class="columna">Cámara (m)</label>
+
+		<section class="tabla">
+		
+		{!! Form::text('txtdiametroe1', old('entrada_1'), ['id' => 'txtdiametroe1', 'class'=>'columna','placeholder' => 'diametro']) !!}
 		{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
+		
+		
+		{!! Form::text('txtaltura_e1', old('entrada_1'), ['id' => 'txtaltura_e1', 'class'=>'columna','placeholder' => 'altura']) !!}
+		{!! $errors->first('txtaltura_e1', '<p class="error_mensaje">:message</p>') !!}
+		
+		
+		<select placeholder="tipo material" class="columna">
+			<option>opcion 1</option>
+			<option>opcion 2</option>
+		</select>
+		
+		{!! Form::text('txtcamara_e1', old('entrada_1'), ['id' => 'txtcamara_e1', 'class'=>'columna','placeholder' => 'cámara']) !!}
+		{!! $errors->first('txtcamara_e1', '<p class="error_mensaje">:message</p>') !!}
+
 		</section>
 
-		<section>
-		<label>Diámetro E2:</label>
-		{!! Form::text('txtdiametroe2', old('entrada_2'), ['id' => 'txtdiametroe2', 'placeholder' => 'metros']) !!} m
+		<section class="tabla">
+		
+		{!! Form::text('txtdiametroe2', old('entrada_1'), ['id' => 'txtdiametroe2', 'class'=>'columna','placeholder' => 'diametro']) !!}
 		{!! $errors->first('txtdiametroe2', '<p class="error_mensaje">:message</p>') !!}
+		
+		
+		{!! Form::text('txtaltura_e2', old('entrada_1'), ['id' => 'txtaltura_e2', 'class'=>'columna','placeholder' => 'altura']) !!}
+		{!! $errors->first('txtaltura_e2', '<p class="error_mensaje">:message</p>') !!}
+		
+		
+		<select placeholder="tipo material" class="columna">
+			<option>opcion 1</option>
+			<option>opcion 2</option>
+		</select>
+		
+		{!! Form::text('txtcamara_e2', old('entrada_2'), ['id' => 'txtcamara_e2', 'class'=>'columna','placeholder' => 'cámara']) !!}
+		{!! $errors->first('txtcamara_e2', '<p class="error_mensaje">:message</p>') !!}
+
 		</section>
 
 		<section>
