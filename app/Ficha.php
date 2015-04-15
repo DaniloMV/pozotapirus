@@ -29,11 +29,7 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
   	public $timestamps = false;
 	protected $table = 'ficha';
 
-<<<<<<< HEAD
     protected $perPage = 30;
-=======
-    protected $perPage = 10;
->>>>>>> origin/master
 
     public function modusuario(){
     	return $this->belongsTo('App\Usuario', 'usuario_id');

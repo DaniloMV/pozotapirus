@@ -14,10 +14,7 @@
 
         
 		<div align="center"> 
-<<<<<<< HEAD
         <p align="center" class="iniciaficha">{!! link_to_route('NuevaFicha', 'Iniciar Ficha') !!}</p>
-=======
->>>>>>> origin/master
         <section class="listado"> 
     	<table>
     	<caption></caption>
@@ -64,13 +61,8 @@
     	</tbody>
     	</table> 
         </section>
-<<<<<<< HEAD
-    
-=======
         <p align="center" class="iniciaficha">{!! link_to_route('NuevaFicha', 'Iniciar Ficha') !!}</p>
-        
 
->>>>>>> origin/master
     	</div>
         <?php echo $datos->render(); ?>
 @stop
