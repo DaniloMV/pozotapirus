@@ -193,17 +193,13 @@
 		{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
 		
 		
-		{!! Form::text('txtaltura_e1', old('entrada_1'), ['id' => 'txtaltura_e1', 'class'=>'columna','placeholder' => 'altura']) !!}
-		{!! $errors->first('txtaltura_e1', '<p class="error_mensaje">:message</p>') !!}
+		{!! Form::text('txtalturae1', old('entrada_1'), ['id' => 'txtaltura_e1', 'class'=>'columna','placeholder' => 'altura']) !!}
+		{!! $errors->first('txtalturae1', '<p class="error_mensaje">:message</p>') !!}
 		
-		
-		<select placeholder="tipo material" class="columna">
-			<option>opcion 1</option>
-			<option>opcion 2</option>
-		</select>
-		
-		{!! Form::text('txtcamara_e1', old('entrada_1'), ['id' => 'txtcamara_e1', 'class'=>'columna','placeholder' => 'cámara']) !!}
-		{!! $errors->first('txtcamara_e1', '<p class="error_mensaje">:message</p>') !!}
+		{!! Form::select('cmbmaterialcolectore1', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+
+		{!! Form::text('txtcamarae1', old('entrada_1'), ['id' => 'txtcamara_e1', 'class'=>'columna','placeholder' => 'cámara']) !!}
+		{!! $errors->first('txtcamarae1', '<p class="error_mensaje">:message</p>') !!}
 
 		</section>
 
@@ -213,17 +209,29 @@
 		{!! $errors->first('txtdiametroe2', '<p class="error_mensaje">:message</p>') !!}
 		
 		
-		{!! Form::text('txtaltura_e2', old('entrada_1'), ['id' => 'txtaltura_e2', 'class'=>'columna','placeholder' => 'altura']) !!}
-		{!! $errors->first('txtaltura_e2', '<p class="error_mensaje">:message</p>') !!}
+		{!! Form::text('txtalturae2', old('entrada_1'), ['id' => 'txtaltura_e2', 'class'=>'columna','placeholder' => 'altura']) !!}
+		{!! $errors->first('txtalturae2', '<p class="error_mensaje">:message</p>') !!}
+		
+		{!! Form::select('cmbmaterialcolectore2', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		
+		{!! Form::text('txtcamarae2', old('entrada_2'), ['id' => 'txtcamara_e2', 'class'=>'columna','placeholder' => 'cámara']) !!}
+		{!! $errors->first('txtcamarae2', '<p class="error_mensaje">:message</p>') !!}
+
+		</section>
+
+		<section class="tabla">
+		
+		{!! Form::text('txtdiametroe3', old('entrada_1'), ['id' => 'txtdiametroe2', 'class'=>'columna','placeholder' => 'diametro']) !!}
+		{!! $errors->first('txtdiametroe3', '<p class="error_mensaje">:message</p>') !!}
 		
 		
-		<select placeholder="tipo material" class="columna">
-			<option>opcion 1</option>
-			<option>opcion 2</option>
-		</select>
+		{!! Form::text('txtalturae3', old('entrada_1'), ['id' => 'txtaltura_e2', 'class'=>'columna','placeholder' => 'altura']) !!}
+		{!! $errors->first('txtalturae3', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::text('txtcamara_e2', old('entrada_2'), ['id' => 'txtcamara_e2', 'class'=>'columna','placeholder' => 'cámara']) !!}
-		{!! $errors->first('txtcamara_e2', '<p class="error_mensaje">:message</p>') !!}
+		{!! Form::select('cmbmaterialcolectore3', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		
+		{!! Form::text('txtcamarae3', old('entrada_2'), ['id' => 'txtcamara_e2', 'class'=>'columna','placeholder' => 'cámara']) !!}
+		{!! $errors->first('txtcamarae3', '<p class="error_mensaje">:message</p>') !!}
 
 		</section>
 
