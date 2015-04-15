@@ -14,6 +14,7 @@
 
         
 		<div align="center"> 
+        <section class="listado"> 
     	<table>
     	<caption></caption>
     	<col><col><col><col><col><col><col><col><col><col><col>
@@ -40,7 +41,6 @@
             <td style='display:none'>{{ $usuario->usuario_equ_id }}</td>
             <td>{{ $usuario->modusuarioequipo->equipo }}</td>
             <td style='display:none'>{{ $usuario->estreg }}</td>
-            <td>{{ $usuario->estreg }}</td>
             <td>
                 {!! Form::open(array('url'=>'usuario/Eliminar')) !!}
                 {!! Form::hidden('id', $usuario->id) !!}
@@ -68,7 +68,7 @@
 
     	</tbody>
     	</table> 
-        
+        </section>
 		<p align="center">{!! link_to_route('NuevoUsuario', 'Nuevo Usuario') !!}</p>
 
     	</div>

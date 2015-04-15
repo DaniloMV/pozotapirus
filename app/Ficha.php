@@ -29,7 +29,7 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
   	public $timestamps = false;
 	protected $table = 'ficha';
 
-    protected $perPage = 5;
+    protected $perPage = 30;
 
     public function modusuario(){
     	return $this->belongsTo('App\Usuario', 'usuario_id');
@@ -45,6 +45,19 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
     	/*belongs_to para señalar la clave foránea, que existe en esta
 		entre la tabla wcusuario y la tabla usuariotipos*/
         return $this->belongsTo('App\Barrio', 'barrio_id');
+    }
+
+    
+    public function modtipopozo(){
+        /*belongs_to para señalar la clave foránea, que existe en esta
+        entre la tabla Ficha y la tabla Tipo_Pozo*/
+        return $this->belongsTo('App\Tipopozo', 'cmb_tipo_pozo_id');
+    }
+
+    public function modtipotapa(){
+        /*belongs_to para señalar la clave foránea, que existe en esta
+        entre la tabla Ficha y la tabla Tipo_Pozo*/
+        return $this->belongsTo('App\Tipotapa', 'cmb_tipo_tapa_id');
     }
 
     public function modtipored(){
@@ -71,90 +84,102 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
         return $this->belongsTo('App\Estadopozo', 'cmb_estado_pozo_id');
     }
     
+   public static $rules = [
+    
+    'txtpozocodigo' => 'required|min:10|unique:ficha,id',
+    'txtcalle' => 'required',
+    'cmbparroquia' => 'required',
+    'cmbbarrio' => 'required',
+    'cmbtipored' => 'required',
+    'cmbtipocalzada' => 'required',
+    'cmbmaterialcolector' => 'required',
+    'cmbtipopozo' => 'required',
+    'cmbtipotapa' => 'required',
+    'cmbestadopozo' => 'required',
+    'txtcoordenadax' => 'required|numeric',
+    'txtcoordenaday' => 'required|numeric',
+    'txtcoordenadaz' => 'required|numeric',
+    'txtdiametroe1' => 'required|numeric',
+    'txtdiametroe2' => 'numeric',
+    'txtdiametroe3' => 'numeric',
+    'txtdiametroe4' => 'numeric',
+    'txtdiametroe5' => 'numeric',
+    'txtdiametrosalida' => 'required|numeric',
+    'txtaltura' => 'required|numeric'
+    
+    ];
+
+    public static $rulesEditar = [
+    
+    'txtpozocodigo' => 'required|min:10',
+    'txtcalle' => 'required',
+    'cmbparroquia' => 'required',
+    'cmbbarrio' => 'required',
+    'cmbtipored' => 'required',
+    'cmbtipocalzada' => 'required',
+    'cmbmaterialcolector' => 'required',
+    'cmbtipopozo' => 'required',
+    'cmbtipotapa' => 'required',
+    'cmbestadopozo' => 'required',
+    'txtcoordenadax' => 'required|numeric',
+    'txtcoordenaday' => 'required|numeric',
+    'txtcoordenadaz' => 'required|numeric',
+    'txtdiametroe1' => 'required|numeric',
+    'txtdiametroe2' => 'numeric',
+    'txtdiametroe3' => 'numeric',
+    'txtdiametroe4' => 'numeric',
+    'txtdiametroe5' => 'numeric',
+    'txtdiametrosalida' => 'required|numeric',
+    'txtaltura' => 'required|numeric'
+    
+    ];
+
+    public static $messages = [
+    'txtpozocodigo.required' => 'El código de pozo obligatorio',
+    'txtpozocodigo.min:10' => 'El código de pozo debe tener 10 caracteres',
+    'txtpozocodigo.max:10' => 'El código de pozo debe tener 10 caracteres',
+    'txtpozocodigo.unique' => 'El código de pozo ya existe',
+    'txtcalle.required' => 'Es importante ingresar el nombre de la calle',
+    'txtdiametroe1.required' => 'Diámetro de la Entrada 1 es obligatorio',
+    'txtdiametroe1.numeric' => 'Diámetro de la Entrada 1 debe ser numérico',
+    'txtdiametroe2.numeric' => 'Diámetro de la Entrada 2 debe ser numérico',
+    'txtdiametroe3.numeric' => 'Diámetro de la Entrada 3 debe ser numérico',
+    'txtdiametroe4.numeric' => 'Diámetro de la Entrada 4 debe ser numérico',
+    'txtdiametroe5.numeric' => 'Diámetro de la Entrada 5 debe ser numérico',
+    'txtdiametrosalida.required' => 'Diámetro de salida es obligatorio',
+    'txtdiametrosalida.numeric' => 'Diámetro de Salida debe ser numérico',
+    'txtaltura.required' => 'La altura es obligatorio',
+    'txtaltura.numeric' => 'La altura debe ser numérico',
+    'cmbparroquia.required' => 'La parroquia obligatorio',
+    'cmbbarrio.required' => 'La barrio obligatorio',
+    'cmbtipored.required' => 'El tipo de red obligatorio',
+    'cmbtipocalzada.required' => 'El tipo de calzada obligatorio',
+    'cmbmaterialcolector.required' => 'El material colectos obligatorio',
+    'cmbtipopozo.required' => 'El tipo de pozo obligatorio',
+    'cmbtipotapa.required' => 'El tipo de tapa obligatorio',
+    'cmbestadopozo.required' => 'El estado de pozo obligatorio',
+    'txtcoordenadax.required' => 'La coordena "X" es obligatorio',
+    'txtcoordenadax.numeric' => 'La coordena "X" debe ser numérico',
+    'txtcoordenaday.required' => 'La coordena "Y" es obligatorio',
+    'txtcoordenaday.numeric' => 'La coordena "Y" debe ser numérico',
+    'txtcoordenadaz.required' => 'La coordena "Z" es obligatorio',
+    'txtcoordenadaz.numeric' => 'La coordena "Z" debe ser numérico'
+
+    ];
+
     /*
-	'txtpozo' => array('required'),
-	'txtsumidero' => array('required'),
-	'txtzona' => array('required'),
-	'txtcoordenadax' => array('required'),
-	'txtcoordenaday' => array('required'),
-	'txtcoordenadaz' => array('required'),
-	'txtcota' => array('required'),
-	'txtdiametrosup' => array('required'),
-	'txtdiametromedio' => array('required'),
-	'txtdiametroinf' => array('required'),
-	'txtaltura' => array('required')
-	*/
-	
-	public static $rules = array(
-     //'txtpozocodigo' => array('required')
-     //|id|unique'),    
-	// 'txtcalle' => array('required'),
- //    'cmbparroquia' => array('required'),
- //    'cmbbarrio' => array('required'),
- //    'cmbtipored' => array('required'),
- //    'cmbtipocalzada' => array('required'),
- //    'cmbmaterialcolector' => array('required'),
- //    'cmbestadopozo' => array('required'),
- //    'txtpozo' => array('required'),
- //    'txtsumidero' => array('required'),
- //    'txtzona' => array('required'),
- //    'txtcoordenadax' => array('required'),
- //    'txtcoordenaday' => array('required'),
- //    'txtcoordenadaz' => array('required'),
- //    'txtcota' => array('required'),
- //    'txtdiametrosup' => array('required'),
- //    'txtdiametromedio' => array('required'),
- //    'txtdiametroinf' => array('required'),
- //    'txtaltura' => array('required')
-	);
-
-    public static $ruleseditar = array( 
-    //'txtpozocodigo' => array('required')  
-    //'txtcalle' => array('required')
-    // 'cmbparroquia' => array('required'),
-    // 'cmbbarrio' => array('required'),
-    // 'cmbtipored' => array('required'),
-    // 'cmbtipocalzada' => array('required'),
-    // 'cmbmaterialcolector' => array('required'),
-    // 'cmbestadopozo' => array('required'),
-    // 'txtpozo' => array('required'),
-    // 'txtsumidero' => array('required'),
-    // 'txtzona' => array('required'),
-    // 'txtcoordenadax' => array('required'),
-    // 'txtcoordenaday' => array('required'),
-    // 'txtcoordenadaz' => array('required'),
-    // 'txtcota' => array('required'),
-    // 'txtdiametrosup' => array('required'),
-    // 'txtdiametromedio' => array('required'),
-    // 'txtdiametroinf' => array('required'),
-    // 'txtaltura' => array('required')
-    );
-
 	public static $messages = array(
             'required'        => 'Verifica que todos los campos obligatorios esten llenos.',
             'unique'             => 'El código de ficha que se ha ingresado ya existe.',
-            'min'             => 'minimo de carácteres - incumplido.');
-
-	/*
-
-	$v = Validator::make($request->all(), [
-        'title' => 'required|unique|max:255',
-        'body' => 'required',
-    ]);
-
-    if ($v->fails())
-    {
-        return redirect()->back()->withErrors($v->errors());
-    }
-
-    */
+            'min'             => 'mínimo de carácteres - incumplido.');
+    */ 
 
 	public static function validate($data){ 
 		return \Validator::make($data, static::$rules, static::$messages);
 	}
 
-    public static function validateeditar($data){ 
-        return \Validator::make($data, static::$ruleseditar, static::$messages);
+    public static function validateEditar($data){ 
+        return \Validator::make($data, static::$rulesEditar, static::$messages);
     }
 
 }

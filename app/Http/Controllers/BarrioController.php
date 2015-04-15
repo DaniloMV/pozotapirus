@@ -52,95 +52,123 @@ class BarrioController extends Controller {
 
 	public function getIndex()
 	{
-
-		$datos = Barrio::with('modparroquia')
-						->where('estreg','=','1')
-						->orderBy('parroquia_id', 'Asc')
-						->orderBy('des_barrio', 'Asc')->paginate();
-		//dd($datos->render());
-        return view('barrio.vis_barrio', compact('datos'));
-
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			$datos = Barrio::with('modparroquia')
+							->where('estreg','=','1')
+							->orderBy('parroquia_id', 'Asc')
+							->orderBy('des_barrio', 'Asc')->paginate();
+							
+	        return view('barrio.vis_barrio', compact('datos'));
+        }
+        //Digitador
+		return redirect('/login');
 	}
 
-	public function getNuevo(){
-		return view('barrio.vis_barrio_nuevo')
-		->with('title','Barrio');
+	public function getNuevo()
+	{
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			return view('barrio.vis_barrio_nuevo')
+			->with('title','Barrio');
+        }
+        //Digitador
+		return redirect('/login');
 	}
 
 	public function postCrear(Request $request)
     {
-        //$name = $request->input('Nombre');
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			$validation = Barrio::validate($request->all());
 
-        //$inputs = Request::all();
+			if($validation->fails()){
+				// En caso de error regresa a la acción create con los datos y los errores encontrados
+				return redirect()->back()->withInput()->withErrors($validation);
+			}
+			else
+			{	
+				$barrio=new Barrio;
+				$secuencial = Barrio::max('id')+1;
+				$barrio->id = $secuencial;
+				$barrio->parroquia_id=$request->input('cmbparroquia');
+				$barrio->des_barrio=$request->input('txtbarrio');
+				$barrio->estreg=1;
+
+				$barrio->save();
+				return redirect('barrio');
+			}
+        }
+        //Digitador
+		return redirect('/login');
+	}
+
+
+	public function postEditar(Request $request)
+	{
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+            $id = $request->input('hidden_id');
+			$parroquia_id = $request->input('hidden_parroquia_id');
+			return view('barrio.vis_barrio_editar')
+			->with('title','Editar Barrio')
+			->with('datos', Barrio::where('id','=',$id)->where('parroquia_id','=',$parroquia_id)->first());
+        }
+        //Digitador
+		return redirect('/login');
+	}
+
+	public function postActualizar(Request $request)
+	{
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			$id = $request->input('hidden_id');
+			$parroquia_id = $request->input('hidden_parroquia_id');
 			
-		$validation = Barrio::validate($request->all());
+			$validation = Barrio::validateEditar($request->all());
 
-		if($validation->fails()){
-			// En caso de error regresa a la acción create con los datos y los errores encontrados
-			return redirect()->back()->withInput()->withErrors($validation);
-		}
-		else
-		{	
-			$barrio=new Barrio;
-			$secuencial = Barrio::max('id')+1;
-			$barrio->id = $secuencial;
-			$barrio->parroquia_id=$request->input('cmbparroquia');
-			$barrio->des_barrio=$request->input('txtbarrio');
-			$barrio->estreg=1;
+			if($validation->fails()){
+			 	return redirect('EditarUsuario',$id)->withErrors($validation);
+			 	// Redirect::route('Editarusuario',$id_usuario)->withErrors($validation);
+			}
+			else{
 
-			$barrio->save();
-			return redirect('barrio');
-		}
+				$barrio = Barrio::where('id','=',$id)
+									->where('parroquia_id','=',$parroquia_id)
+									->first();
+				$barrio->des_barrio = $request->input('txtbarrio');
+				$barrio->save();
+				return redirect('barrio');
+			}
+        }
+        //Digitador
+		return redirect('/login');
 	}
 
-
-	public function getEditar($id){
-		return view('barrio.vis_barrio_editar')
-		->with('title','Editar Barrio')
-		->with('datos', Barrio::where('id','=',$id)->first());
-	}
-
-	public function postActualizar(Request $request){
-
-		$id = $request->input('hidden_id');
-		$parroquia_id = $request->input('hidden_id_parroquia');
-		
-		$validation = Barrio::validate($request->all());
-
-		if($validation->fails()){
-		 	return redirect('EditarUsuario',$id)->withErrors($validation);
-		 	// Redirect::route('Editarusuario',$id_usuario)->withErrors($validation);
-		}
-		else{
+	public function deleteActivarInactivar(Request $request)
+	{
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			$id = $request->input('hidden_id');
+			$parroquia_id = $request->input('hidden_parroquia_id');
+			$estado = $request->input('estado');
 
 			$barrio = Barrio::where('id','=',$id)
 								->where('parroquia_id','=',$parroquia_id)
 								->first();
-			$barrio->des_barrio = $request->input('txtbarrio');
+			if($estado == 1){
+				$barrio->estreg=0;
+			}
+			else{
+				$barrio->estreg=1;
+			}
+		
 			$barrio->save();
 			return redirect('barrio');
-		}
-	}
-
-	public function deleteActivarInactivar(Request $request){
-
-		$id = $request->input('hidden_id');
-		$parroquia_id = $request->input('hidden_id_parroquia');
-		$estado = $request->input('estado');
-
-		$barrio = Barrio::where('id','=',$id)
-							->where('parroquia_id','=',$parroquia_id)
-							->first();
-		if($estado == 1){
-			$barrio->estreg=0;
-		}
-		else{
-			$barrio->estreg=1;
-		}
-	
-		$barrio->save();
-		return redirect('barrio');
-		//->with('status_message', 'El estado fue Actualizado Satisfactoriamente');
+			//->with('status_message', 'El estado fue Actualizado Satisfactoriamente');
+        }
+        //Digitador
+		return redirect('/login');
 	}
 
 }

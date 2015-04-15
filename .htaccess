@@ -1,0 +1,18 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/(robots\.txt|favicon\.ico)$ 
+RewriteCond %{HTTP_HOST} !^www\.tapirus\.com\.ec$ [NC] 
+RewriteRule ^(.*)$ http://www.tapirus.com.ec/$1 [R=301,L]
+RewriteRule ^(.*)$ public/$1 [R=301,L]
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/x-javascript
+ExpiresActive On
+ExpiresByType image/gif A432000
+ExpiresByType image/jpg A432000
+ExpiresByType image/jpeg A432000
+ExpiresByType image/png A432000
+ExpiresByType image/ico A432000
+ExpiresByType image/bmp A432000
+ExpiresByType text/css A432000
+ExpiresByType text/javascript A432000
+ExpiresByType application/javascript A432000
+ExpiresByType application/x-javascript A432000

@@ -53,33 +53,33 @@ class ParroquiaController extends Controller {
 	 */
 	public function getIndex()
 	{
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+	        $datos = Parroquia::where('estreg','=','1')->orderBy('id', 'Asc')->paginate();
 
-        $datos = Parroquia::where('estreg','=','1')->orderBy('id', 'Asc')->paginate();
-
-        //return $datos;
-
-        return view('parroquia.vis_parroquia', compact('datos'))
-			   ->with('title','Parroquia');
+	        return view('parroquia.vis_parroquia', compact('datos'))
+				   ->with('title','Parroquia');
+        }
+        //Digitador
+		return redirect('/login');
 
 	}
 
 	public function getNuevo()
 	{
-		return view('parroquia.vis_parroquia_nuevo')
-			   ->with('title','Nueva Parroquia');
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			return view('parroquia.vis_parroquia_nuevo')
+				   ->with('title','Nueva Parroquia');
+        }
+        //Digitador
+		return redirect('/login');
 	}
 
 	public function postCrear(Request $request)
     {
-        
-		$validation = Parroquia::validate($request->all());
-
-		if($validation->fails()){
-			// En caso de error regresa a la acción create con los datos y los errores encontrados
-			return redirect()->back()->withInput()->withErrors($validation);
-		}
-		else
-		{	
+        if (\Auth::user()->usuario_tipo_id==2)
+        {	
 			$parroquia=new Parroquia;
 			$secuencial = Parroquia::max('id')+1;
 			$parroquia->id = $secuencial;
@@ -88,42 +88,51 @@ class ParroquiaController extends Controller {
 
 			$parroquia->save();
 			return redirect('parroquia');
-		}
-	}
-
-	public function getEditar($id){
-		return view('parroquia.vis_parroquia_editar')
-		->with('title','Editar Parroquia')
-		->with('datos', Parroquia::where('id','=',$id)->first());
-	}
-
-    public function postActualizar(Request $request){
-
-		$id = $request->input('hidden_id');
+        }
+        //Digitador
+		return redirect('/login');
 		
-		$validation = Parroquia::validate($request->all());
+	}
 
-		if($validation->fails()){
-		 	return redirect('EditarUsuario',$id)->withErrors($validation);
-		 	// Redirect::route('Editarusuario',$id_usuario)->withErrors($validation);
-		}
-		else{
+	public function getEditar($id)
+	{
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			return view('parroquia.vis_parroquia_editar')
+				->with('title','Editar Parroquia')
+				->with('datos', Parroquia::where('id','=',$id)->first());
+        }
+        //Digitador
+		return redirect('/login');
+	}
 
+    public function postActualizar(Request $request)
+    {
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			$id = $request->input('hidden_id');
 			$parroquia = Parroquia::where('id','=',$id)->first();
 			$parroquia->des_parroquia = $request->input('txtparroquia');
 			$parroquia->save();
 			return redirect('parroquia');
-		}
+        }
+        //Digitador
+		return redirect('/login');
 	}
 
-	public function deleteActivarInactivar(Request $request){
-
-		$id = $request->input('id');
-		$parroquia = Parroquia::where('id','=',$id)->first();
-		$parroquia->estreg=0;
-		$parroquia->save();
-		return redirect('parroquia');
-		//->with('status_message', 'El estado fue Actualizado Satisfactoriamente');
+	public function deleteActivarInactivar(Request $request)
+	{
+        if (\Auth::user()->usuario_tipo_id==2)
+        {
+			$id = $request->input('id');
+			$parroquia = Parroquia::where('id','=',$id)->first();
+			$parroquia->estreg=0;
+			$parroquia->save();
+			return redirect('parroquia');
+			//->with('status_message', 'El estado fue Actualizado Satisfactoriamente');
+        }
+        //Digitador
+		return redirect('/login');
 	}
 
 }

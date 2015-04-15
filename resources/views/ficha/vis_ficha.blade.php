@@ -14,6 +14,8 @@
 
         
 		<div align="center"> 
+        <p align="center" class="iniciaficha">{!! link_to_route('NuevaFicha', 'Iniciar Ficha') !!}</p>
+        <section class="listado"> 
     	<table>
     	<caption></caption>
     	<col><col><col><col><col><col><col><col><col><col>
@@ -44,22 +46,22 @@
                 {!! Form::open(array('url'=>'ficha/Eliminar')) !!}
                 {!! Form::hidden('sec', $ficha->sec_ficha) !!}  
                 <input id='Estado' type='submit' name='deleteActivarInactivar' class='Botones' value='Anular'>
+                {!! Form::close() !!}
+                
+            <td>
+                {!! Form::open(array('url'=>'ficha/Editar')) !!}
+                {!! Form::hidden('sec', $ficha->sec_ficha) !!}  
+                <input id='Editar' type='submit' name='Editar' class='Botones' value='Editar'>
                 
                 {!! Form::close() !!}
-            <td>
-                 <button id='Editar' class='Botones'> 
-                  {!! link_to_route('EditarFicha','Editar',array($ficha->sec_ficha)) !!}
-                </button>
             </tr>       
         	</tr>
 			@endforeach
 
     	</tbody>
     	</table> 
-        
-        <p align="center">{!! link_to_route('NuevaFicha', 'Registrar Ficha') !!}</p>
-        
-
+        </section>
+    
     	</div>
         <?php echo $datos->render(); ?>
 @stop

@@ -8,9 +8,11 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script src="/pozotapirus/public/js/funciones.js"></script>
-<h2 class="titulopagina">REGISTRO DE FICHAS</h2>
+<script src="/js/funciones.min.js"></script>
+<script src="/js/validacionnuevo.min.js"></script>
+<h2 class="titulopagina">INICIAR FICHA</h2>
+<small class="tituloobligatorio">(*) CAMPOS OBLIGATORIOS</small>
+
 
     <!-- <p>This is appended to the master sidebar.</p> -->
 @stop
@@ -21,24 +23,15 @@
 @section('contenido')
     <!-- ponemos el contenido de la vista estamos dentro del body -->
 
-	@if (count($errors) > 0)
-		
-		@foreach ($errors->all() as $error)
-			<li>{{ $error }}</li>
-		@endforeach
-		
+	@if($errors->has())
+
+		<ul id="VisualizarMensaje">
+			{!! implode('', $errors->all('<li>:message</li>')) !!}
+		</ul>
 	@endif
 
 <form role="form" method="POST" action="../ficha/Crear">
-
-
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
 	
 <section id="fichacabecera" class="campoform">
 	
@@ -53,15 +46,15 @@
 	</section>
 
 	<section>
-	<label>Calle:</label>
-	<input id="txtcalle" name="txtcalle" type="text" value="{{ old('calle') }}" required placeholder="nombre de la calle"
-	></input>
+	<label>Calle:<spam class="obligatorio"> (*)</spam></label>
+	{!! Form::text('txtcalle', old('calle'), ['id' => 'txtcalle', 'placeholder' => 'Nombre de la calle']) !!}
+	{!! $errors->first('txtcalle', '<p class="error_mensaje">:message</p>') !!}
 	</section>
 
 	<section>
-	<label class="etiquetaform">Código:</label>
-	<input id="txtpozocodigo" name="txtpozocodigo" type="text" value="{{ old('id') }}" required placeholder="código pozo"
-	></input>
+	<label class="etiquetaform">Código: <spam class="obligatorio"> (*)</spam></label>
+	{!! Form::text('txtpozocodigo', old('id'), ['id' => 'txtpozocodigo', 'placeholder' => 'único (10 caracteres)', 'pattern' => '\S{1,10}']) !!}
+	{!! $errors->first('txtpozocodigo', '<p class="error_mensaje">:message</p>') !!}
 	</section>
 
 </section>
@@ -69,174 +62,201 @@
 
 <div id="accordion">
   
-<h3>GENERAL</h3>
+<h3 id="tabgeneral">GENERAL</h3>
 
-	<div>
-		<section id="fichacombos" class="campoform">
+<div>
+	<section id="fichacombos" class="campoform">
 
-			<section>
-			<label>Tipo Red:</label>
-			{!! Form::select('cmbtipored', App\Tipored::orderBy('des_tipored', 'Asc')->lists('des_tipored', 'id')) !!} 
-			</section>
-
-			<section>
-			<label>Calzada:</label>
-			{!! Form::select('cmbtipocalzada', App\Tipocalzada::orderBy('des_calzada', 'Asc')->lists('des_calzada', 'id')) !!} 
-			</section>
-
-			<section>
-			<label>Material colector:</label>
-			{!! Form::select('cmbmaterialcolector', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
-			</section>
-
-			<section>
-			<label>Estado pozo:</label>
-			{!! Form::select('cmbestadopozo', App\Estadopozo::orderBy('des_estadopozo', 'Asc')->lists('des_estadopozo', 'id')) !!} 
-			</section>
+		<section>
+		<label>Tipo Red:</label>
+		{!! Form::select('cmbtipored', App\Tipored::orderBy('des_tipored', 'Asc')->lists('des_tipored', 'id')) !!} 
 		</section>
-	</div>
-	  
-	<h3>DETALLES</h3>
-	<div>
-		<section id="checkedlist" name="checkedlist" class="chkficha">
-			
-			<p>
-			<input id="chklimpio" name="chklimpio" type="checkbox" value="{{ old('es_limpio') }}" ></input>
-			<label>Limpio</label>
-			</p>
-			
-			<p>
-			<input id="chkescalera" name="chkescalera" type="checkbox" value="{{ old('es_escalera') }}"></input>
-			<label>Escalera</label>
-			</p>
-			
-			<p>
-			<input id="chkhormigon" name="chkhormigon" type="checkbox" value="1"></input>
-			<label>Hormigón</label>
-			</p>
 
-			<p>
-			<input id="chkladrillo" name="chkladrillo" type="checkbox" value="1"></input>
-			<label>Ladrillo</label>
-			</p>
-
-			<p>
-			<input id="chkbloque" name="chkbloque" type="checkbox" value="1"></input>
-			<label>Bloque</label>
-			</p>	
-
-			<p>	
-			<input id="chkmixto" name="chkmixto" type="checkbox" value="1"></input>
-			<label>Mixto</label>
-			</p>
-
-			<p>	
-			<input id="chktapa" name="chktapa" type="checkbox" value="1"></input>
-			<label>Tapa</label>
-			</p>
-
-			<p>	
-			<input id="chkcadena" name="chkcadena" type="checkbox" value="1"></input>
-			<label>Cadena</label>
-			</p>
-
-			<p>
-			<input id="chkbisagra" name="chkbisagra" type="checkbox" value="1"></input>
-			<label>Bisagra</label>
-			</p>
-
+		<section>
+		<label>Calzada:</label>
+		{!! Form::select('cmbtipocalzada', App\Tipocalzada::orderBy('des_calzada', 'Asc')->lists('des_calzada', 'id')) !!} 
 		</section>
-	 </div>
-	  
-	<h3>COORDENADAS</h3>
 
-	<div>
+		<section>
+		<label>Material colector:</label>
+		{!! Form::select('cmbmaterialcolector', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		</section>
+
+		<section>
+		<label>Tipo pozo:</label>
+		{!! Form::select('cmbtipopozo', App\Tipopozo::orderBy('des_tipo_pozo', 'Asc')->lists('des_tipo_pozo', 'id')) !!} 
+		</section>
+
+		<section>
+		<label>Tipo tapa:</label>
+		{!! Form::select('cmbtipotapa', App\Tipotapa::orderBy('des_tipo_tapa', 'Asc')->lists('des_tipo_tapa', 'id')) !!} 
+		</section>
+	
+		<section>
+		<label>Estado pozo:</label>
+		{!! Form::select('cmbestadopozo', App\Estadopozo::orderBy('des_estadopozo', 'Asc')->lists('des_estadopozo', 'id')) !!} 
+		</section>
+	</section>
+</div>
+  
+<h3 id="tabdetalle">DETALLES</h3>
+<div>
+	<section id="checkedlist" name="checkedlist" class="chkficha">
 		
-		<section id="coordenadas" name="coordenadas" class="campoform">
+		<p>
+		<label>Limpio</label>
+		{!! Form::checkbox('chklimpio', old('es_limpio')) !!}
+		</p>
+		
+		<p>
+		<label>Escalera</label>
+		{!! Form::checkbox('chkescalera', old('es_escalera')) !!}
+		</p>
+		
+		<p>
+		<label>Hormigón</label>
+		{!! Form::checkbox('chkhormigon', old('es_hormigon')) !!}
+		</p>
 
-			<section>
-				<label>Pozo:</label>
-				<input id="txtpozo" name="txtpozo" required type="text"/>
-			</section>
+		<p>
+		<label>Ladrillo</label>
+		{!! Form::checkbox('chkladrillo', old('es_ladrillo')) !!}
+		</p>
 
-			<section>
-				<label>Sumidero:</label>
-				<input id="txtsumidero" name="txtsumidero" required type="text"/>
-			</section>
-			
-			<section>
-				<label>Zona:</label>
-				<input id="txtzona" name="txtzona" required type="text"/>
-			</section>
+		<p>
+		<label>Bloque</label>
+		{!! Form::checkbox('chkbloque', old('es_bloque')) !!}
+		</p>	
 
-			<section>
-				<label>X:</label>
-				<input id="txtcoordenadax" name="txtcoordenadax" required type="text"/>
-			</section>
+		<p>
+		<label>Mixto</label>
+		{!! Form::checkbox('chkmixto', old('es_mixto')) !!}
+		</p>
 
-			<section>
-				<label>Y:</label>
-				<input id="txtcoordenaday" name="txtcoordenaday" required type="text"/>
-			</section>
-			
-			<section>
-				<label>Z:</label>
-				<input id="txtcoordenadaz" name="txtcoordenadaz" required type="text"/>
-			</section>
+		<p>
+		<label>Tapa</label>
+		{!! Form::checkbox('chktapa', old('es_tapa')) !!}
+		</p>
+
+		<p>
+		<label>Cadena</label>
+		{!! Form::checkbox('chkcadena', old('es_cadena')) !!}
+		</p>
+
+		<p>
+		<label>Bisagra</label>
+		{!! Form::checkbox('chkbisagra', old('es_bisagra')) !!}
+		</p>
+
+	</section>
+ </div>
+  
+<h3 id="tabcoordenada">COORDENADAS</h3>
+
+<div>
+	
+	<section id="coordenadas" name="coordenadas" class="campoform">
+
+		<section>
+			<label>X: <spam class="obligatorio"> (*)</spam></label>
+			{!! Form::text('txtcoordenadax', old('x'), ['placeholder' => '']) !!}
+			{!! $errors->first('txtcoordenadax', '<p class="error_mensaje">:message</p>') !!}
 		</section>
 
-	</div>
-
-	<h3>MEDIDAS</h3>
-	<div>
-		<section id="medidas" name="medidas" class="campoform">
-
-			<section>
-			<label>Cota:</label>
-			<input id="txtcota" name="txtcota" required type="text"/>
-			</section>
-
-			<section>
-			<label>Diametro Sup:</label>
-			<input id="txtdiametrosup" name="txtdiametrosup" type="text" required placeholder="Diámetro superior"/>
-			</section>
-
-			<section>
-			<label>Diametro Medio:</label>
-			<input id="txtdiametromedio" name="txtdiametromedio" type="text" required placeholder="Diámetro intermedio"/>
-			</section>
-
-			<section>
-			<label>Diametro Inf:</label>
-			<input id="txtdiametroinf" name="txtdiametroinf" type="text" required placeholder="Diámetro inferior"/>
-			</section>
-			
-			<section>
-			<label>Altura:</label>
-			<input id="txtaltura" name="txtaltura" type="text" required placeholder="Altura del pozo"/>
-			</section>
+		<section>
+			<label>Y:<spam class="obligatorio"> (*)</spam></label>
+			{!! Form::text('txtcoordenaday', old('y'), ['placeholder' => '']) !!}
+			{!! $errors->first('txtcoordenaday', '<p class="error_mensaje">:message</p>') !!}
 		</section>
-	</div>
-
-	<h3>OBSERVACIONES</h3>
-
-	<div>
-		<section id="observaciones" class="campoform">
-			<textarea rows="3" cols="40"></textarea>
+		
+		<section>
+			<label>Z:<spam class="obligatorio"> (*)</spam></label>
+			{!! Form::text('txtcoordenadaz', old('z'), ['placeholder' => '']) !!}
+			{!! $errors->first('txtcoordenadaz', '<p class="error_mensaje">:message</p>') !!}
 		</section>
-	</div>
+	</section>
 
 </div>
 
-	<input type="submit" name="agregar_ficha" value="Guardar"/>
-	<p> {!! link_to_route('ficha','Regresar') !!} </p> 
+<h3 id="tabmedida">MEDIDAS</h3>
+<div>
+	<section id="medidas" name="medidas" class="campoform">
+
+		<section>
+		<label>Diámetro E1:<spam class="obligatorio"> (*)</spam></label>
+		{!! Form::text('txtdiametroe1', old('entrada_1'), ['id' => 'txtdiametroe1', 'placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+
+		<section>
+		<label>Diámetro E2:</label>
+		{!! Form::text('txtdiametroe2', old('entrada_2'), ['id' => 'txtdiametroe2', 'placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtdiametroe2', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+
+		<section>
+		<label>Diámetro E3:</label>
+		{!! Form::text('txtdiametroe3', old('entrada_3'), ['id' => 'txtdiametroe3', 'placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtdiametroe3', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+
+		<section>
+		<label>Diámetro E4:</label>
+		{!! Form::text('txtdiametroe4', old('entrada_4'), ['id' => 'txtdiametroe4', 'placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtdiametroe4', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+
+		<section>
+		<label>Diámetro E5:</label>
+		{!! Form::text('txtdiametroe5', old('entrada_5'), ['id' => 'txtdiametroe5', 'placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtdiametroe5', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+
+		<section>
+		<label>Salida:<spam class="obligatorio"> (*)</spam></label>
+		{!! Form::text('txtdiametrosalida', old('salida'), ['id' => 'txtdiametrosalida','placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtdiametrosalida', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+		
+		<section>
+		<label>Altura:<spam class="obligatorio">(*)</spam></label>
+		{!! Form::text('txtaltura', old('altura'), ['placeholder' => 'metros']) !!} m
+		{!! $errors->first('txtaltura', '<p class="error_mensaje">:message</p>') !!}
+		</section>
+	</section>
+</div>
+
+<h3 id="tabobservacion">OBSERVACIONES</h3>
+
+<div>
+	<section class="campoform">
+		{!! Form::textarea('observaciones', old('observaciones'), ['rows' => '3', 'cols' => '40']) !!}
+	</section>
+</div>
+
+</div>
+
+	<input type="submit" id="btnguardaficha" class="btnguardar" name="agregar_ficha" value="Guardar"/>
+	<p class="iniciaficha"> {!! link_to_route('ficha','Regresar') !!} </p> 
 
 </form>
 
 <script>
-  		$(function() {
-    	$( "#accordion" ).accordion();
-  			});
+  	
+
+
+$(function() {
+
+	$( "#accordion" ).accordion({heightStyle: "content"});
+	$( "#accordion" ).accordion( "option", "icons", { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" } );
+	$( "#accordion" ).accordion({collapsible: true});
+
+	$( "#accordion" ).accordion();
+
+});
+
+
+  		
 </script>
 
 @stop

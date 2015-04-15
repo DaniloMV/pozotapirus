@@ -13,6 +13,7 @@
 @section('contenido')
 
     <div align="center"> 
+    <section class="listado"> 
     <table>
     <caption></caption>
     <col><col><col>
@@ -32,7 +33,7 @@
         
         <td>
             {!! Form::open(array('url'=>'parroquia/Eliminar')) !!}
-            {!! Form::hidden('sec', $parroquia->id) !!}  
+            {!! Form::hidden('id', $parroquia->id) !!}  
             <input id='Estado' type='submit' name='deleteActivarInactivar' class='Botones' value='Anular'>
             
             {!! Form::close() !!}
@@ -48,7 +49,7 @@
     </table> 
     
     <p align="center">{!! link_to_route('NuevaParroquia', 'Registrar parroquia') !!}</p>
-
+    </section>
     </div>
 
     <?php echo $datos->render(); ?>

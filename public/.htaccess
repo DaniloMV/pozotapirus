@@ -12,4 +12,17 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    # 1 semana
+    <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf|xml|txt)$">
+    Header set Cache-Control "max-age=604800, public, must-revalidate"
+    </FilesMatch>    
+    # 4 horas
+    <FilesMatch "\.(html|php|js|css)$">
+    Header set Cache-Control "max-age=14400, public, must-revalidate"
+    </FilesMatch>
+    
+   
+
+    
 </IfModule>
