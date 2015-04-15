@@ -5,17 +5,29 @@
     <meta name="description" content="Registro de Pozos" />
     <title>TAPIRUS:  @yield('titulo')  </title>   
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="/css/base.min.css">
+=======
+    <link rel="stylesheet" type="text/css" href="/pozotapirus/public/css/base.min.css">
+>>>>>>> origin/master
 </head>
 <body>
 <header class="cabecera">
 <figure>
+<<<<<<< HEAD
 <img id="imglogotapirus" src="/images/tapirus.jpg">
+=======
+<img id="imglogotapirus" src="/pozotapirus/public/images/tapirus.jpg">
+>>>>>>> origin/master
 <figcaption id="textocab">
 <h1>"TAPIRUS"</h1>
 <small>INVESTIGACIÓN Y GESTIÓN DE PROYECTOS</small>
 </figcaption>
+<<<<<<< HEAD
 <img id="imglogokunhwa" src="/images/kunhwa.jpg">
+=======
+<img id="imglogokunhwa" src="/pozotapirus/public/images/kunhwa.jpg">
+>>>>>>> origin/master
 </figure>
 <nav class="menuprincipal">
     <ul> 

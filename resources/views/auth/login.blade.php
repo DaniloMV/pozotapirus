@@ -12,9 +12,15 @@
 <!-- Lo que debe contener en el body -->
 @section('contenido')
 
+<<<<<<< HEAD
 <link rel="stylesheet" href="/css/jquery.bxslider.css">
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
  <script src="/js/jquery.bxslider.min.js"></script>
+=======
+<link rel="stylesheet" href="/pozotapirus/public/css/jquery.bxslider.css">
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+ <script src="/pozotapirus/public/js/jquery.bxslider.min.js"></script>
+>>>>>>> origin/master
 
 <div class="container-fluid">
 	<div class="row">
@@ -35,16 +41,39 @@
 
 					<form class="form-horizontal fuenteingreso" role="form" method="POST" action="../auth/login">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<<<<<<< HEAD
 						<div class="form-group">
 							<div class="col-md-6">
 								<input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="E-mail del usuario" required>
 
+								<input type="password" class="form-control" name="password" placeholder="Contraseña del usuario" required>
+=======
+						<div class="form-group">
+							<div class="col-md-6">
+								<input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="E-mail del usuario" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-6">
 								<input type="password" class="form-control" name="password" placeholder="Contraseña del usuario" required>
 							</div>
 						</div>
 						
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="remember"> Recordar 
+									</label>
+								</div>
+>>>>>>> origin/master
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<div class="col-md-6 col-md-offset-4">
+<<<<<<< HEAD
 								<div class="checkbox" width="10%">
 									<label width="10%">
 										<input type="checkbox" name="remember" width="10%"/> Recordar 
@@ -55,6 +84,11 @@
 	</label>
 								</div>
 
+=======
+								<button type="submit" class="btn btn-primary btningreso" style="margin-right: 15px;">
+									Ingresar
+								</button>
+>>>>>>> origin/master
 							</div>
 							<div class="col-md-6 col-md-offset-4 ">
 								<a href="../password/email">Haz olvidado tu contraseña?</a>
@@ -71,7 +105,11 @@
 <div id="slider">
 <ul class="bxslider">
 <figure>
+<<<<<<< HEAD
   <li><img src="/images/foto_1.jpg" width="80%"/></li>
+=======
+  <li><img src="/pozotapirus/public/images/foto_1.jpg" width="90%"/></li>
+>>>>>>> origin/master
   <figcaption>
   	<small><strong>TAPIRUS</strong></small>
 	<p>“Tapirus Cía. Ltda.” Se constituyó en octubre del año 2008. Sus socios fundadores, los hermanos  Vilma Susana y Víctor Hugo Torres López inician esta compañía limitada con el propósito de poner en práctica los conocimientos adquiridos en la universidad: el ambiente y la geografía, dos carreras vinculadas al estudio de las interrelaciones entre el hombre y la naturaleza.</p>
@@ -79,7 +117,11 @@
 </figure>
 
 <figure>
+<<<<<<< HEAD
   <li><img src="/images/foto_3.jpg" width="80%"/></li>
+=======
+  <li><img src="/pozotapirus/public/images/foto_3.jpg" width="90%"/></li>
+>>>>>>> origin/master
   <figcaption>
   	<small><strong>Misión</strong></small>
 	<p>“TAPIRUS Cía. Ltda.” es una consultora que cree en el desarrollo local, que por medio de la investigación, construcción y la gestión en temas de geografía y  ambiente aporta al progreso de la región del País cumpliendo de manera profesional con las exigencias de las empresas públicas y privadas.</p>
@@ -87,7 +129,11 @@
 </figure>
 
 <figure>
+<<<<<<< HEAD
   <li><img src="/images/foto_4.jpg" width="80%"/></li>
+=======
+  <li><img src="/pozotapirus/public/images/foto_4.jpg" width="90%"/></li>
+>>>>>>> origin/master
   <figcaption>
   	<small><strong>Visión</strong></small>
 	<p> “TAPIRUS Cía. Ltda.” ser la principal consultora y Constructora de la Región  en lo referente a investigación de temas sociales, ambientales y Rehabitación de Bienes Patrimoniales, para la promoción del desarrollo local. Y busca posicionarse a nivel Nacional, para emprender la conquista del Sud América.</p>
