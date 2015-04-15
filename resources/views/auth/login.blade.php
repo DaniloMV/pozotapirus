@@ -15,9 +15,17 @@
 <link rel="stylesheet" href="/css/jquery.bxslider.css">
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
  <script src="/js/jquery.bxslider.min.js"></script>
+<<<<<<< HEAD
 <link rel="stylesheet" href="/pozotapirus/public/css/jquery.bxslider.css">
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
  <script src="/pozotapirus/public/js/jquery.bxslider.min.js"></script>
+=======
+
+<link rel="stylesheet" href="/pozotapirus/public/css/jquery.bxslider.css">
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+ <script src="/pozotapirus/public/js/jquery.bxslider.min.js"></script>
+
+>>>>>>> origin/master
 
 <div class="container-fluid">
 	<div class="row">
@@ -41,8 +49,8 @@
 						<div class="form-group">
 							<div class="col-md-6">
 								<input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="E-mail del usuario" required>
-
 								<input type="password" class="form-control" name="password" placeholder="Contraseña del usuario" required>
+<<<<<<< HEAD
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
@@ -55,6 +63,21 @@
 									</button>
 									</label>
 								</div>
+=======
+						</div>
+
+						
+						
+						<div class="form-group">
+							<div class="col-md-6 col-md-offset-4">
+								<div class="checkbox" width="10%">
+									<input type="checkbox" name="remember" width="10%"/> Recordar 
+								</div>
+
+								<button type="submit" class="btn btn-primary btningreso" style="margin-right: 15px;">
+									Ingresar
+								</button>
+>>>>>>> origin/master
 							</div>
 							<div class="col-md-6 col-md-offset-4 ">
 								<a href="../password/email">Haz olvidado tu contraseña?</a>
@@ -71,7 +94,10 @@
 <div id="slider">
 <ul class="bxslider">
 <figure>
+<<<<<<< HEAD
   <li><img src="/images/foto_1.jpg" width="80%"/></li>
+=======
+>>>>>>> origin/master
   <li><img src="/pozotapirus/public/images/foto_1.jpg" width="90%"/></li>
   <figcaption>
   	<small><strong>TAPIRUS</strong></small>
@@ -80,7 +106,10 @@
 </figure>
 
 <figure>
+<<<<<<< HEAD
   <li><img src="/images/foto_3.jpg" width="80%"/></li>
+=======
+>>>>>>> origin/master
   <li><img src="/pozotapirus/public/images/foto_3.jpg" width="90%"/></li>
   <figcaption>
   	<small><strong>Misión</strong></small>
@@ -89,7 +118,10 @@
 </figure>
 
 <figure>
+<<<<<<< HEAD
   <li><img src="/images/foto_4.jpg" width="80%"/></li>
+=======
+>>>>>>> origin/master
   <li><img src="/pozotapirus/public/images/foto_4.jpg" width="90%"/></li>
   <figcaption>
   	<small><strong>Visión</strong></small>

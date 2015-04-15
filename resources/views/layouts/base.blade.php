@@ -5,7 +5,10 @@
     <meta name="description" content="Registro de Pozos" />
     <title>TAPIRUS:  @yield('titulo')  </title>   
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="/css/base.min.css">
+=======
+>>>>>>> origin/master
     <link rel="stylesheet" type="text/css" href="/pozotapirus/public/css/base.min.css">
 </head>
 <body>
