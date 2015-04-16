@@ -193,11 +193,11 @@
 		{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
 		
 		
-		{!! Form::text('txtaltura_e1', old('entrada_1'), ['id' => 'txtaltura_e1', 'class'=>'columna','placeholder' => 'altura']) !!}
-		{!! $errors->first('txtaltura_e1', '<p class="error_mensaje">:message</p>') !!}
+		{!! Form::text('txtalturae1', old('entrada_1'), ['id' => 'txtalturae1', 'class'=>'columna','placeholder' => 'altura']) !!}
+		{!! $errors->first('txtalturae1', '<p class="error_mensaje">:message</p>') !!}
 		
 		
-		<select placeholder="tipo material" class="columna">
+		<select name="cmbmaterialcolectore1" placeholder="tipo material" class="columna">
 			<option>opcion 1</option>
 			<option>opcion 2</option>
 		</select>

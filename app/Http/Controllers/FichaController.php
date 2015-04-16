@@ -115,6 +115,7 @@ class FichaController extends Controller {
 				$ficha->cmb_material_colector_id=$request->input('cmbmaterialcolector');
 				$ficha->cmb_tipo_pozo_id=$request->input('cmbtipopozo');
 				$ficha->cmb_tipo_tapa_id=$request->input('cmbtipotapa');
+				$ficha->diametro_tapa=$request->input('diametrotapa');
 				$ficha->cmb_estado_pozo_id=$request->input('cmbestadopozo');
 
 				FichaController::VerificarCamposCHK($request, $ficha);
@@ -125,11 +126,63 @@ class FichaController extends Controller {
 				$ficha->x=$request->input('txtcoordenadax');
 				$ficha->y=$request->input('txtcoordenaday');
 				$ficha->z=$request->input('txtcoordenadaz');
+				
+				//entradas
 				$ficha->entrada_1=$request->input('txtdiametroe1');
 				$ficha->entrada_2=$request->input('txtdiametroe2');
 				$ficha->entrada_3=$request->input('txtdiametroe3');
 				$ficha->entrada_4=$request->input('txtdiametroe4');
 				$ficha->entrada_5=$request->input('txtdiametroe5');
+				$ficha->entrada_6=$request->input('txtdiametroe6');
+				$ficha->entrada_7=$request->input('txtdiametroe7');
+				$ficha->entrada_7=$request->input('txtdiametroe8');
+				$ficha->entrada_9=$request->input('txtdiametroe9');
+				$ficha->entrada_10=$request->input('txtdiametroe10');
+				$ficha->entrada_11=$request->input('txtdiametroe11');
+				$ficha->entrada_12=$request->input('txtdiametroe12');
+
+				//alturas
+				$ficha->altura_e1=$request->input('txtalturae1');
+				$ficha->altura_e2=$request->input('txtalturae2');
+				$ficha->altura_e3=$request->input('txtalturae3');
+				$ficha->altura_e4=$request->input('txtalturae4');
+				$ficha->altura_e5=$request->input('txtalturae5');
+				$ficha->altura_e6=$request->input('txtalturae6');
+				$ficha->altura_e7=$request->input('txtalturae7');
+				$ficha->altura_e8=$request->input('txtalturae8');
+				$ficha->altura_e9=$request->input('txtalturae9');
+				$ficha->altura_e10=$request->input('txtalturae10');
+				$ficha->altura_e11=$request->input('txtalturae11');
+				$ficha->altura_e12=$request->input('txtalturae12');	
+
+				//camaras
+				$ficha->camara_e1=$request->input('txtcamarae1');
+				$ficha->camara_e2=$request->input('txtcamarae2');
+				$ficha->camara_e3=$request->input('txtcamarae3');
+				$ficha->camara_e4=$request->input('txtcamarae4');
+				$ficha->camara_e5=$request->input('txtcamarae5');
+				$ficha->camara_e6=$request->input('txtcamarae6');
+				$ficha->camara_e7=$request->input('txtcamarae7');
+				$ficha->camara_e8=$request->input('txtcamarae8');
+				$ficha->camara_e9=$request->input('txtcamarae9');
+				$ficha->camara_e10=$request->input('txtcamarae10');
+				$ficha->camara_e11=$request->input('txtcamarae11');
+				$ficha->camara_e12=$request->input('txtcamarae12');	
+
+				//material colector
+				$ficha->cmb_material_colector_e1=$request->input('cmbmaterialcolectore1');
+				$ficha->cmb_material_colector_e2=$request->input('cmbmaterialcolectore2');
+				$ficha->cmb_material_colector_e3=$request->input('cmbmaterialcolectore3');
+				$ficha->cmb_material_colector_e4=$request->input('cmbmaterialcolectore4');
+				$ficha->cmb_material_colector_e5=$request->input('cmbmaterialcolectore5');
+				$ficha->cmb_material_colector_e6=$request->input('cmbmaterialcolectore6');
+				$ficha->cmb_material_colector_e7=$request->input('cmbmaterialcolectore7');
+				$ficha->cmb_material_colector_e8=$request->input('cmbmaterialcolectore8');
+				$ficha->cmb_material_colector_e9=$request->input('cmbmaterialcolectore9');
+				$ficha->cmb_material_colector_e10=$request->input('cmbmaterialcolectore10');
+				$ficha->cmb_material_colector_e11=$request->input('cmbmaterialcolectore11');
+				$ficha->cmb_material_colector_e12=$request->input('cmbmaterialcolectore12');					
+				
 				$ficha->salida=$request->input('txtdiametrosalida');
 				$ficha->altura=$request->input('txtaltura');
 				$ficha->observaciones=$request->input('observaciones');
@@ -194,6 +247,7 @@ class FichaController extends Controller {
 				$ficha->cmb_material_colector_id=$request->input('cmbmaterialcolector');
 				$ficha->cmb_tipo_pozo_id=$request->input('cmbtipopozo');
 				$ficha->cmb_tipo_tapa_id=$request->input('cmbtipotapa');
+				$ficha->diametro_tapa=$request->input('diametrotapa');
 				$ficha->cmb_estado_pozo_id=$request->input('cmbestadopozo');
 
 				FichaController::VerificarCamposCHK($request, $ficha);
@@ -203,11 +257,64 @@ class FichaController extends Controller {
 				$ficha->x=$request->input('txtcoordenadax');
 				$ficha->y=$request->input('txtcoordenaday');
 				$ficha->z=$request->input('txtcoordenadaz');
+
+
+				//entradas
 				$ficha->entrada_1=$request->input('txtdiametroe1');
 				$ficha->entrada_2=$request->input('txtdiametroe2');
 				$ficha->entrada_3=$request->input('txtdiametroe3');
 				$ficha->entrada_4=$request->input('txtdiametroe4');
 				$ficha->entrada_5=$request->input('txtdiametroe5');
+				$ficha->entrada_6=$request->input('txtdiametroe6');
+				$ficha->entrada_7=$request->input('txtdiametroe7');
+				$ficha->entrada_7=$request->input('txtdiametroe8');
+				$ficha->entrada_9=$request->input('txtdiametroe9');
+				$ficha->entrada_10=$request->input('txtdiametroe10');
+				$ficha->entrada_11=$request->input('txtdiametroe11');
+				$ficha->entrada_12=$request->input('txtdiametroe12');
+
+				//alturas
+				$ficha->altura_e1=$request->input('txtalturae1');
+				$ficha->altura_e2=$request->input('txtalturae2');
+				$ficha->altura_e3=$request->input('txtalturae3');
+				$ficha->altura_e4=$request->input('txtalturae4');
+				$ficha->altura_e5=$request->input('txtalturae5');
+				$ficha->altura_e6=$request->input('txtalturae6');
+				$ficha->altura_e7=$request->input('txtalturae7');
+				$ficha->altura_e8=$request->input('txtalturae8');
+				$ficha->altura_e9=$request->input('txtalturae9');
+				$ficha->altura_e10=$request->input('txtalturae10');
+				$ficha->altura_e11=$request->input('txtalturae11');
+				$ficha->altura_e12=$request->input('txtalturae12');	
+
+				//camaras
+				$ficha->camara_e1=$request->input('txtcamarae1');
+				$ficha->camara_e2=$request->input('txtcamarae2');
+				$ficha->camara_e3=$request->input('txtcamarae3');
+				$ficha->camara_e4=$request->input('txtcamarae4');
+				$ficha->camara_e5=$request->input('txtcamarae5');
+				$ficha->camara_e6=$request->input('txtcamarae6');
+				$ficha->camara_e7=$request->input('txtcamarae7');
+				$ficha->camara_e8=$request->input('txtcamarae8');
+				$ficha->camara_e9=$request->input('txtcamarae9');
+				$ficha->camara_e10=$request->input('txtcamarae10');
+				$ficha->camara_e11=$request->input('txtcamarae11');
+				$ficha->camara_e12=$request->input('txtcamarae12');	
+
+				//material colector
+				$ficha->cmb_material_colector_e1=$request->input('cmbmaterialcolectore1');
+				$ficha->cmb_material_colector_e2=$request->input('cmbmaterialcolectore2');
+				$ficha->cmb_material_colector_e3=$request->input('cmbmaterialcolectore3');
+				$ficha->cmb_material_colector_e4=$request->input('cmbmaterialcolectore4');
+				$ficha->cmb_material_colector_e5=$request->input('cmbmaterialcolectore5');
+				$ficha->cmb_material_colector_e6=$request->input('cmbmaterialcolectore6');
+				$ficha->cmb_material_colector_e7=$request->input('cmbmaterialcolectore7');
+				$ficha->cmb_material_colector_e8=$request->input('cmbmaterialcolectore8');
+				$ficha->cmb_material_colector_e9=$request->input('cmbmaterialcolectore9');
+				$ficha->cmb_material_colector_e10=$request->input('cmbmaterialcolectore10');
+				$ficha->cmb_material_colector_e11=$request->input('cmbmaterialcolectore11');
+				$ficha->cmb_material_colector_e12=$request->input('cmbmaterialcolectore12');
+				
 				$ficha->salida=$request->input('txtdiametrosalida');
 				$ficha->altura=$request->input('txtaltura');
 				$ficha->observaciones=$request->input('observaciones');

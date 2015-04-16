@@ -15,21 +15,8 @@
         
 		<div align="center"> 
 
-<<<<<<< HEAD
-        <p align="center" class="iniciaficha">{!! link_to_route('NuevaFicha', 'Iniciar Ficha') !!}</p>
-<<<<<<< HEAD
-=======
-
         <p align="center" class="iniciaficha">{!! link_to_route('NuevaFicha', 'Iniciar Ficha') !!}</p>
 
->>>>>>> origin/master
-=======
-
->>>>>>> origin/master
-=======
-        <p align="center" class="iniciaficha">{!! link_to_route('NuevaFicha', 'Iniciar Ficha') !!}</p>
-
->>>>>>> origin/master
         <section class="listado"> 
     	<table>
     	<caption></caption>
