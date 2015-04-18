@@ -29,9 +29,10 @@
             <th style='display:none'>sec
             <th>Fecha
             <th>Usuario
-            <th>Equipo
-            <th>Estado 
-    		<th>Estado
+            <th>Equipo 
+            @if (Auth::user()->usuario_tipo_id==2) 
+    		<th>Estado 
+            @endif  
     		<th>Acción
     	</thead>
     	<tbody>
@@ -44,9 +45,9 @@
             <td style='display:none'>{{ $ficha->sec_ficha }}</td>
             <td>{{ date('d/M/Y H:i:s', $ficha->fecha) }}</td>
             <td>{{ $ficha->modusuario->name }}</td>
-            <td>Equipo</td>
-            <td>{{ $ficha->estreg }}</td>
-            <td>
+            <td>{{ $ficha->modusuario->usuario_equ_id }}</td> 
+            @if (Auth::user()->usuario_tipo_id==2) 
+            <td> 
                 {!! Form::open(array('url'=>'ficha/Eliminar')) !!}
                 {!! Form::hidden('sec', $ficha->sec_ficha) !!}  
                 {!! Form::hidden('estado', $ficha->estreg) !!}   
@@ -62,12 +63,16 @@
                 ?>
                 
                 {!! Form::close() !!}
+            </td> 
+            @endif 
             <td>
                 {!! Form::open(array('url'=>'ficha/Editar')) !!}
                 {!! Form::hidden('sec', $ficha->sec_ficha) !!}  
                 <input id='Editar' type='submit' name='Editar' class='Botones' value='Editar'>
                 
                 {!! Form::close() !!}
+            </td>
+            </tr>
 			@endforeach
 
     	</tbody>

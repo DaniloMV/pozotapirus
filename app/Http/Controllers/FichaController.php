@@ -58,13 +58,11 @@ class FichaController extends Controller {
 		//\Auth::user()->id;
 		if (\Auth::user()->usuario_tipo_id==2)
 		{
-			$datos = Ficha::where('estreg','=','1')
-					->orderBy('sec_ficha', 'Desc')->paginate();
+			$datos = Ficha::orderBy('sec_ficha', 'Desc')->paginate();
 		}
 		else
 		{
-			$datos = Ficha::where('estreg','=','1')
-					->where('usuario_id',"=",\Auth::user()->id)
+			$datos = Ficha::where('usuario_id',"=",\Auth::user()->id)
 					->orderBy('sec_ficha', 'Desc')->paginate();	
 		}
         //return $usuarios;
