@@ -30,6 +30,7 @@
             <th>Fecha
             <th>Usuario
             <th>Equipo
+            <th style='display:none'>Estado 
     		<th>Estado
     		<th>Acción
     	</thead>
@@ -44,20 +45,29 @@
             <td>{{ date('d/M/Y H:i:s', $ficha->fecha) }}</td>
             <td>{{ $ficha->modusuario->name }}</td>
             <td>Equipo</td>
+            <td style='display:none'>{{ $ficha->estreg }}</td>
             <td>
                 {!! Form::open(array('url'=>'ficha/Eliminar')) !!}
-                {!! Form::hidden('sec', $ficha->sec_ficha) !!}  
-                <input id='Estado' type='submit' name='deleteActivarInactivar' class='Botones' value='Anular'>
-                {!! Form::close() !!}
+                {!! Form::hidden('id', $ficha->id) !!}
+                {!! Form::hidden('estado', $ficha->estreg) !!}   
                 
+                <?php                 
+                $Estado="Activar"; 
+                if( $ficha->estreg == 1)
+                {
+                    $Estado="Inactivar";  
+                }
+                
+                echo "<input id='Estado' type='submit' name='deleteActivarInactivar' class='Botones' value=$Estado >";
+                ?>
+                
+                {!! Form::close() !!}
             <td>
                 {!! Form::open(array('url'=>'ficha/Editar')) !!}
                 {!! Form::hidden('sec', $ficha->sec_ficha) !!}  
                 <input id='Editar' type='submit' name='Editar' class='Botones' value='Editar'>
                 
                 {!! Form::close() !!}
-            </tr>       
-        	</tr>
 			@endforeach
 
     	</tbody>

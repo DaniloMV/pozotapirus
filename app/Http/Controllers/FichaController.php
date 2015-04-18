@@ -115,7 +115,7 @@ class FichaController extends Controller {
 				$ficha->cmb_material_colector_id=$request->input('cmbmaterialcolector');
 				$ficha->cmb_tipo_pozo_id=$request->input('cmbtipopozo');
 				$ficha->cmb_tipo_tapa_id=$request->input('cmbtipotapa');
-				$ficha->diametro_tapa=$request->input('diametrotapa');
+				$ficha->diametro_tapa=$request->input('txtdiametrotapa');
 				$ficha->cmb_estado_pozo_id=$request->input('cmbestadopozo');
 
 				FichaController::VerificarCamposCHK($request, $ficha);
