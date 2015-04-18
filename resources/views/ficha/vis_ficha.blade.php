@@ -30,7 +30,7 @@
             <th>Fecha
             <th>Usuario
             <th>Equipo
-            <th style='display:none'>Estado 
+            <th>Estado 
     		<th>Estado
     		<th>Acción
     	</thead>
@@ -45,10 +45,10 @@
             <td>{{ date('d/M/Y H:i:s', $ficha->fecha) }}</td>
             <td>{{ $ficha->modusuario->name }}</td>
             <td>Equipo</td>
-            <td style='display:none'>{{ $ficha->estreg }}</td>
+            <td>{{ $ficha->estreg }}</td>
             <td>
                 {!! Form::open(array('url'=>'ficha/Eliminar')) !!}
-                {!! Form::hidden('id', $ficha->id) !!}
+                {!! Form::hidden('sec', $ficha->sec_ficha) !!}  
                 {!! Form::hidden('estado', $ficha->estreg) !!}   
                 
                 <?php                 
