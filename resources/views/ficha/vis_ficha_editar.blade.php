@@ -185,33 +185,9 @@
 	<section id="medidas" name="medidas" class="campoform">
 
 		<section>
-		<label>Diametro E1:<spam class="obligatorio"> (*)</spam></label>
-		<input id="txtdiametroe1" name="txtdiametroe1" type="text" required value="<?php echo "{$datos->entrada_1}"; ?>" placeholder="metros"/>m
-		{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
-		</section>
-
-		<section>
-		<label>Diametro E2:</label>
-		<input id="txtdiametroe2" name="txtdiametroe2" type="text" required value="<?php echo "{$datos->entrada_2}"; ?>" placeholder="metros"/>m
-		{!! $errors->first('txtdiametroe2', '<p class="error_mensaje">:message</p>') !!}
-		</section>
-
-		<section>
-		<label>Diametro E3:</label>
-		<input id="txtdiametroe3" name="txtdiametroe3" type="text" required value="<?php echo "{$datos->entrada_3}"; ?>" placeholder="metros"/>m
-		{!! $errors->first('txtdiametroe3', '<p class="error_mensaje">:message</p>') !!}
-		</section>
-
-		<section>
-		<label>Diametro E4:</label>
-		<input id="txtdiametroe4" name="txtdiametroe4" type="text" required value="<?php echo "{$datos->entrada_4}"; ?>" placeholder="metros"/>m
-		{!! $errors->first('txtdiametroe4', '<p class="error_mensaje">:message</p>') !!}
-		</section>
-
-		<section>
-		<label>Diametro E5:</label>
-		<input id="txtdiametroe5" name="txtdiametroe5" type="text" required value="<?php echo "{$datos->entrada_5}"; ?>" placeholder="metros"/>m
-		{!! $errors->first('txtdiametroe5', '<p class="error_mensaje">:message</p>') !!}
+		<label>Diámetro Tapa:</label>
+		<input id="txtdiametrotapa" name="txtdiametrotapa" type="text" required value="<?php echo "{$datos->diametro_tapa}"; ?>" placeholder="diametro tapa"/>m
+		{!! $errors->first('txtdiametrotapa', '<p class="error_mensaje">:message</p>') !!}
 		</section>
 
 		<section>
@@ -225,6 +201,169 @@
 		<input id="txtaltura" name="txtaltura" type="text" required value="<?php echo "{$datos->altura}"; ?>" placeholder="metros"/>m
 		{!! $errors->first('txtaltura', '<p class="error_mensaje">:message</p>') !!}
 		</section>
+	</section>
+</div>
+
+<h3 id="tabmedida">ENTRADAS</h3>
+<div>
+	<section id="entradas" name="entradas" class="campoform">
+
+	
+		<label class="columna">Diámetro (m)</label>
+		<label class="columna">Altura (m)</label>
+		<label class="columna">Mat. Colector</label>
+		<label class="columna">Cámara (m)</label>
+
+		<section class="tabla">
+
+		<input id="txtdiametroe1" name="txtdiametroe1" type="text" required value="<?php echo "{$datos->diametro_e1}"; ?>" placeholder="diametro 1"/>m
+		{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
+		
+		<input id="txtalturae1" name="txtalturae1" type="text" required value="<?php echo "{$datos->altura_e1}"; ?>" placeholder="altura 1"/>m
+		{!! $errors->first('txtalturae1', '<p class="error_mensaje">:message</p>') !!}
+		
+		{!! Form::select('cmbmaterialcolectore1', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), $datos->cmbmaterialcolector_e1) !!} 
+
+		<input id="txtcamarae1" name="txtcamarae1" type="text" required value="<?php echo "{$datos->camara_e1}"; ?>" placeholder="camara 1"/>m
+		{!! $errors->first('txtcamarae1', '<p class="error_mensaje">:message</p>') !!}
+
+		</section>
+
+		<section class="tabla">
+
+		<input id="txtdiametroe2" name="txtdiametroe2" type="text" required value="<?php echo "{$datos->diametro_e2}"; ?>" placeholder="diametro 2"/>m
+		{!! $errors->first('txtdiametroe2', '<p class="error_mensaje">:message</p>') !!}
+		
+		<input id="txtalturae2" name="txtalturae2" type="text" required value="<?php echo "{$datos->altura_e2}"; ?>" placeholder="altura 2"/>m
+		{!! $errors->first('txtalturae2', '<p class="error_mensaje">:message</p>') !!}
+		
+		{!! Form::select('cmbmaterialcolectore2', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), $datos->cmbmaterialcolector_e2) !!} 
+
+		<input id="txtcamarae2" name="txtcamarae2" type="text" required value="<?php echo "{$datos->camara_e2}"; ?>" placeholder="camara 2"/>m
+		{!! $errors->first('txtcamarae2', '<p class="error_mensaje">:message</p>') !!}
+
+		</section>
+
+		<section class="tabla">
+
+		<input id="txtdiametroe3" name="txtdiametroe3" type="text" required value="<?php echo "{$datos->diametro_e3}"; ?>" placeholder="diametro 3"/>m
+		{!! $errors->first('txtdiametroe3', '<p class="error_mensaje">:message</p>') !!}
+		
+		<input id="txtalturae3" name="txtalturae3" type="text" required value="<?php echo "{$datos->altura_e3}"; ?>" placeholder="altura 3"/>m
+		{!! $errors->first('txtalturae3', '<p class="error_mensaje">:message</p>') !!}
+		
+		{!! Form::select('cmbmaterialcolectore3', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), $datos->cmbmaterialcolector_e3) !!} 
+
+		<input id="txtcamarae3" name="txtcamarae3" type="text" required value="<?php echo "{$datos->camara_e3}"; ?>" placeholder="camara 3"/>m
+		{!! $errors->first('txtcamarae3', '<p class="error_mensaje">:message</p>') !!}
+
+		</section>
+
+		<section class="tabla">
+
+		<input id="txtdiametroe4" name="txtdiametroe4" type="text" required value="<?php echo "{$datos->diametro_e4}"; ?>" placeholder="diametro 4"/>m
+		{!! $errors->first('txtdiametroe4', '<p class="error_mensaje">:message</p>') !!}
+		
+		<input id="txtalturae4" name="txtalturae4" type="text" required value="<?php echo "{$datos->altura_e4}"; ?>" placeholder="altura 4"/>m
+		{!! $errors->first('txtalturae4', '<p class="error_mensaje">:message</p>') !!}
+		
+		{!! Form::select('cmbmaterialcolectore4', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), $datos->cmbmaterialcolector_e4) !!} 
+
+		<input id="txtcamarae4" name="txtcamarae4" type="text" required value="<?php echo "{$datos->camara_e4}"; ?>" placeholder="camara 4"/>m
+		{!! $errors->first('txtcamarae4', '<p class="error_mensaje">:message</p>') !!}
+
+		</section>
+
+		<section class="tabla">
+
+		<input id="txtdiametroe5" name="txtdiametroe5" type="text" required value="<?php echo "{$datos->diametro_e5}"; ?>" placeholder="diametro 5"/>m
+		{!! $errors->first('txtdiametroe5', '<p class="error_mensaje">:message</p>') !!}
+		
+		<input id="txtalturae5" name="txtalturae5" type="text" required value="<?php echo "{$datos->altura_e5}"; ?>" placeholder="altura 5"/>m
+		{!! $errors->first('txtalturae5', '<p class="error_mensaje">:message</p>') !!}
+		
+		{!! Form::select('cmbmaterialcolectore5', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), $datos->cmbmaterialcolector_e5) !!} 
+
+		<input id="txtcamarae5" name="txtcamarae5" type="text" required value="<?php echo "{$datos->camara_e5}"; ?>" placeholder="camara 5"/>m
+		{!! $errors->first('txtcamarae5', '<p class="error_mensaje">:message</p>') !!}
+
+		</section>
+
+		<section class="tabla">
+
+		<input id="txtdiametroe6" name="txtdiametroe6" type="text" required value="<?php echo "{$datos->diametro_e6}"; ?>" placeholder="diametro 6"/>m
+		{!! $errors->first('txtdiametroe6', '<p class="error_mensaje">:message</p>') !!}
+		
+		<input id="txtalturae6" name="txtalturae6" type="text" required value="<?php echo "{$datos->altura_e6}"; ?>" placeholder="altura 6"/>m
+		{!! $errors->first('txtalturae6', '<p class="error_mensaje">:message</p>') !!}
+		
+		{!! Form::select('cmbmaterialcolectore6', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), $datos->cmbmaterialcolector_e6) !!} 
+
+		<input id="txtcamarae6" name="txtcamarae6" type="text" required value="<?php echo "{$datos->camara_e6}"; ?>" placeholder="camara 6"/>m
+		{!! $errors->first('txtcamarae6', '<p class="error_mensaje">:message</p>') !!}
+
+		</section>
+
+		<section class="tabla">
+
+		<input id="txtdiametroe7" name="txtdiametroe7" type="text" required value="<?php echo "{$datos->diametro_e7}"; ?>" placeholder="diametro 7"/>m
+		{!! $errors->first('txtdiametroe7', '<p class="error_mensaje">:message</p>') !!}
+		
+		<input id="txtalturae7" name="txtalturae7" type="text" required value="<?php echo "{$datos->altura_e7}"; ?>" placeholder="altura 7"/>m
+		{!! $errors->first('txtalturae7', '<p class="error_mensaje">:message</p>') !!}
+		
+		{!! Form::select('cmbmaterialcolectore7', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), $datos->cmbmaterialcolector_e7) !!} 
+
+		<input id="txtcamarae7" name="txtcamarae7" type="text" required value="<?php echo "{$datos->camara_e7}"; ?>" placeholder="camara 7"/>m
+		{!! $errors->first('txtcamarae7', '<p class="error_mensaje">:message</p>') !!}
+
+		</section>
+
+		<section class="tabla">
+
+		<input id="txtdiametroe8" name="txtdiametroe8" type="text" required value="<?php echo "{$datos->diametro_e8}"; ?>" placeholder="diametro 8"/>m
+		{!! $errors->first('txtdiametroe8', '<p class="error_mensaje">:message</p>') !!}
+		
+		<input id="txtalturae8" name="txtalturae8" type="text" required value="<?php echo "{$datos->altura_e8}"; ?>" placeholder="altura 8"/>m
+		{!! $errors->first('txtalturae8', '<p class="error_mensaje">:message</p>') !!}
+		
+		{!! Form::select('cmbmaterialcolectore8', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), $datos->cmbmaterialcolector_e8) !!} 
+
+		<input id="txtcamarae8" name="txtcamarae8" type="text" required value="<?php echo "{$datos->camara_e8}"; ?>" placeholder="camara 8"/>m
+		{!! $errors->first('txtcamarae8', '<p class="error_mensaje">:message</p>') !!}
+
+		</section>
+
+		<section class="tabla">
+
+		<input id="txtdiametroe9" name="txtdiametroe9" type="text" required value="<?php echo "{$datos->diametro_e9}"; ?>" placeholder="diametro 9"/>m
+		{!! $errors->first('txtdiametroe9', '<p class="error_mensaje">:message</p>') !!}
+		
+		<input id="txtalturae9" name="txtalturae9" type="text" required value="<?php echo "{$datos->altura_e9}"; ?>" placeholder="altura 9"/>m
+		{!! $errors->first('txtalturae9', '<p class="error_mensaje">:message</p>') !!}
+		
+		{!! Form::select('cmbmaterialcolectore9', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), $datos->cmbmaterialcolector_e9) !!} 
+
+		<input id="txtcamarae9" name="txtcamarae9" type="text" required value="<?php echo "{$datos->camara_e9}"; ?>" placeholder="camara 9"/>m
+		{!! $errors->first('txtcamarae9', '<p class="error_mensaje">:message</p>') !!}
+
+		</section>
+
+		<section class="tabla">
+
+		<input id="txtdiametroe10" name="txtdiametroe10" type="text" required value="<?php echo "{$datos->diametro_e10}"; ?>" placeholder="diametro 10"/>m
+		{!! $errors->first('txtdiametroe10', '<p class="error_mensaje">:message</p>') !!}
+		
+		<input id="txtalturae10" name="txtalturae10" type="text" required value="<?php echo "{$datos->altura_e10}"; ?>" placeholder="altura 10"/>m
+		{!! $errors->first('txtalturae10', '<p class="error_mensaje">:message</p>') !!}
+		
+		{!! Form::select('cmbmaterialcolectore10', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), $datos->cmbmaterialcolector_e10) !!} 
+
+		<input id="txtcamarae10" name="txtcamarae10" type="text" required value="<?php echo "{$datos->camara_e10}"; ?>" placeholder="camara 10"/>m
+		{!! $errors->first('txtcamarae10', '<p class="error_mensaje">:message</p>') !!}
+
+		</section>
+		
 	</section>
 </div>
 

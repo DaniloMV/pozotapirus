@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-<script src="/js/funciones.min.js"></script>
-<script src="/js/validacionnuevo.min.js"></script>
+<script src="/pozotapirus/public/js/funciones.min.js"></script>
+<script src="/pozotapirus/public/js/validacionnuevo.js"></script>
 <h2 class="titulopagina">INICIAR FICHA</h2>
 <small class="tituloobligatorio">(*) CAMPOS OBLIGATORIOS</small>
 
@@ -218,32 +218,13 @@
 		{!! Form::text('txtdiametroe1', old('entrada_1'), ['id' => 'txtdiametroe1', 'class'=>'columna','placeholder' => 'diametro 1']) !!}
 		{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
 		
-		
-<<<<<<< HEAD
-<<<<<<< HEAD
-		{!! Form::text('txtalturae1', old('entrada_1'), ['id' => 'txtalturae1', 'class'=>'columna','placeholder' => 'altura']) !!}
-		{!! $errors->first('txtalturae1', '<p class="error_mensaje">:message</p>') !!}
-		
-		
-		<select name="cmbmaterialcolectore1" placeholder="tipo material" class="columna">
-			<option>opcion 1</option>
-			<option>opcion 2</option>
-		</select>
-		
-		{!! Form::text('txtcamara_e1', old('entrada_1'), ['id' => 'txtcamara_e1', 'class'=>'columna','placeholder' => 'cámara']) !!}
-		{!! $errors->first('txtcamara_e1', '<p class="error_mensaje">:message</p>') !!}
-=======
-		{!! Form::text('txtalturae1', old('entrada_1'), ['id' => 'txtaltura_e1', 'class'=>'columna','placeholder' => 'altura']) !!}
-=======
 		{!! Form::text('txtalturae1', old('altura_1'), ['id' => 'txtalturae1', 'class'=>'columna','placeholder' => 'altura 1']) !!}
->>>>>>> b3209b01aa378704e89e35a2354afacd37ee6022
 		{!! $errors->first('txtalturae1', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::select('cmbmaterialcolectore1', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		{!! Form::select('cmbmaterialcolectore1', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
 
 		{!! Form::text('txtcamarae1', old('camara_1'), ['id' => 'txtcamarae1', 'class'=>'columna','placeholder' => 'cámara 1']) !!}
 		{!! $errors->first('txtcamarae1', '<p class="error_mensaje">:message</p>') !!}
->>>>>>> origin/master
 
 		</section>
 
@@ -256,7 +237,7 @@
 		{!! Form::text('txtalturae2', old('altura_2'), ['id' => 'txtalturae2', 'class'=>'columna','placeholder' => 'altura 2']) !!}
 		{!! $errors->first('txtalturae2', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::select('cmbmaterialcolectore2', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		{!! Form::select('cmbmaterialcolectore2', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
 		
 		{!! Form::text('txtcamarae2', old('camara_2'), ['id' => 'txtcamarae2', 'class'=>'columna','placeholder' => 'cámara 2']) !!}
 		{!! $errors->first('txtcamarae2', '<p class="error_mensaje">:message</p>') !!}
@@ -272,7 +253,7 @@
 		{!! Form::text('txtalturae3', old('altura_3'), ['id' => 'txtalturae3', 'class'=>'columna','placeholder' => 'altura 3']) !!}
 		{!! $errors->first('txtalturae3', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::select('cmbmaterialcolectore3', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		{!! Form::select('cmbmaterialcolectore3', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
 		
 		{!! Form::text('txtcamarae3', old('camara_3'), ['id' => 'txtcamarae3', 'class'=>'columna','placeholder' => 'cámara 3']) !!}
 		{!! $errors->first('txtcamarae3', '<p class="error_mensaje">:message</p>') !!}
@@ -288,7 +269,7 @@
 		{!! Form::text('txtalturae4', old('altura_4'), ['id' => 'txtalturae4', 'class'=>'columna','placeholder' => 'altura 4']) !!}
 		{!! $errors->first('txtalturae4', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::select('cmbmaterialcolectore4', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		{!! Form::select('cmbmaterialcolectore4', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
 		
 		{!! Form::text('txtcamarae4', old('camara_4'), ['id' => 'txtcamarae4', 'class'=>'columna','placeholder' => 'cámara 4']) !!}
 		{!! $errors->first('txtcamarae4', '<p class="error_mensaje">:message</p>') !!}
@@ -304,7 +285,7 @@
 		{!! Form::text('txtalturae5', old('altura_5'), ['id' => 'txtalturae5', 'class'=>'columna','placeholder' => 'altura 5']) !!}
 		{!! $errors->first('txtalturae5', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::select('cmbmaterialcolectore5', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		{!! Form::select('cmbmaterialcolectore5', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
 		
 		{!! Form::text('txtcamarae5', old('camara_5'), ['id' => 'txtcamarae5', 'class'=>'columna','placeholder' => 'cámara 5']) !!}
 		{!! $errors->first('txtcamarae5', '<p class="error_mensaje">:message</p>') !!}
@@ -320,7 +301,7 @@
 		{!! Form::text('txtalturae6', old('altura_6'), ['id' => 'txtalturae6', 'class'=>'columna','placeholder' => 'altura 6']) !!}
 		{!! $errors->first('txtalturae6', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::select('cmbmaterialcolectore6', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		{!! Form::select('cmbmaterialcolectore6', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
 		
 		{!! Form::text('txtcamarae6', old('camara_6'), ['id' => 'txtcamarae6', 'class'=>'columna','placeholder' => 'cámara 6']) !!}
 		{!! $errors->first('txtcamarae6', '<p class="error_mensaje">:message</p>') !!}
@@ -336,7 +317,7 @@
 		{!! Form::text('txtalturae7', old('altura_7'), ['id' => 'txtalturae7', 'class'=>'columna','placeholder' => 'altura 7']) !!}
 		{!! $errors->first('txtalturae7', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::select('cmbmaterialcolectore7', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		{!! Form::select('cmbmaterialcolectore7', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
 		
 		{!! Form::text('txtcamarae7', old('camara_7'), ['id' => 'txtcamarae7', 'class'=>'columna','placeholder' => 'cámara 7']) !!}
 		{!! $errors->first('txtcamarae7', '<p class="error_mensaje">:message</p>') !!}
@@ -352,7 +333,7 @@
 		{!! Form::text('txtalturae8', old('altura_8'), ['id' => 'txtalturae8', 'class'=>'columna','placeholder' => 'altura 8']) !!}
 		{!! $errors->first('txtalturae8', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::select('cmbmaterialcolectore8', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		{!! Form::select('cmbmaterialcolectore8', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
 		
 		{!! Form::text('txtcamarae8', old('camara_8'), ['id' => 'txtcamarae8', 'class'=>'columna','placeholder' => 'cámara 8']) !!}
 		{!! $errors->first('txtcamarae8', '<p class="error_mensaje">:message</p>') !!}
@@ -368,7 +349,7 @@
 		{!! Form::text('txtalturae9', old('altura_9'), ['id' => 'txtalturae9', 'class'=>'columna','placeholder' => 'altura 9']) !!}
 		{!! $errors->first('txtalturae9', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::select('cmbmaterialcolectore9', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		{!! Form::select('cmbmaterialcolectore9', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
 		
 		{!! Form::text('txtcamarae9', old('camara_9'), ['id' => 'txtcamarae9', 'class'=>'columna','placeholder' => 'cámara 9']) !!}
 		{!! $errors->first('txtcamarae9', '<p class="error_mensaje">:message</p>') !!}
@@ -384,7 +365,7 @@
 		{!! Form::text('txtalturae10', old('altura_10'), ['id' => 'txtalturae10', 'class'=>'columna','placeholder' => 'altura 10']) !!}
 		{!! $errors->first('txtalturae10', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::select('cmbmaterialcolectore10', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		{!! Form::select('cmbmaterialcolectore10', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
 		
 		{!! Form::text('txtcamarae10', old('camara_10'), ['id' => 'txtcamarae10', 'class'=>'columna','placeholder' => 'cámara 10']) !!}
 		{!! $errors->first('txtcamarae10', '<p class="error_mensaje">:message</p>') !!}
@@ -400,7 +381,7 @@
 		{!! Form::text('txtalturae11', old('altura_11'), ['id' => 'txtalturae11', 'class'=>'columna','placeholder' => 'altura 11']) !!}
 		{!! $errors->first('txtalturae11', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::select('cmbmaterialcolectore11', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		{!! Form::select('cmbmaterialcolectore11', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
 		
 		{!! Form::text('txtcamarae11', old('camara_11'), ['id' => 'txtcamarae11', 'class'=>'columna','placeholder' => 'cámara 11']) !!}
 		{!! $errors->first('txtcamarae11', '<p class="error_mensaje">:message</p>') !!}
@@ -416,7 +397,7 @@
 		{!! Form::text('txtalturae12', old('altura_12'), ['id' => 'txtalturae12', 'class'=>'columna','placeholder' => 'altura 12']) !!}
 		{!! $errors->first('txtalturae12', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::select('cmbmaterialcolectore12', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		{!! Form::select('cmbmaterialcolectore12', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
 		
 		{!! Form::text('txtcamarae12', old('camara_12'), ['id' => 'txtcamarae12', 'class'=>'columna','placeholder' => 'cámara 12']) !!}
 		{!! $errors->first('txtcamarae12', '<p class="error_mensaje">:message</p>') !!}

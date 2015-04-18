@@ -91,7 +91,7 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
     'cmbmaterialcolector' => 'required',
     'cmbtipopozo' => 'required',
     'cmbtipotapa' => 'required',
-    'diametrotapa' => 'required|numeric',
+    'txtdiametrotapa' => 'required|numeric',
     'cmbestadopozo' => 'required',
     'txtcoordenadax' => 'required|numeric',
     'txtcoordenaday' => 'required|numeric',
