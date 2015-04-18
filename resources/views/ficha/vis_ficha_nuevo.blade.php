@@ -217,17 +217,9 @@
 		
 		01 {!! Form::text('txtdiametroe1', old('entrada_1'), ['id' => 'txtdiametroe1', 'class'=>'columna','placeholder' => 'diametro 1']) !!}
 		{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
-		
 		{!! Form::text('txtalturae1', old('altura_1'), ['id' => 'txtalturae1', 'class'=>'columna','placeholder' => 'altura 1']) !!}
 		{!! $errors->first('txtalturae1', '<p class="error_mensaje">:message</p>') !!}
-		
-<<<<<<< HEAD
-
-=======
-		{!! Form::select('cmbmaterialcolectore1', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'),['class'=>'columna']) !!} 
->>>>>>> origin/master
 		{!! Form::select('cmbmaterialcolectore1', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
-
 		{!! Form::text('txtcamarae1', old('camara_1'), ['id' => 'txtcamarae1', 'class'=>'columna','placeholder' => 'cámara 1']) !!}
 		{!! $errors->first('txtcamarae1', '<p class="error_mensaje">:message</p>') !!}
 
@@ -237,13 +229,9 @@
 		
 		02 {!! Form::text('txtdiametroe2', old('entrada_2'), ['id' => 'txtdiametroe2', 'class'=>'columna','placeholder' => 'diametro 2']) !!}
 		{!! $errors->first('txtdiametroe2', '<p class="error_mensaje">:message</p>') !!}
-		
-		
 		{!! Form::text('txtalturae2', old('altura_2'), ['id' => 'txtalturae2', 'class'=>'columna','placeholder' => 'altura 2']) !!}
 		{!! $errors->first('txtalturae2', '<p class="error_mensaje">:message</p>') !!}
-		
 		{!! Form::select('cmbmaterialcolectore2', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
-		
 		{!! Form::text('txtcamarae2', old('camara_2'), ['id' => 'txtcamarae2', 'class'=>'columna','placeholder' => 'cámara 2']) !!}
 		{!! $errors->first('txtcamarae2', '<p class="error_mensaje">:message</p>') !!}
 
@@ -253,13 +241,9 @@
 		
 		03 {!! Form::text('txtdiametroe3', old('entrada_3'), ['id' => 'txtdiametroe3', 'class'=>'columna','placeholder' => 'diametro 3']) !!}
 		{!! $errors->first('txtdiametroe3', '<p class="error_mensaje">:message</p>') !!}
-		
-		
 		{!! Form::text('txtalturae3', old('altura_3'), ['id' => 'txtalturae3', 'class'=>'columna','placeholder' => 'altura 3']) !!}
 		{!! $errors->first('txtalturae3', '<p class="error_mensaje">:message</p>') !!}
-		
 		{!! Form::select('cmbmaterialcolectore3', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
-		
 		{!! Form::text('txtcamarae3', old('camara_3'), ['id' => 'txtcamarae3', 'class'=>'columna','placeholder' => 'cámara 3']) !!}
 		{!! $errors->first('txtcamarae3', '<p class="error_mensaje">:message</p>') !!}
 
@@ -269,13 +253,9 @@
 		
 		04 {!! Form::text('txtdiametroe4', old('entrada_4'), ['id' => 'txtdiametroe4', 'class'=>'columna','placeholder' => 'diametro 4']) !!}
 		{!! $errors->first('txtdiametroe4', '<p class="error_mensaje">:message</p>') !!}
-		
-		
 		{!! Form::text('txtalturae4', old('altura_4'), ['id' => 'txtalturae4', 'class'=>'columna','placeholder' => 'altura 4']) !!}
 		{!! $errors->first('txtalturae4', '<p class="error_mensaje">:message</p>') !!}
-		
 		{!! Form::select('cmbmaterialcolectore4', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
-		
 		{!! Form::text('txtcamarae4', old('camara_4'), ['id' => 'txtcamarae4', 'class'=>'columna','placeholder' => 'cámara 4']) !!}
 		{!! $errors->first('txtcamarae4', '<p class="error_mensaje">:message</p>') !!}
 
@@ -285,13 +265,9 @@
 		
 		05 {!! Form::text('txtdiametroe5', old('entrada_5'), ['id' => 'txtdiametroe5', 'class'=>'columna','placeholder' => 'diametro 5']) !!}
 		{!! $errors->first('txtdiametroe5', '<p class="error_mensaje">:message</p>') !!}
-		
-		
 		{!! Form::text('txtalturae5', old('altura_5'), ['id' => 'txtalturae5', 'class'=>'columna','placeholder' => 'altura 5']) !!}
 		{!! $errors->first('txtalturae5', '<p class="error_mensaje">:message</p>') !!}
-		
 		{!! Form::select('cmbmaterialcolectore5', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
-		
 		{!! Form::text('txtcamarae5', old('camara_5'), ['id' => 'txtcamarae5', 'class'=>'columna','placeholder' => 'cámara 5']) !!}
 		{!! $errors->first('txtcamarae5', '<p class="error_mensaje">:message</p>') !!}
 
@@ -301,13 +277,9 @@
 		
 		06 {!! Form::text('txtdiametroe6', old('entrada_6'), ['id' => 'txtdiametroe6', 'class'=>'columna','placeholder' => 'diametro 6']) !!}
 		{!! $errors->first('txtdiametroe6', '<p class="error_mensaje">:message</p>') !!}
-		
-		
 		{!! Form::text('txtalturae6', old('altura_6'), ['id' => 'txtalturae6', 'class'=>'columna','placeholder' => 'altura 6']) !!}
 		{!! $errors->first('txtalturae6', '<p class="error_mensaje">:message</p>') !!}
-		
 		{!! Form::select('cmbmaterialcolectore6', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
-		
 		{!! Form::text('txtcamarae6', old('camara_6'), ['id' => 'txtcamarae6', 'class'=>'columna','placeholder' => 'cámara 6']) !!}
 		{!! $errors->first('txtcamarae6', '<p class="error_mensaje">:message</p>') !!}
 
@@ -317,13 +289,9 @@
 		
 		07 {!! Form::text('txtdiametroe7', old('entrada_7'), ['id' => 'txtdiametroe7', 'class'=>'columna','placeholder' => 'diametro 7']) !!}
 		{!! $errors->first('txtdiametroe7', '<p class="error_mensaje">:message</p>') !!}
-		
-		
 		{!! Form::text('txtalturae7', old('altura_7'), ['id' => 'txtalturae7', 'class'=>'columna','placeholder' => 'altura 7']) !!}
 		{!! $errors->first('txtalturae7', '<p class="error_mensaje">:message</p>') !!}
-		
 		{!! Form::select('cmbmaterialcolectore7', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
-		
 		{!! Form::text('txtcamarae7', old('camara_7'), ['id' => 'txtcamarae7', 'class'=>'columna','placeholder' => 'cámara 7']) !!}
 		{!! $errors->first('txtcamarae7', '<p class="error_mensaje">:message</p>') !!}
 
@@ -333,13 +301,9 @@
 		
 		08 {!! Form::text('txtdiametroe8', old('entrada_8'), ['id' => 'txtdiametroe8', 'class'=>'columna','placeholder' => 'diametro 8']) !!}
 		{!! $errors->first('txtdiametroe8', '<p class="error_mensaje">:message</p>') !!}
-		
-		
 		{!! Form::text('txtalturae8', old('altura_8'), ['id' => 'txtalturae8', 'class'=>'columna','placeholder' => 'altura 8']) !!}
 		{!! $errors->first('txtalturae8', '<p class="error_mensaje">:message</p>') !!}
-		
 		{!! Form::select('cmbmaterialcolectore8', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
-		
 		{!! Form::text('txtcamarae8', old('camara_8'), ['id' => 'txtcamarae8', 'class'=>'columna','placeholder' => 'cámara 8']) !!}
 		{!! $errors->first('txtcamarae8', '<p class="error_mensaje">:message</p>') !!}
 
@@ -349,13 +313,9 @@
 		
 		09 {!! Form::text('txtdiametroe9', old('entrada_9'), ['id' => 'txtdiametroe9', 'class'=>'columna','placeholder' => 'diametro 9']) !!}
 		{!! $errors->first('txtdiametroe9', '<p class="error_mensaje">:message</p>') !!}
-		
-		
 		{!! Form::text('txtalturae9', old('altura_9'), ['id' => 'txtalturae9', 'class'=>'columna','placeholder' => 'altura 9']) !!}
 		{!! $errors->first('txtalturae9', '<p class="error_mensaje">:message</p>') !!}
-		
 		{!! Form::select('cmbmaterialcolectore9', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
-		
 		{!! Form::text('txtcamarae9', old('camara_9'), ['id' => 'txtcamarae9', 'class'=>'columna','placeholder' => 'cámara 9']) !!}
 		{!! $errors->first('txtcamarae9', '<p class="error_mensaje">:message</p>') !!}
 
@@ -365,13 +325,9 @@
 		
 		10 {!! Form::text('txtdiametroe10', old('entrada_10'), ['id' => 'txtdiametroe10', 'class'=>'columna','placeholder' => 'diametro 10']) !!}
 		{!! $errors->first('txtdiametroe10', '<p class="error_mensaje">:message</p>') !!}
-		
-		
 		{!! Form::text('txtalturae10', old('altura_10'), ['id' => 'txtalturae10', 'class'=>'columna','placeholder' => 'altura 10']) !!}
 		{!! $errors->first('txtalturae10', '<p class="error_mensaje">:message</p>') !!}
-		
 		{!! Form::select('cmbmaterialcolectore10', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
-		
 		{!! Form::text('txtcamarae10', old('camara_10'), ['id' => 'txtcamarae10', 'class'=>'columna','placeholder' => 'cámara 10']) !!}
 		{!! $errors->first('txtcamarae10', '<p class="error_mensaje">:message</p>') !!}
 
@@ -381,13 +337,9 @@
 		
 		11 {!! Form::text('txtdiametroe11', old('entrada_11'), ['id' => 'txtdiametroe11', 'class'=>'columna','placeholder' => 'diametro 11']) !!}
 		{!! $errors->first('txtdiametroe11', '<p class="error_mensaje">:message</p>') !!}
-		
-		
 		{!! Form::text('txtalturae11', old('altura_11'), ['id' => 'txtalturae11', 'class'=>'columna','placeholder' => 'altura 11']) !!}
 		{!! $errors->first('txtalturae11', '<p class="error_mensaje">:message</p>') !!}
-		
 		{!! Form::select('cmbmaterialcolectore11', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
-		
 		{!! Form::text('txtcamarae11', old('camara_11'), ['id' => 'txtcamarae11', 'class'=>'columna','placeholder' => 'cámara 11']) !!}
 		{!! $errors->first('txtcamarae11', '<p class="error_mensaje">:message</p>') !!}
 
@@ -397,13 +349,9 @@
 		
 		12 {!! Form::text('txtdiametroe12', old('entrada_12'), ['id' => 'txtdiametroe12', 'class'=>'columna','placeholder' => 'diametro 12']) !!}
 		{!! $errors->first('txtdiametroe12', '<p class="error_mensaje">:message</p>') !!}
-		
-		
 		{!! Form::text('txtalturae12', old('altura_12'), ['id' => 'txtalturae12', 'class'=>'columna','placeholder' => 'altura 12']) !!}
 		{!! $errors->first('txtalturae12', '<p class="error_mensaje">:message</p>') !!}
-		
 		{!! Form::select('cmbmaterialcolectore12', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
-		
 		{!! Form::text('txtcamarae12', old('camara_12'), ['id' => 'txtcamarae12', 'class'=>'columna','placeholder' => 'cámara 12']) !!}
 		{!! $errors->first('txtcamarae12', '<p class="error_mensaje">:message</p>') !!}
 
@@ -419,7 +367,7 @@
 		{!! Form::textarea('observaciones', old('observaciones'), ['rows' => '3', 'cols' => '40']) !!}
 	</section>
 </div>
-
+s
 </div>
 
 	<input type="submit" id="btnguardaficha" class="btnguardar" name="agregar_ficha" value="Guardar"/>
