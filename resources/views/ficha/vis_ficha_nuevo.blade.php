@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-<script src="/js/funciones.min.js"></script>
-<script src="/js/validacionnuevo.min.js"></script>
+<script src="/pozotapirus/public/js/funciones.min.js"></script>
+<script src="/pozotapirus/public/js/validacionnuevo.js"></script>
 <h2 class="titulopagina">INICIAR FICHA</h2>
 <small class="tituloobligatorio">(*) CAMPOS OBLIGATORIOS</small>
 
@@ -215,41 +215,22 @@
 
 		<section class="tabla">
 		
-		{!! Form::text('txtdiametroe1', old('entrada_1'), ['id' => 'txtdiametroe1', 'class'=>'columna','placeholder' => 'diametro 1']) !!}
+		01 {!! Form::text('txtdiametroe1', old('entrada_1'), ['id' => 'txtdiametroe1', 'class'=>'columna','placeholder' => 'diametro 1']) !!}
 		{!! $errors->first('txtdiametroe1', '<p class="error_mensaje">:message</p>') !!}
 		
-		
-<<<<<<< HEAD
-<<<<<<< HEAD
-		{!! Form::text('txtalturae1', old('entrada_1'), ['id' => 'txtalturae1', 'class'=>'columna','placeholder' => 'altura']) !!}
-		{!! $errors->first('txtalturae1', '<p class="error_mensaje">:message</p>') !!}
-		
-		
-		<select name="cmbmaterialcolectore1" placeholder="tipo material" class="columna">
-			<option>opcion 1</option>
-			<option>opcion 2</option>
-		</select>
-		
-		{!! Form::text('txtcamara_e1', old('entrada_1'), ['id' => 'txtcamara_e1', 'class'=>'columna','placeholder' => 'cámara']) !!}
-		{!! $errors->first('txtcamara_e1', '<p class="error_mensaje">:message</p>') !!}
-=======
-		{!! Form::text('txtalturae1', old('entrada_1'), ['id' => 'txtaltura_e1', 'class'=>'columna','placeholder' => 'altura']) !!}
-=======
 		{!! Form::text('txtalturae1', old('altura_1'), ['id' => 'txtalturae1', 'class'=>'columna','placeholder' => 'altura 1']) !!}
->>>>>>> b3209b01aa378704e89e35a2354afacd37ee6022
 		{!! $errors->first('txtalturae1', '<p class="error_mensaje">:message</p>') !!}
 		
-		{!! Form::select('cmbmaterialcolectore1', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id')) !!} 
+		{!! Form::select('cmbmaterialcolectore1', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'),['class'=>'columna']) !!} 
 
 		{!! Form::text('txtcamarae1', old('camara_1'), ['id' => 'txtcamarae1', 'class'=>'columna','placeholder' => 'cámara 1']) !!}
 		{!! $errors->first('txtcamarae1', '<p class="error_mensaje">:message</p>') !!}
->>>>>>> origin/master
 
 		</section>
 
 		<section class="tabla">
 		
-		{!! Form::text('txtdiametroe2', old('entrada_2'), ['id' => 'txtdiametroe2', 'class'=>'columna','placeholder' => 'diametro 2']) !!}
+		02 {!! Form::text('txtdiametroe2', old('entrada_2'), ['id' => 'txtdiametroe2', 'class'=>'columna','placeholder' => 'diametro 2']) !!}
 		{!! $errors->first('txtdiametroe2', '<p class="error_mensaje">:message</p>') !!}
 		
 		
@@ -265,7 +246,7 @@
 
 		<section class="tabla">
 		
-		{!! Form::text('txtdiametroe3', old('entrada_3'), ['id' => 'txtdiametroe3', 'class'=>'columna','placeholder' => 'diametro 3']) !!}
+		03 {!! Form::text('txtdiametroe3', old('entrada_3'), ['id' => 'txtdiametroe3', 'class'=>'columna','placeholder' => 'diametro 3']) !!}
 		{!! $errors->first('txtdiametroe3', '<p class="error_mensaje">:message</p>') !!}
 		
 		
@@ -281,7 +262,7 @@
 
 		<section class="tabla">
 		
-		{!! Form::text('txtdiametroe4', old('entrada_4'), ['id' => 'txtdiametroe4', 'class'=>'columna','placeholder' => 'diametro 4']) !!}
+		04 {!! Form::text('txtdiametroe4', old('entrada_4'), ['id' => 'txtdiametroe4', 'class'=>'columna','placeholder' => 'diametro 4']) !!}
 		{!! $errors->first('txtdiametroe4', '<p class="error_mensaje">:message</p>') !!}
 		
 		
@@ -297,7 +278,7 @@
 
 		<section class="tabla">
 		
-		{!! Form::text('txtdiametroe5', old('entrada_5'), ['id' => 'txtdiametroe5', 'class'=>'columna','placeholder' => 'diametro 5']) !!}
+		05 {!! Form::text('txtdiametroe5', old('entrada_5'), ['id' => 'txtdiametroe5', 'class'=>'columna','placeholder' => 'diametro 5']) !!}
 		{!! $errors->first('txtdiametroe5', '<p class="error_mensaje">:message</p>') !!}
 		
 		
@@ -313,7 +294,7 @@
 
 		<section class="tabla">
 		
-		{!! Form::text('txtdiametroe6', old('entrada_6'), ['id' => 'txtdiametroe6', 'class'=>'columna','placeholder' => 'diametro 6']) !!}
+		06 {!! Form::text('txtdiametroe6', old('entrada_6'), ['id' => 'txtdiametroe6', 'class'=>'columna','placeholder' => 'diametro 6']) !!}
 		{!! $errors->first('txtdiametroe6', '<p class="error_mensaje">:message</p>') !!}
 		
 		
@@ -329,7 +310,7 @@
 
 		<section class="tabla">
 		
-		{!! Form::text('txtdiametroe7', old('entrada_7'), ['id' => 'txtdiametroe7', 'class'=>'columna','placeholder' => 'diametro 7']) !!}
+		07 {!! Form::text('txtdiametroe7', old('entrada_7'), ['id' => 'txtdiametroe7', 'class'=>'columna','placeholder' => 'diametro 7']) !!}
 		{!! $errors->first('txtdiametroe7', '<p class="error_mensaje">:message</p>') !!}
 		
 		
@@ -345,7 +326,7 @@
 
 		<section class="tabla">
 		
-		{!! Form::text('txtdiametroe8', old('entrada_8'), ['id' => 'txtdiametroe8', 'class'=>'columna','placeholder' => 'diametro 8']) !!}
+		08 {!! Form::text('txtdiametroe8', old('entrada_8'), ['id' => 'txtdiametroe8', 'class'=>'columna','placeholder' => 'diametro 8']) !!}
 		{!! $errors->first('txtdiametroe8', '<p class="error_mensaje">:message</p>') !!}
 		
 		
@@ -361,7 +342,7 @@
 
 		<section class="tabla">
 		
-		{!! Form::text('txtdiametroe9', old('entrada_9'), ['id' => 'txtdiametroe9', 'class'=>'columna','placeholder' => 'diametro 9']) !!}
+		09 {!! Form::text('txtdiametroe9', old('entrada_9'), ['id' => 'txtdiametroe9', 'class'=>'columna','placeholder' => 'diametro 9']) !!}
 		{!! $errors->first('txtdiametroe9', '<p class="error_mensaje">:message</p>') !!}
 		
 		
@@ -377,7 +358,7 @@
 
 		<section class="tabla">
 		
-		{!! Form::text('txtdiametroe10', old('entrada_10'), ['id' => 'txtdiametroe10', 'class'=>'columna','placeholder' => 'diametro 10']) !!}
+		10 {!! Form::text('txtdiametroe10', old('entrada_10'), ['id' => 'txtdiametroe10', 'class'=>'columna','placeholder' => 'diametro 10']) !!}
 		{!! $errors->first('txtdiametroe10', '<p class="error_mensaje">:message</p>') !!}
 		
 		
@@ -393,7 +374,7 @@
 
 		<section class="tabla">
 		
-		{!! Form::text('txtdiametroe11', old('entrada_11'), ['id' => 'txtdiametroe11', 'class'=>'columna','placeholder' => 'diametro 11']) !!}
+		11 {!! Form::text('txtdiametroe11', old('entrada_11'), ['id' => 'txtdiametroe11', 'class'=>'columna','placeholder' => 'diametro 11']) !!}
 		{!! $errors->first('txtdiametroe11', '<p class="error_mensaje">:message</p>') !!}
 		
 		
@@ -409,7 +390,7 @@
 
 		<section class="tabla">
 		
-		{!! Form::text('txtdiametroe12', old('entrada_12'), ['id' => 'txtdiametroe12', 'class'=>'columna','placeholder' => 'diametro 12']) !!}
+		12 {!! Form::text('txtdiametroe12', old('entrada_12'), ['id' => 'txtdiametroe12', 'class'=>'columna','placeholder' => 'diametro 12']) !!}
 		{!! $errors->first('txtdiametroe12', '<p class="error_mensaje">:message</p>') !!}
 		
 		
