@@ -221,7 +221,11 @@
 		{!! Form::text('txtalturae1', old('altura_1'), ['id' => 'txtalturae1', 'class'=>'columna','placeholder' => 'altura 1']) !!}
 		{!! $errors->first('txtalturae1', '<p class="error_mensaje">:message</p>') !!}
 		
+<<<<<<< HEAD
 
+=======
+		{!! Form::select('cmbmaterialcolectore1', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'),['class'=>'columna']) !!} 
+>>>>>>> origin/master
 		{!! Form::select('cmbmaterialcolectore1', App\Materialcolector::orderBy('des_matcole', 'Asc')->lists('des_matcole', 'id'), array('class' => 'columna')) !!} 
 
 		{!! Form::text('txtcamarae1', old('camara_1'), ['id' => 'txtcamarae1', 'class'=>'columna','placeholder' => 'cámara 1']) !!}

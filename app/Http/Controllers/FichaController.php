@@ -119,7 +119,6 @@ class FichaController extends Controller {
 				$ficha->cmb_estado_pozo_id=$request->input('cmbestadopozo');
 
 				FichaController::VerificarCamposCHK($request, $ficha);
-
 				
 				$ficha->gps='WGS84';
 				$ficha->zona=17;
@@ -354,19 +353,25 @@ class FichaController extends Controller {
 
 	public function deleteActivarInactivar(Request $request){
 
-		$sec_ficha = $request->input('sec');
+		if (\Auth::user()->usuario_tipo_id==2)
+        {
+			$sec_ficha = $request->input('sec');
+			$estado = $request->input('estado');
+			
+			$ficha = Ficha::where('sec_ficha','=',$sec_ficha)->first();
+
+			if($estado == 1){
+				$ficha->estreg=0;
+			}
+			else{
+				$ficha->estreg=1;
+			}
 		
-		
-		$ficha = Ficha::where('sec_ficha','=',$sec_ficha)->first();
+			$ficha->save();
 
-		//return $ficha;
-
-		$ficha->estreg=0;
-	
-		$ficha->save();
-
-		return redirect('ficha');
-		//->with('status_message', 'El estado fue Actualizado Satisfactoriamente');
+			return redirect('ficha');
+			//->with('status_message', 'El estado fue Actualizado Satisfactoriamente');
+		}
 	}
 
 	public function getBuscar($id_parroquia){
