@@ -31,6 +31,11 @@ class Ficha extends Model implements AuthenticatableContract, CanResetPasswordCo
     	return $this->belongsTo('App\Usuario', 'usuario_id');
     }
 
+    
+    public function modusuarioequipo(){
+        return $this->belongsTo('App\Usuarioequipo', 'usuario_equ_id');
+    }
+    
     public function modparroquia(){
     	/*belongs_to para señalar la clave foránea, que existe en esta
 		entre la tabla wcusuario y la tabla usuariotipos*/

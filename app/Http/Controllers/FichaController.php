@@ -58,13 +58,11 @@ class FichaController extends Controller {
 		//\Auth::user()->id;
 		if (\Auth::user()->usuario_tipo_id==2)
 		{
-			$datos = Ficha::where('estreg','=','1')
-					->orderBy('sec_ficha', 'Desc')->paginate();
+			$datos = Ficha::orderBy('sec_ficha', 'Desc')->paginate();
 		}
 		else
 		{
-			$datos = Ficha::where('estreg','=','1')
-					->where('usuario_id',"=",\Auth::user()->id)
+			$datos = Ficha::where('usuario_id',"=",\Auth::user()->id)
 					->orderBy('sec_ficha', 'Desc')->paginate();	
 		}
         //return $usuarios;
@@ -134,7 +132,7 @@ class FichaController extends Controller {
 				$ficha->entrada_5=$request->input('txtdiametroe5');
 				$ficha->entrada_6=$request->input('txtdiametroe6');
 				$ficha->entrada_7=$request->input('txtdiametroe7');
-				$ficha->entrada_7=$request->input('txtdiametroe8');
+				$ficha->entrada_8=$request->input('txtdiametroe8');
 				$ficha->entrada_9=$request->input('txtdiametroe9');
 				$ficha->entrada_10=$request->input('txtdiametroe10');
 				$ficha->entrada_11=$request->input('txtdiametroe11');
@@ -266,7 +264,7 @@ class FichaController extends Controller {
 				$ficha->entrada_5=$request->input('txtdiametroe5');
 				$ficha->entrada_6=$request->input('txtdiametroe6');
 				$ficha->entrada_7=$request->input('txtdiametroe7');
-				$ficha->entrada_7=$request->input('txtdiametroe8');
+				$ficha->entrada_8=$request->input('txtdiametroe8');
 				$ficha->entrada_9=$request->input('txtdiametroe9');
 				$ficha->entrada_10=$request->input('txtdiametroe10');
 				$ficha->entrada_11=$request->input('txtdiametroe11');
