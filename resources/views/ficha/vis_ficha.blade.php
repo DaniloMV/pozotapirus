@@ -45,7 +45,9 @@
             <td style='display:none'>{{ $ficha->sec_ficha }}</td>
             <td>{{ date('d/M/Y H:i:s', $ficha->fecha) }}</td>
             <td>{{ $ficha->modusuario->name }}</td>
-            <td>{{ $ficha->modusuario->usuario_equ_id }}</td> 
+            <td> 
+            {!! Form::select('cmbusuarioequipo', App\Usuarioequipo::where('id', '=', $ficha->modusuario->usuario_equ_id)->lists('equipo', 'id'), $ficha->modusuario->usuario_equ_id) !!} 
+            </td>
             @if (Auth::user()->usuario_tipo_id==2) 
             <td> 
                 {!! Form::open(array('url'=>'ficha/Eliminar')) !!}

@@ -132,7 +132,7 @@ class FichaController extends Controller {
 				$ficha->entrada_5=$request->input('txtdiametroe5');
 				$ficha->entrada_6=$request->input('txtdiametroe6');
 				$ficha->entrada_7=$request->input('txtdiametroe7');
-				$ficha->entrada_7=$request->input('txtdiametroe8');
+				$ficha->entrada_8=$request->input('txtdiametroe8');
 				$ficha->entrada_9=$request->input('txtdiametroe9');
 				$ficha->entrada_10=$request->input('txtdiametroe10');
 				$ficha->entrada_11=$request->input('txtdiametroe11');
@@ -264,7 +264,7 @@ class FichaController extends Controller {
 				$ficha->entrada_5=$request->input('txtdiametroe5');
 				$ficha->entrada_6=$request->input('txtdiametroe6');
 				$ficha->entrada_7=$request->input('txtdiametroe7');
-				$ficha->entrada_7=$request->input('txtdiametroe8');
+				$ficha->entrada_8=$request->input('txtdiametroe8');
 				$ficha->entrada_9=$request->input('txtdiametroe9');
 				$ficha->entrada_10=$request->input('txtdiametroe10');
 				$ficha->entrada_11=$request->input('txtdiametroe11');
